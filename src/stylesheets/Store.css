@@ -1,0 +1,41 @@
+.Store {
+  height: 100%;
+  text-align: center;
+}
+
+.ProductCard {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 350px;
+  margin: 5px;
+  border: 1px solid black;
+}
+
+.ProductCard:hover {
+  background-color: grey; 
+}
+
+.ProductImg {
+  background-color: lightgrey;
+  flex: 2;
+}
+
+.ProductInfo {
+  flex: 1;
+  color: darkgrey;
+  text-align: left;
+  padding: 3%;
+}
+
+.ProductName {
+  font-size: 24px;
+}
+
+.ProductDetail {
+  font-size: 16px;
+}
+
+.ProductPrice {
+  font-size: 24px;
+}
