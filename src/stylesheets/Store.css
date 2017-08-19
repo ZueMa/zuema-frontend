@@ -9,7 +9,7 @@
   width: 300px;
   height: 350px;
   margin: 5px;
-  border: 1px solid black;
+  border: 1px solid grey;
 }
 
 .ProductCard:hover {
@@ -38,4 +38,8 @@
 
 .ProductPrice {
   font-size: 24px;
+}
+
+.NoPadding{
+  padding: 0;
 }

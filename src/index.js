@@ -6,6 +6,7 @@ import createHistory from 'history/createBrowserHistory'
 import { Route, Switch } from 'react-router'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 import './stylesheets/index.css'
+import 'bootstrap/dist/css/bootstrap.css'
 
 // Components
 import NavButton from './components/NavButton'
@@ -18,6 +19,7 @@ import Cart from './pages/Cart'
 import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
+import Product from './pages/Product'
 
 const history = createHistory()
 
@@ -34,13 +36,11 @@ ReactDOM.render(
   <div className="App">
     <div className="Nav">
       <div className="NavContainer">
-        <div style={{width: "80%", height: "10vh", color: "darkgrey", backgroundColor: "lightgrey"}}>
-          LOGO
-        </div>
+        <div style={{width: "80%", height: "10vh", color: "darkgrey", backgroundColor: "lightgrey"}}>LOGO</div>
       </div> 
       <div>
         <NavButton text="HOME" url="/" shape="circle"/>
-        <NavButton text="STORE" url="/store" shape="circle"/>
+        {/* <NavButton text="STORE" url="/products" shape="circle"/> */}
         <NavButton text="CART" url="/cart" shape="circle"/>
         <NavButton text="PROFILE" url="/profile" shape="circle"/>
       </div>
@@ -49,13 +49,13 @@ ReactDOM.render(
     <div className="Store">
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <switch>
-            <Route exact path="/" component={Category}/>
-            <Route exact path="/store" component={Store}/>
+          <Switch>
+            <Route exact path="/" component={Store}/>
+            <Route exact path="/products/:id" component={Product}/>
             <Route exact path="/cart" component={Cart}/>
             <Route exact path="/profile" component={Profile}/>
             <Route exact path="/login" component={Login}/>
-          </switch>
+          </Switch>
         </ConnectedRouter>
       </Provider>
     </div>
