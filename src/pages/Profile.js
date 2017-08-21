@@ -14,16 +14,12 @@ class Profile extends Component {
   }
   handleRegister(e) {
     console.log(this.state)
-    axios({
-      method: 'post',
-      url: 'http://localhost:8000/buyers',
-      data: {
-        username: this.state.username,
-        password: this.state.password,
-        first_name: this.state.firstname,
-        last_name: this.state.lastname,
-        address: this.state.address
-      }
+    axios.post('http://localhost:8000/buyers/', {
+      username: this.state.username,
+      password: this.state.password,
+      first_name: this.state.firstname,
+      last_name: this.state.lastname,
+      address: this.state.address
     })
     .then((response) => {
       console.log(response)
