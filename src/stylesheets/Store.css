@@ -43,3 +43,9 @@
 .NoPadding{
   padding: 0;
 }
+
+.CategoryCard {
+  padding-bottom: 80%;
+  background-color: grey;
+  border: 1px solid lightgray;
+}

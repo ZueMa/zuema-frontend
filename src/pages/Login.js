@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { register } from '../api'
+import axios from 'axios'
 
 class Login extends Component {
   constructor(props) {
@@ -11,6 +11,23 @@ class Login extends Component {
       lastname: '',
       address: ''
     }
+  }
+
+  handleRegister(e) {
+    console.log(e)
+    axios.post('http://localhost:8000/buyers/', {
+      username: this.state.username,
+      password: this.state.password,
+      first_name: this.state.firstname,
+      last_name: this.state.lastname,
+      address: this.state.address
+    })
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((response) => {
+      console.error(response) 
+    })
   }
 
   render() {
@@ -37,7 +54,7 @@ class Login extends Component {
           address
           <input type="text" name="address" onChange={(e) => this.setState({address: e.target.value})}/>
         </p>
-        <button onClick={() => register(this.state)}>Submit</button>
+        <button onClick={(e) => this.handleRegister(e)}>Submit</button>
       </div>
     )
   }
