@@ -14,7 +14,6 @@ import NavButton from './components/NavButton'
 // Reducers
 
 // Pages
-import Category from './pages/Category'
 import Cart from './pages/Cart'
 import Login from './pages/Login'
 import Store from './pages/Store'
@@ -36,11 +35,10 @@ ReactDOM.render(
   <div className="App">
     <div className="Nav">
       <div className="NavContainer">
-        <div style={{width: "80%", height: "10vh", color: "darkgrey", backgroundColor: "lightgrey"}}>LOGO</div>
+        <div className="Logo">LOGO</div>
       </div> 
       <div>
         <NavButton text="HOME" url="/" shape="circle"/>
-        {/* <NavButton text="STORE" url="/products" shape="circle"/> */}
         <NavButton text="CART" url="/cart" shape="circle"/>
         <NavButton text="PROFILE" url="/profile" shape="circle"/>
       </div>

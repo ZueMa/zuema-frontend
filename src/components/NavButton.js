@@ -13,12 +13,12 @@ export default class NavComponent extends Component {
     if (this.shape === "circle") {
       button = <a href={this.url} className="NavContainer">
                  <div className="NavButtonCircle"></div>
-                 <h2>{this.text}</h2>
+                 <h5>{this.text}</h5>
                </a>
     } else {
         button = <a href={this.url} className="NavContainer">
                   <div className="NavButtonRec">
-                    <h2>{this.text}</h2>
+                    <h4>{this.text}</h4>
                   </div>
                 </a>
     }
