@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
-export default class NavComponent extends Component {
+class NavButton extends Component {
   constructor(props) {
     super(props);
     this.text = props.text;
@@ -11,16 +12,20 @@ export default class NavComponent extends Component {
   render() {
     let button = undefined;
     if (this.shape === "circle") {
-      button = <a href={this.url} className="NavContainer" style={{marginBottom:'50px'}}>
-                 <div className="NavButtonCircle"></div>
-                 <h5>{this.text}</h5>
-               </a>
+      button = (
+        <Link to={this.url} className="NavContainer" style={{marginBottom:'50px'}} onClick={() => this.props.increase()}>
+          <div className="NavButtonCircle"></div>
+          <h5>{this.text}</h5>
+        </Link>
+      )
     } else {
-        button = <a href={this.url} className="NavContainer">
-                  <div className="NavButtonRec">
-                    <h4>{this.text}</h4>
-                  </div>
-                </a>
+      button = (
+        <Link to={this.url} className="NavContainer" onClick={() => this.props.increase()}>
+          <div className="NavButtonRec">
+            <h4>{this.text}</h4>
+          </div>
+        </Link>
+      )
     }
     return(
       <div>
@@ -29,3 +34,5 @@ export default class NavComponent extends Component {
     )
   }
 }
+
+export default NavButton;
