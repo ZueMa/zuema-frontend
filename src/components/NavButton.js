@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import { push } from 'react-router-redux'
+import { connect } from 'react-redux'
 
 class NavButton extends Component {
   constructor(props) {
@@ -13,18 +14,18 @@ class NavButton extends Component {
     let button = undefined;
     if (this.shape === "circle") {
       button = (
-        <Link to={this.url} className="NavContainer" style={{marginBottom:'50px'}} onClick={() => this.props.increase()}>
+        <div className="NavContainer" style={{marginBottom:'50px'}} onClick={() => this.props.push(this.url)}>
           <div className="NavButtonCircle"></div>
           <h5>{this.text}</h5>
-        </Link>
+        </div>
       )
     } else {
       button = (
-        <Link to={this.url} className="NavContainer" onClick={() => this.props.increase()}>
+        <div className="NavContainer" onClick={() => this.props.push(this.url)}>
           <div className="NavButtonRec">
             <h4>{this.text}</h4>
           </div>
-        </Link>
+        </div>
       )
     }
     return(
@@ -35,4 +36,10 @@ class NavButton extends Component {
   }
 }
 
-export default NavButton;
+function mapDispatchToProps(dispatch) {
+  return{
+    push: (url) => dispatch(push(url))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NavButton);
