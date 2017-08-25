@@ -9,6 +9,7 @@ import './stylesheets/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 // Components
+import logo from './res/logo.png'
 import NavButton from './components/NavButton'
 
 // Reducers
@@ -35,7 +36,7 @@ ReactDOM.render(
   <div className="App">
     <div className="Nav">
       <div className="NavContainer">
-        <div className="Logo">LOGO</div>
+        <img className="Logo" src={logo} alt="logo"/>
       </div> 
       <div>
         <NavButton text="HOME" url="/" shape="circle"/>

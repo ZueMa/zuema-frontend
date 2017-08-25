@@ -11,7 +11,7 @@ export default class NavComponent extends Component {
   render() {
     let button = undefined;
     if (this.shape === "circle") {
-      button = <a href={this.url} className="NavContainer">
+      button = <a href={this.url} className="NavContainer" style={{marginBottom:'50px'}}>
                  <div className="NavButtonCircle"></div>
                  <h5>{this.text}</h5>
                </a>
