@@ -1,0 +1,55 @@
+.cart {
+    height: 100%;
+}
+
+.head-cart-page {
+    text-align: left;
+    padding: 4rem 0 3rem 0;
+    display: inline-block;
+}
+
+.page-title {
+    font-size: 40px;
+}
+
+.edit-cart-btn {
+    color: #fff;
+    font-size: 28px;
+    background-color: #F17D39;
+    border: none;
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 10px;
+    float: right;
+}
+
+.checkout-cart-btn {
+    color: #fff;
+    font-size: 28px;
+    background-color: #F9B32D;
+    border: none;
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 10px;
+    float: right;
+}
+
+.table-cart {
+    width: 100%;
+}
+
+.table-cart thead th{
+    text-align: center;
+    border-top: 1px solid #C2C2C2;
+    border-bottom: 1px solid #C2C2C2;
+    padding: 0.5rem 0 0.5rem 0;
+    font-size: 24px;
+}
+
+.cart-product-name {
+    text-align: left;
+}
+
+.table-cart tfoot td {
+    border-top: 1px solid #C2C2C2;
+    padding: 1rem 0 1rem 0;
+    font-size: 25px;
+}
