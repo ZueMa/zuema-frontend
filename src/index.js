@@ -17,6 +17,7 @@ import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import OrderHistorySeller from './pages/OrderHistorySeller'
 
 const history = createHistory()
 
@@ -40,6 +41,7 @@ ReactDOM.render(
           <Route path="/cart" component={Cart}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/login" component={Login}/>
+          <Route path="/orderhistoryseller" component={OrderHistorySeller}/>
         </Switch>
       </App>
     </ConnectedRouter>
