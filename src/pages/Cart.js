@@ -20,25 +20,12 @@ class Cart extends Component {
 
           <tbody>
             <tr>
-              <td className="cart-product-name">
-                <span>Product</span><br/>
-                <p>short description</p>
-              </td>
-              <td>130.00</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td className="cart-product-name">
-                <span>Product</span><br/>
-                <p>short description</p>
-              </td>
-              <td>130.00</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td className="cart-product-name">
-                <span>Product</span><br/>
-                <p>short description</p>
+              <td className="cart-product-list">
+                <img className="cart-product-img"></img>
+                <div className="cart-product-detail">
+                  <span className="order-name">PRODUCT NAME</span><br/>
+                  <p className="order-description">Short description</p>
+                </div>
               </td>
               <td>130.00</td>
               <td>1</td>
@@ -48,7 +35,7 @@ class Cart extends Component {
           <tfoot>
             <tr>
               <td></td>
-              <td>Total</td>
+              <td>TOTAL</td>
               <td>1000.00</td>
             </tr>
           </tfoot>
