@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ProductCard from '../components/ProductCard'
-import '../stylesheets/Store.css'
+import '../stylesheets/store.css'
 import Categories from '../components/Categories'
 
 export const products = [{name:"PRODUCT NAME", detail:"Short description", price: 130.25},
@@ -36,4 +36,3 @@ class Store extends Component {
 }
 
 export default Store;
-

@@ -30,7 +30,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
   flex: 0 0 110px;
-  background-color: darkgrey;
+  background-color: #362B22;
   overflow: hidden;
   color: white;
 }

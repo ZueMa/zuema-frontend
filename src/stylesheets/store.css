@@ -6,9 +6,9 @@
 .ProductCard {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 250px;
   height: 350px;
-  margin: 5px;
+  margin: 15px;
   border: 1px solid grey;
 }
 
@@ -25,19 +25,18 @@
   flex: 1;
   color: darkgrey;
   text-align: left;
-  padding: 3%;
 }
 
 .ProductName {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .ProductDetail {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .ProductPrice {
-  font-size: 24px;
+  font-size: 1rem;
 }
 
 .NoPadding{
@@ -45,7 +44,11 @@
 }
 
 .CategoryCard {
-  padding-bottom: 80%;
+  padding-bottom: 50%;
   background-color: grey;
   border: 1px solid lightgray;
+}
+
+h2 {
+  margin-top: 15px;
 }
