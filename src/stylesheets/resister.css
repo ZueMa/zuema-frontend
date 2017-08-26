@@ -52,6 +52,12 @@
     margin-top: 1%;
 }
 
+.data-input-field-xl {
+    height: 215px;
+    width: 88%;
+    margin-top: 1%;
+}
+
 .btn-register {
     color: white !important;
     background-color: #F5AB0E;
