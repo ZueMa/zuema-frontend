@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Oswald', sans-serif !important;
 }
 
 a {
@@ -41,13 +43,6 @@ a {
 }
 
 @media (max-width: 575px) { 
-  h4 {
-    font-size: 1rem !important;
-  }
-  
-  h5 {
-    font-size: 0.75rem !important;
-  }
   .Logo {
     width: 100px;
   }
@@ -56,18 +51,6 @@ a {
     flex: 0 0 70px;
   }
 
-  .NavButtonCircle {
-    border-radius: 2.5em !important; 
-    width: 2.5em !important;
-    height: 2.5em !important; 
-  }
-}
-
-.NavButtonCircle {
-  border-radius: 4.5em; 
-  width: 4em; 
-  height: 4em; 
-  background-color: white;
 }
 
 .NavButtonRec {
@@ -76,11 +59,18 @@ a {
   align-items: center;
   height: 7vh;
   width: 98%;
-  color: darkgray;
-  background-color: white;
+  color: white;
+  background-color: #E57935;
 }
 
 .NavContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer; 
+}
+
+.NavLogo {
   display: flex;
   flex-direction: column;
   align-items: center;

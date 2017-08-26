@@ -7,7 +7,7 @@ class App extends Component {
     return(
       <div className="App">
         <div className="Nav">
-          <div className="NavContainer">
+          <div className="NavLogo">
             <img className="Logo" src={logo} alt="logo"/>
           </div> 
           <div>

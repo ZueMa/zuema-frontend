@@ -6,14 +6,9 @@
 .ProductCard {
   display: flex;
   flex-direction: column;
-  width: 250px;
-  height: 350px;
-  margin: 15px;
+  width: 280px;
+  height: 380px;
   border: 1px solid grey;
-}
-
-.ProductCard:hover {
-  background-color: grey; 
 }
 
 .ProductImg {
@@ -22,13 +17,19 @@
 }
 
 .ProductInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
   flex: 1;
   color: darkgrey;
   text-align: left;
+  color: #5F5F5F;
 }
 
 .ProductName {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .ProductDetail {
@@ -36,7 +37,8 @@
 }
 
 .ProductPrice {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  justify-content: space-between;
 }
 
 .NoPadding{
@@ -44,9 +46,16 @@
 }
 
 .CategoryCard {
-  padding-bottom: 50%;
+  height: 300px;
   background-color: grey;
   border: 1px solid lightgray;
+  
+}
+
+@media (max-width: 575px) { 
+  .CategoryCard {
+    height: 250px;
+  }
 }
 
 h2 {
