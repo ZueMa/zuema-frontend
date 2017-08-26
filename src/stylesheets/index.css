@@ -2,7 +2,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  font-family: 'Oswald', sans-serif !important;
 }
 
 a {
@@ -88,4 +89,9 @@ a {
 
 h2 {
   margin-top: 15px;
+}
+
+.text-head {
+  font-size: 50px;
+  text-align: left !important;
 }

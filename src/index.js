@@ -6,6 +6,7 @@ import createHistory from 'history/createBrowserHistory'
 import { Route, Switch } from 'react-router'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 import './stylesheets/index.css'
+import './stylesheets/resister.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import App from './pages/App'
 
@@ -17,6 +18,7 @@ import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import Register from './pages/Register'
 
 const history = createHistory()
 
@@ -40,6 +42,7 @@ ReactDOM.render(
           <Route path="/cart" component={Cart}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/login" component={Login}/>
+          <Route path="/register" component={Register}/>
         </Switch>
       </App>
     </ConnectedRouter>
