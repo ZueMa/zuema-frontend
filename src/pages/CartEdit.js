@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import '../stylesheets/cart.css'
+import BackButton from '../components/BackButton'
 
 class CartEdit extends Component {
     render() {
         return(
-            <h1>hhh</h1>
+            <div>
+                <BackButton />
+            </div>
         );
     }
 }
