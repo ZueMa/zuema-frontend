@@ -19,6 +19,8 @@ import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
 import Register from './pages/Register'
+import RegisterSeller from './pages/RegisterSeller'
+import RegisterBuyer from './pages/RegisterBuyer'
 
 const history = createHistory()
 
@@ -43,6 +45,8 @@ ReactDOM.render(
           <Route path="/profile" component={Profile}/>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
+          <Route path="/registerseller" component={RegisterSeller}/>
+          <Route path="/registerbuyer" component={RegisterBuyer}/>
         </Switch>
       </App>
     </ConnectedRouter>
