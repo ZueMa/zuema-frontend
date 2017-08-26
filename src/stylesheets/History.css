@@ -28,7 +28,7 @@ th {
     text-align: center !important;
 }
 
-.seller_history_table {
+.seller_history_table, .purchase_history_table {
     margin: 80px;
 }
 
@@ -46,4 +46,7 @@ th {
 
 .order_card {
     color: #5F5F5F;
+}
+
+.status_point {
 }
