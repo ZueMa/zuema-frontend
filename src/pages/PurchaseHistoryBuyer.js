@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PurchaseHistoryCard from '../components/PurchaseHistoryCard'
+import BackButton from '../components/BackButton'
 import '../stylesheets/History.css'
 
 export const purchaseHistoryList = [
@@ -62,7 +63,9 @@ export const purchaseHistoryList = [
 class PurchaseHistoryBuyer extends Component{
     render() {
         return (
-            <div className="purchase_history_table">
+            <div>
+                <BackButton />
+                <div className="purchase_history_table">
                 <div className="head">PURCHASE HISTORY</div>
                 <div className="color_line_head"></div><br />
                 <table className="table">
@@ -88,6 +91,7 @@ class PurchaseHistoryBuyer extends Component{
                     </tbody>
                 </table>
 
+            </div>
             </div>
         )
     }

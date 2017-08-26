@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import OrderHistoryCard from '../components/OrderHistoryCard'
+import BackButton from '../components/BackButton'
 import '../stylesheets/History.css'
 
 export const orderHistoryList = [
@@ -36,34 +37,37 @@ export const orderHistoryList = [
 class OrderHistorySeller extends Component {
     render(){
         return (
-            <div className="seller_history_table">
-                <div className="head">ORDER HISTORY</div>
-                <div className="color_line_head"></div><br />
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th className="head_table_title">PRODUCT NAME</th>
-                            <th className="head_table_title_center">PRICE</th>
-                            <th className="head_table_title_center">QUANTITY</th>
-                            <th className="head_table_title_center">DATE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { orderHistoryList.map((item, id) => {
-                            return <OrderHistoryCard 
-                                        name={item.product.name}
-                                        short_description={item.product.short_description}
-                                        id={item.product.product_id}
-                                        price={item.revenue}
-                                        quantity={item.num_items}
-                                        date={item.timestamp}
-                                        img={item.product.image}
-                                        key={id}/>
-                        })}
-                    </tbody>
-                </table>
-                
+            <div>
+                <BackButton />
+                <div className="seller_history_table">
+                    <div className="head">ORDER HISTORY</div>
+                    <div className="color_line_head"></div><br />
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th className="head_table_title">PRODUCT NAME</th>
+                                <th className="head_table_title_center">PRICE</th>
+                                <th className="head_table_title_center">QUANTITY</th>
+                                <th className="head_table_title_center">DATE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { orderHistoryList.map((item, id) => {
+                                return <OrderHistoryCard 
+                                            name={item.product.name}
+                                            short_description={item.product.short_description}
+                                            id={item.product.product_id}
+                                            price={item.revenue}
+                                            quantity={item.num_items}
+                                            date={item.timestamp}
+                                            img={item.product.image}
+                                            key={id}/>
+                            })}
+                        </tbody>
+                    </table>
+                    
+                </div>
             </div>
         )
     }
