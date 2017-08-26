@@ -68,7 +68,7 @@ class PurchaseHistoryBuyer extends Component{
                 <div className="purchase_history_table">
                 <div className="head">PURCHASE HISTORY</div>
                 <div className="color_line_head"></div><br />
-                <table className="table">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th className="head_table_title">ORDER</th>
