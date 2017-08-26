@@ -1,0 +1,22 @@
+
+
+.container-box {
+    margin-top: 0px;
+}
+
+.btn {
+    color: white !important;
+    height: 300px;
+    width: 300px;
+    margin: 30px;
+    font-size: 50px !important;
+
+}
+
+.btn-seller {
+    background-color:#FFC567 !important;
+}
+
+.btn-buyer {
+    background-color:#67D5FF !important;
+}
