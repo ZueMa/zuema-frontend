@@ -1,0 +1,49 @@
+img {
+    height: 80px;
+    width: 80px;
+}
+
+th {
+    font-size: 25px;
+    color: #5F5F5F;
+}
+
+.color_line_head {
+    background-color: #FBDC9D;
+    height: 8px;
+    width: 70px;
+}
+
+.head {
+    text-align: left;
+    font-size: 50px;
+}
+
+.head_table_title {
+    font-weight: normal;
+}
+
+.head_table_title_center {
+    font-weight: normal;
+    text-align: center !important;
+}
+
+.seller_history_table {
+    margin: 80px;
+}
+
+.product_name_shortdes {
+    text-align: left !important;
+}
+
+.product_info {
+    font-size: 17.5px;
+    margin: 0;
+}
+.product_shortdes {
+    font-size: 15px;
+}
+
+.order_card {
+    color: #5F5F5F;
+}
