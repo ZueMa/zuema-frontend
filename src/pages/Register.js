@@ -9,9 +9,13 @@ class Register extends Component {
                 <div className="line-rectangle"></div>
             </div>
 
-            <div>
-                <Link to={`/registerseller`}><button type="button" className="btn btn-seller">SELLER</button></Link>
-                <Link to={`/registerbuyer`}><button type="button" className="btn btn-buyer">BUYER</button></Link>
+            <div className="row">
+                <div className="col-sm-6 col-md-6">
+                    <Link to={`/registerseller`}><button type="button" className="btn btn-seller">SELLER</button></Link>
+                </div>
+                <div className="col-sm-6 col-md-6">
+                    <Link to={`/registerbuyer`}><button type="button" className="btn btn-buyer">BUYER</button></Link>
+                </div>
             </div>
         </div>
     )
