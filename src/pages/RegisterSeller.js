@@ -17,7 +17,7 @@ class RegisterSeller extends Component {
     
     handleRegister(e) {
         console.log(e)
-        axios.post('https://private-00f7e-zuema.apiary-mock.com/authentication?New%20item=', {
+        axios.post('https://private-00f7e-zuema.apiary-mock.com/sellers', {
           username: this.state.username,
           password: this.state.password,
           first_name: this.state.first_name,
