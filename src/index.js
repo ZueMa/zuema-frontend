@@ -20,6 +20,7 @@ import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import AddProduct from './pages/AddProduct'
 
 const history = createHistory()
 
@@ -37,7 +38,7 @@ ReactDOM.render(
     <div className="Nav">
       <div className="NavContainer">
         <img className="Logo" src={logo} alt="logo"/>
-      </div> 
+      </div>
       <div>
         <NavButton text="HOME" url="/" shape="circle"/>
         <NavButton text="CART" url="/cart" shape="circle"/>
@@ -54,6 +55,7 @@ ReactDOM.render(
             <Route exact path="/cart" component={Cart}/>
             <Route exact path="/profile" component={Profile}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/addproduct" component={AddProduct}/>
           </Switch>
         </ConnectedRouter>
       </Provider>

@@ -29,7 +29,6 @@ class Profile extends Component {
           </div>
         </div>
 
-
         <a href={this.url} id="history">VIEW ORDER HISTORY</a>
       </div>
     )
