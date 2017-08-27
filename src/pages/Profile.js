@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import '../stylesheets/profile.css'
 import axios from 'axios'
 
-
 class Profile extends Component {
   constructor(props){
     super(props);
@@ -16,14 +15,22 @@ class Profile extends Component {
 
   render() {
     return(
-      <div>
-        <h1>PROFILE</h1>
-        <p></p>
-        <p id="type">BUYER</p>
-        <p>USERNAME : {this.state.profiles.username}</p>
-        <p>FIRSTNAME : {this.state.profiles.first_name}</p>
-        <p>LASTNAME : {this.state.profiles.last_name}</p>
-        <p>ADDRESS : {this.state.profiles.address}</p>
+      <div className="container-box">
+        <div className="text-head">PROFILE
+          <div className="line-rectangle"></div>
+          <p id="type">BUYER</p>
+          <div className="info">
+            <br/>
+            <p>USERNAME<span className="indent"></span>{this.state.profiles.username}</p>
+            <p>FIRSTNAME<span className="indent"></span>{this.state.profiles.first_name}</p>
+            <p>LASTNAME<span className="indent"></span>{this.state.profiles.last_name}</p>
+            <p>ADDRESS<span className="indent"></span>{this.state.profiles.address}</p>
+            <br/>
+          </div>
+        </div>
+
+
+        <a href={this.url} id="history">VIEW ORDER HISTORY</a>
       </div>
     )
   }
