@@ -6,7 +6,6 @@ import createHistory from 'history/createBrowserHistory'
 import { Route, Switch } from 'react-router'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 import './stylesheets/index.css'
-import './stylesheets/resister.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import App from './pages/App'
 

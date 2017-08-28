@@ -14,11 +14,23 @@
     font-size: 50px !important;
 }
 
+.btn-seller:hover {
+    background-color: white !important;    
+    border: 5px solid #FFC567 !important;
+    color: #FFC567 !important;    
+}
+
 .btn-buyer {
     background-color:#67D5FF !important;
     height: 400px;
     width: 70%;
     font-size: 50px !important;
+}
+
+.btn-buyer:hover {
+    background-color: white !important;     
+    border: 5px solid #67D5FF !important;
+    color: #67D5FF !important;   
 }
 
 .menu-register {
@@ -65,4 +77,10 @@
     margin-top: 4%;
     height: 49px;
     width: 79%;
+}
+
+.btn-register:hover {
+    color: #F5AB0E !important;
+    background-color: white;
+    border: 3px solid #FFC567 !important;
 }
