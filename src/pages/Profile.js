@@ -7,6 +7,10 @@ class Profile extends Component {
     super(props);
 
     this.state = { profiles:[] };
+   
+  }
+
+  componentWillMount(){
     axios.get('https://private-00f7e-zuema.apiary-mock.com/buyers/me').then( res => {
       const profiles = res.data;
       this.setState({ profiles });
