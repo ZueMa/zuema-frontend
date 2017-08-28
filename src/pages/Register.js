@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../stylesheets/resister.css'
+import '../stylesheets/register.css'
 import { Link } from 'react-router-dom'
 
 class Register extends Component {

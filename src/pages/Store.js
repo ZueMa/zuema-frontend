@@ -22,18 +22,18 @@ export const products = [{name:"PRODUCT NAME", detail:"Short description", price
 class Store extends Component {
   render() {
     return(
-      <div className="Store">
-        <div className="TopBar" style={{textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center'}} hidden>
-          <h3 style={{margin: '0'}}>
-            <i className="fa fa-search" style={{marginRight: '10px'}}></i>
+      <div className="store">
+        <div className="top-bar"  hidden>
+          <h3 className="no-margin">
+            <i className="fa fa-search icon-margin"></i>
             SEARCH
           </h3>
         </div>
         <Categories/>
-        <div style={{color: 'grey', textAlign: 'center'}}>
-          <div style={{display: 'inline-flex', alignItems: 'center', marginTop: '15px'}}>
+        <div className="store-header">
+          <div className="inner-header" >
             <hr className="line"/>
-            <h2 style={{marginLeft: '10px', marginRight: '10px'}}>ALL PRODUCT</h2> 
+            <h2 className="product-text-margin">ALL PRODUCT</h2> 
             <hr className="line"/>
           </div>
         </div>

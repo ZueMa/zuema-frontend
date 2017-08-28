@@ -5,10 +5,10 @@ import NavButton from '../components/NavButton'
 class App extends Component {
   render() {
     return(
-      <div className="App">
-        <div className="Nav">
-          <div className="NavLogo">
-            <img className="Logo" src={logo} alt="logo"/>
+      <div className="app">
+        <div className="nav">
+          <div className="nav-logo">
+            <img className="logo" src={logo} alt="logo"/>
           </div> 
           <div>
             <NavButton text="HOME" icon="fa fa-home" url="/" shape="circle"/>
@@ -17,7 +17,7 @@ class App extends Component {
           </div>
           <NavButton text="LOGIN" url="/login" shape="rec"/>
         </div>
-        <div className="Store">
+        <div className="store">
           {this.props.children}
         </div>
       </div>

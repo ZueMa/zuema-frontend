@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class ProductCard extends React.Component {
+class ProductCard extends Component {
   constructor(props) {
     super(props);
       this.name = props.name
@@ -12,21 +12,21 @@ class ProductCard extends React.Component {
 
   render() {
     return (
-      <div style={{margin: '15px', display: 'inline-block'}}>
-        <div className="ProductCard">
-          <Link to={`/products/${this.id}`} className="ProductImg">
+      <div className="card">
+        <div className="product-card">
+          <Link to={`/products/${this.id}`} className="product-img">
           </Link>
-          <div className="ProductInfo">
+          <div className="product-info">
             <div>
-              <div className="ProductName">{this.name}</div>
-              <div className="ProductDetail">{this.detail}</div> 
+              <div className="product-name">{this.name}</div>
+              <div className="product-detail">{this.detail}</div> 
             </div>
-            <div className="ProductPrice" style={{display: "flex"}}>
+            <div className="product-price flex">
               <div>
                 {this.price}
               </div>
-              <div style={{textAlign: 'right'}}>
-                <i className="fa fa-cart-plus fa-lg" style={{cursor: 'pointer'}} onClick={() => console.log("item added")}></i>
+              <div className="text-right">
+                <i className="fa fa-cart-plus fa-lg pointer" onClick={() => console.log("item added")}></i>
               </div>
             </div>
           </div>
