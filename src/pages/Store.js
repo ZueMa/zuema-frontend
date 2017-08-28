@@ -23,7 +23,7 @@ class Store extends Component {
   render() {
     return(
       <div className="Store">
-        <div className="TopBar" style={{textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div className="TopBar" style={{textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center'}} hidden>
           <h3 style={{margin: '0'}}>
             <i className="fa fa-search" style={{marginRight: '10px'}}></i>
             SEARCH
