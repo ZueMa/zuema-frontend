@@ -47,8 +47,8 @@
 
 .CategoryCard {
   height: 300px;
-  background-color: grey;
-  border: 1px solid lightgray;
+  background-color: lightgrey;
+  border: 1px solid gray;
   
 }
 
@@ -58,6 +58,12 @@
   }
 }
 
-h2 {
-  margin-top: 15px;
+.line {
+  width: 50px;
+  border-width: 2.5px;
+}
+
+.TopBar {
+  height: 7%;
+  cursor: pointer;
 }
