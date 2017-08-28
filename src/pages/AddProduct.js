@@ -36,9 +36,9 @@ class AddProduct extends Component {
               </select>
 
               <p>PRODUCT PRICE*</p>
-              <input size="10"></input>
+              <input type="number" size="5"></input>
               <p>PRODUCT QTY*</p>
-              <input size="10"></input>
+              <input  type="number" size="5"></input>
               <p>PRODUCT IMAGE*</p>
               <a href={this.url} id="history">CHOOSE IMAGE</a>
               <br/>
