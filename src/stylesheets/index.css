@@ -79,3 +79,17 @@ a {
 h2 {
   margin-top: 15px;
 }
+
+.text-head {
+  font-size: 50px;
+  text-align: left !important;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.line-rectangle {
+	width: 70px;
+	height: 8px;
+  background:#FBDC9B;
+  margin-bottom: 2%;
+}
