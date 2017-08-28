@@ -42,7 +42,7 @@
 }
 .checkout-cart-btn:hover {
     background-color: transparent;
-    color: #FFC567;
+    color: #FFC567 !important;
 }
 
 .table-cart {
@@ -85,3 +85,8 @@
 .order-drescription {
     font-size: 15px;
 }
+
+
+/* .table-hover tbody tr:hover  {
+    background-color:  #F8F1E0 !important;
+} */

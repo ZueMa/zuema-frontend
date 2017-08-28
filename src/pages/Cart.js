@@ -9,11 +9,10 @@ class Cart extends Component {
         <div className="container head-cart-page">
           <span className="page-title">YOUR SHOPPING CART</span>
           <button className="btn checkout-cart-btn">CHECKOUT</button>
-          <button className="btn edit-cart-btn">EDIT<Link to={'/cart/edit'}></Link>
-          </button>
+          <Link to={'/cartedit'}><button className="btn edit-cart-btn">EDIT</button></Link>
         </div>
         
-        <table className="table-cart">
+        <table className="table table-hover">
           <thead>
             <th></th>
             <th>PRODUCT NAME</th>
