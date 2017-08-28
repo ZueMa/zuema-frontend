@@ -1,5 +1,6 @@
 import React,{ Component } from 'react'
-import { Link } from 'react-router-dom'
+import { push } from 'react-router-redux'
+import { connect } from 'react-redux'
 
 class PurchaseHistoryCard extends Component {
 
@@ -11,6 +12,7 @@ class PurchaseHistoryCard extends Component {
         this.total_price = props.total_price
         this.status = props.status
         this.item_list = props.item_list
+        this.url = "/itempurchasetable/" + this.id
     }
 
     get checkStatus(){
@@ -22,11 +24,9 @@ class PurchaseHistoryCard extends Component {
 
     render() {
         return (
-            <tr className="order_card">
+            <tr className="order_card" onClick={() => this.props.push(this.url)}>
                 <td className="product_name_shortdes">
-                <Link to={`/itempurchasetable/${this.id}`}>
                     <p className="product_info">ORDER #{this.cart_id}</p>
-                </Link>
                 </td>
                 <td className="product_info w3-animate-top">{this.total_price}</td>
                 <td className="product_info">{this.total_items}</td>
@@ -40,4 +40,10 @@ class PurchaseHistoryCard extends Component {
     }
 }
 
-export default PurchaseHistoryCard;
+function mapDispatchToProps(dispatch) {
+    return{
+      push: (url) => dispatch(push(url))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PurchaseHistoryCard);

@@ -2,7 +2,7 @@ import React,{ Component } from 'react'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 
-class OrderHistoryCard extends Component {
+class ProductTableList extends Component {
     constructor(props) {
         super(props);
         this.name = props.name
@@ -10,7 +10,6 @@ class OrderHistoryCard extends Component {
         this.id = props.id
         this.quantity = props.quantity
         this.price = props.price
-        this.date = props.date
         this.img = props.image
         this.url = "/products/" + this.id
     }
@@ -27,7 +26,6 @@ class OrderHistoryCard extends Component {
                 </td>
                 <td className="product_info">{this.price}</td>
                 <td className="product_info">{this.quantity}</td>
-                <td className="product_info">{this.date}</td>
             </tr>
         )
     }
@@ -39,4 +37,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(null, mapDispatchToProps)(OrderHistoryCard);
+export default connect(null, mapDispatchToProps)(ProductTableList);
