@@ -8,6 +8,7 @@ class NavButton extends Component {
     this.text = props.text;
     this.url = props.url;
     this.shape = props.shape;
+    this.icon = props.icon;
   }
 
   render() {
@@ -15,7 +16,7 @@ class NavButton extends Component {
     if (this.shape === "circle") {
       button = (
         <div className="NavContainer" style={{marginBottom:'50px'}} onClick={() => this.props.push(this.url)}>
-          <div className="NavButtonCircle"></div>
+          <i className={this.icon + ` fa-4x`} style={{ ariaHidden: "true" }}></i>
           <h5>{this.text}</h5>
         </div>
       )

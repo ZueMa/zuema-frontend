@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 import './stylesheets/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'font-awesome/css/font-awesome.css'
 import App from './pages/App'
 
 // Reducers

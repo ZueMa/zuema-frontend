@@ -7,13 +7,13 @@ class App extends Component {
     return(
       <div className="App">
         <div className="Nav">
-          <div className="NavContainer">
+          <div className="NavLogo">
             <img className="Logo" src={logo} alt="logo"/>
           </div> 
           <div>
-            <NavButton text="HOME" url="/" shape="circle"/>
-            <NavButton text="CART" url="/cart" shape="circle"/>
-            <NavButton text="PROFILE" url="/profile" shape="circle"/>
+            <NavButton text="HOME" icon="fa fa-home" url="/" shape="circle"/>
+            <NavButton text="CART" icon="fa fa-shopping-cart" url="/cart" shape="circle"/>
+            <NavButton text="PROFILE" icon="fa fa-user" url="/profile" shape="circle"/>
           </div>
           <NavButton text="LOGIN" url="/login" shape="rec"/>
         </div>

@@ -12,18 +12,26 @@ class ProductCard extends React.Component {
 
   render() {
     return (
-      <Link to={`/products/${this.id}`} style={{display: "inline-block"}}>
+      <div style={{margin: '15px', display: 'inline-block'}}>
         <div className="ProductCard">
-          <div className="ProductImg">
-          </div>
+          <Link to={`/products/${this.id}`} className="ProductImg">
+          </Link>
           <div className="ProductInfo">
+            <div>
               <div className="ProductName">{this.name}</div>
               <div className="ProductDetail">{this.detail}</div> 
-              <div className="ProductPrice">{this.price}</div>
+            </div>
+            <div className="ProductPrice" style={{display: "flex"}}>
+              <div>
+                {this.price}
+              </div>
+              <div style={{textAlign: 'right'}}>
+                <i className="fa fa-cart-plus fa-lg" style={{cursor: 'pointer'}} onClick={() => console.log("item added")}></i>
+              </div>
+            </div>
           </div>
-          
         </div>
-      </Link>
+      </div>
     )
   }
 }
