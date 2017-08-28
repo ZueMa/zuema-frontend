@@ -3,21 +3,21 @@ import ProductCard from '../components/ProductCard'
 import '../stylesheets/store.css'
 import Categories from '../components/Categories'
 
-export const products = [{name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25}]
+export const products = [{name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
+                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5}]
 
 class Store extends Component {
   render() {
