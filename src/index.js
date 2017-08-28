@@ -48,6 +48,7 @@ ReactDOM.render(
           <Route path="/register" component={Register}/>
           <Route path="/registerseller" component={RegisterSeller}/>
           <Route path="/registerbuyer" component={RegisterBuyer}/>
+          <Route path="/cartedit" component={CartEdit}/>
         </Switch>
       </App>
     </ConnectedRouter>
