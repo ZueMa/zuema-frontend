@@ -5,19 +5,19 @@ import NavButton from '../components/NavButton'
 class App extends Component {
   render() {
     return(
-      <div className="App">
-        <div className="Nav">
-          <div className="NavContainer">
-            <img className="Logo" src={logo} alt="logo"/>
+      <div className="app">
+        <div className="nav">
+          <div className="nav-logo">
+            <img className="logo" src={logo} alt="logo"/>
           </div> 
           <div>
-            <NavButton text="HOME" url="/" shape="circle"/>
-            <NavButton text="CART" url="/cart" shape="circle"/>
-            <NavButton text="PROFILE" url="/profile" shape="circle"/>
+            <NavButton text="HOME" icon="fa fa-home" url="/" shape="circle"/>
+            <NavButton text="CART" icon="fa fa-shopping-cart" url="/cart" shape="circle"/>
+            <NavButton text="PROFILE" icon="fa fa-user" url="/profile" shape="circle"/>
           </div>
           <NavButton text="LOGIN" url="/login" shape="rec"/>
         </div>
-        <div className="Store">
+        <div className="store">
           {this.props.children}
         </div>
       </div>

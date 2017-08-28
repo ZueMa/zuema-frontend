@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 import './stylesheets/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'font-awesome/css/font-awesome.css'
 import App from './pages/App'
 
 // Reducers
@@ -17,6 +18,9 @@ import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import Register from './pages/Register'
+import RegisterSeller from './pages/RegisterSeller'
+import RegisterBuyer from './pages/RegisterBuyer'
 import CartEdit from './pages/CartEdit'
 
 const history = createHistory()
@@ -41,6 +45,9 @@ ReactDOM.render(
           <Route path="/cart" component={Cart}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/login" component={Login}/>
+          <Route path="/register" component={Register}/>
+          <Route path="/registerseller" component={RegisterSeller}/>
+          <Route path="/registerbuyer" component={RegisterBuyer}/>
         </Switch>
       </App>
     </ConnectedRouter>
