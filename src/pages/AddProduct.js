@@ -24,12 +24,15 @@ class AddProduct extends Component {
             </div>
             <div id="right-col">
               <p>CHOOSE CATEGORY*</p>
-              
+
               <select>
-                <option>Clothes</option>
+                <option>CLOTHES</option>
                 <option>SPORTS</option>
-                <option>Clothes</option>
-                <option>Clothes</option>
+                <option>KIDS</option>
+                <option>IT</option>
+                <option>GARDEN</option>
+                <option>...</option>
+
               </select>
 
               <p>PRODUCT PRICE*</p>
