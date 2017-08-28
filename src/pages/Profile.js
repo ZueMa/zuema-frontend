@@ -5,7 +5,6 @@ import axios from 'axios'
 class Profile extends Component {
   constructor(props){
     super(props);
-
     this.state = { profiles:[] };
     axios.get('https://private-00f7e-zuema.apiary-mock.com/buyers/me').then( res => {
       const profiles = res.data;
