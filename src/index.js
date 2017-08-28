@@ -19,6 +19,7 @@ import Profile from './pages/Profile'
 import Product from './pages/Product'
 import OrderHistorySeller from './pages/OrderHistorySeller'
 import PurchaseHistoryBuyer from './pages/PurchaseHistoryBuyer'
+import ItemPurchaseTable from './pages/ItemPurchaseTable'
 
 const history = createHistory()
 
@@ -44,6 +45,7 @@ ReactDOM.render(
           <Route path="/login" component={Login}/>
           <Route path="/orderhistoryseller" component={OrderHistorySeller}/>
           <Route path="/purchasehistorybuyer" component={PurchaseHistoryBuyer}/>
+          <Route path="/itempurchaseTable/:id" component={ItemPurchaseTable}/>
         </Switch>
       </App>
     </ConnectedRouter>

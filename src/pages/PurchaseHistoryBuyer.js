@@ -84,6 +84,7 @@ class PurchaseHistoryBuyer extends Component{
                                         total_price={items.cart.total_price}
                                         item_list={items.cart.item}
                                         cart_id={items.cart.cart_id}
+                                        id={id}
                                         key={id}
                                         status={items.is_shipped}/>
                         })}
