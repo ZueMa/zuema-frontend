@@ -74,3 +74,35 @@
   margin-left: 5%;
   margin-right: 5%;
 }
+
+.button-container {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.btn-edit {
+  margin-right: 5%;
+  font-size: 40px;
+  width: 47.5%;
+  height: 8%;
+  background-color: #F5AB0E;
+}
+
+.btn-edit:hover {
+  color: #F5AB0E !important;
+  background-color: white;
+  border: 3px solid #FFC567 !important;
+}
+
+.btn-remove{
+  font-size: 40px;
+  width: 47.5%;
+  height: 8%;
+  background-color: #FF6767;
+}
+
+.btn-remove:hover {
+  color: #FF6767 !important;
+  background-color: white;
+  border: 3px solid #FF6767 !important;
+}
