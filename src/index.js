@@ -17,6 +17,7 @@ import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import CartEdit from './pages/CartEdit'
 
 const history = createHistory()
 
