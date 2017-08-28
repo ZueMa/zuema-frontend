@@ -56,18 +56,6 @@
   .category-card {
     height: 250px;
   }
-
-  .text-side {
-    height: 107.5%;
-  }
-
-  .image-side {
-    height: 100%;
-  }
-}
-
-.image-side {
-  border: 1px solid darkgrey;
 }
 
 .line {
@@ -89,21 +77,8 @@
   text-align: center;
 }
 
-.product-height {
-  height: 100%;
-}
-
-.product-style-div {
-  height: 93%
-}
-
 .icon-margin {
   margin-right: 10px;
-}
-
-.product-full-image {
-  height: 100%;
-  background-color: lightgray;
 }
 
 .inner-header {
@@ -115,10 +90,6 @@
 .product-text-margin {
   margin-left: 10px;
   margin-right: 10px;
-}
-
-.product {
-  height: 100%;
 }
 
 .card {
