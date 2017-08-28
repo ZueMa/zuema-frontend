@@ -36,7 +36,7 @@ class Product extends Component {
               </div>
               <div className="product-full-info">
                 <p className="product-text">{products[this.props.match.params.id].detail}</p>
-                <div className="product-price">{products[this.props.match.params.id].price} BAHT</div>
+                <div className="price">{products[this.props.match.params.id].price} BAHT</div>
                 <p className="product-stock">Only {products[this.props.match.params.id].stock} left in stock</p>
               </div>
               <button className="btn btn-add-cart" onClick={this.handleAddCart}>ADD TO CART</button>
@@ -58,7 +58,7 @@ class Product extends Component {
               </div>
               <div className="product-full-info">
                 <p className="product-text">{products[this.props.match.params.id].detail}</p>
-                <div className="product-price">{products[this.props.match.params.id].price} BAHT</div>
+                <div className="price">{products[this.props.match.params.id].price} BAHT</div>
                 <p className="product-stock">Only {products[this.props.match.params.id].stock} left in stock</p>
               </div>
               <div className="button-container">
