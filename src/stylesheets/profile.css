@@ -14,27 +14,17 @@ h3 {
   padding-left: 3em;
 }
 
-#lastname {
-  padding-left: 3.2em;
+table {
+  width: 100%;
 }
-#address {
-  padding-left: 3.6em;
-}
-#company {
-  padding-left: 1.4em;
-}
-#des {
-  padding-left: 2.2em;
-}
+
 
 
 .info {
   font-size: 25px;
   padding-left: 5%;
 }
-#indent {
-  text-indent: 30px;
-}
+
 
 #history{
   background-color: #ecac3f;
