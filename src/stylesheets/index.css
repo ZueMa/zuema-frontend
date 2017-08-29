@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
 html, body {
   height: 100%;
   margin: 0;
@@ -15,7 +17,7 @@ a {
   height: 100%;
 }
 
-.App {
+.app {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -25,17 +27,17 @@ a {
   width: 150px;
 }
 
-.Nav {
+.nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex: 0 0 110px;
-  background-color: darkgrey;
+  background-color: #362B22;
   overflow: hidden;
   color: white;
 }
 
-.Store {
+.store {
   width: 100%;
   overflow-y: auto;
 }
@@ -48,20 +50,14 @@ a {
   h5 {
     font-size: 0.75rem !important;
   }
-  .Logo {
+@media (max-width: 575px) { 
+  .logo {
     width: 100px;
   }
 
-  .Nav {
+  .nav {
     flex: 0 0 70px;
   }
-
-  .NavButtonCircle {
-    border-radius: 2.5em !important;
-    width: 2.5em !important;
-    height: 2.5em !important;
-  }
-}
 
 .NavButtonCircle {
   border-radius: 4.5em;
@@ -70,17 +66,24 @@ a {
   background-color: white;
 }
 
-.NavButtonRec {
+.nav-button-rec {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 7vh;
   width: 98%;
-  color: darkgray;
-  background-color: white;
+  color: white;
+  background-color: #E57935;
 }
 
-.NavContainer {
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer; 
+}
+
+.nav-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,16 +93,26 @@ h2 {
   margin-top: 15px;
 }
 
+
+.nav-add-margin {
+  margin-bottom: 50px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
 .text-head {
   font-size: 50px;
+  font-weight: bold;
   text-align: left !important;
   margin-left: 5%;
   margin-top: 3%;
 }
 
 .line-rectangle {
-  width: 70px;
-  height: 8px;
-  background: #FBDC9B;
-  margin: 2%;
+	width: 70px;
+	height: 8px;
+  background:#FBDC9B;
+  margin-bottom: 2%;
 }
