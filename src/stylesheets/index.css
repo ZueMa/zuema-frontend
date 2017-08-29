@@ -50,6 +50,7 @@ a {
   h5 {
     font-size: 0.75rem !important;
   }
+}
 @media (max-width: 575px) { 
   .logo {
     width: 100px;
@@ -58,6 +59,7 @@ a {
   .nav {
     flex: 0 0 70px;
   }
+}
 
 .NavButtonCircle {
   border-radius: 4.5em;

@@ -10,7 +10,7 @@
 
 
 .info {
-  font-size: 35px;
+  font-size: 25px;
   padding-left: 5%;
 }
 
@@ -22,14 +22,14 @@
   text-decoration: none;
   display: inline-block;
   padding: 10px 30px;
-  width: 30%;
-  position: right;
+  /* width: 50%; */
+  right: 0;
 }
 
 #wrapper{
   margin-top: 2.5%;
 }
-
+/* 
 #left-col{
     display:block;
     float:left;
@@ -38,4 +38,4 @@
     padding-left: 10%;
     display:block;
     float:left;
-}
+} */
