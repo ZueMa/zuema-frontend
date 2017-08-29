@@ -18,6 +18,9 @@ import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import OrderHistorySeller from './pages/OrderHistorySeller'
+import PurchaseHistoryBuyer from './pages/PurchaseHistoryBuyer'
+import ItemPurchaseTable from './pages/ItemPurchaseTable'
 import Register from './pages/Register'
 import RegisterSeller from './pages/RegisterSeller'
 import RegisterBuyer from './pages/RegisterBuyer'
@@ -44,6 +47,9 @@ ReactDOM.render(
           <Route path="/cart" component={Cart}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/login" component={Login}/>
+          <Route path="/orderhistoryseller" component={OrderHistorySeller}/>
+          <Route path="/purchasehistorybuyer" component={PurchaseHistoryBuyer}/>
+          <Route path="/itempurchaseTable/:id" component={ItemPurchaseTable}/>
           <Route path="/register" component={Register}/>
           <Route path="/registerseller" component={RegisterSeller}/>
           <Route path="/registerbuyer" component={RegisterBuyer}/>
