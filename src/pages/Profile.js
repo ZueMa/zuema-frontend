@@ -5,7 +5,7 @@ import axios from 'axios'
 class Profile extends Component {
   constructor(props){
     super(props);
-    this.state = { profiles:[],type: 'BUYER' };
+    this.state = { profiles:[],type: 'SELLER' };
   }
 
   componentWillMount(){
@@ -46,7 +46,7 @@ class Profile extends Component {
                     </td>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/history'} id="history">VIEW PURCHASE HISTORY</a>  
+                  <a href={'http://localhost:3000/history'} id="history">VIEW PURCHASE HISTORY</a> 
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ class Profile extends Component {
                     </td>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/history'} id="history">VIEW ORDER HISTORY</a> 
+                  <a href={'http://localhost:3000/history'} id="history">VIEW ORDER HISTORY</a>
                 </div>
             </div>
           </div>

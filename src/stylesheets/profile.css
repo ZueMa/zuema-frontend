@@ -14,21 +14,17 @@ table {
 
 .info {
   padding-top: 2%;
-  font-size: 25px;
+  font-size: 30px;
   padding-left: 5%;
 }
-
-
 
 #history{
   background-color: #ecac3f;
   border: none;
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  padding: 10px 30px;
-  /* width: 50%; */
-  right: 0;
+  padding: 20px 60px;
 }
