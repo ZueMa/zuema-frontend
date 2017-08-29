@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 import './stylesheets/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'font-awesome/css/font-awesome.css'
 import App from './pages/App'
 
 // Reducers
@@ -20,6 +21,9 @@ import Product from './pages/Product'
 import OrderHistorySeller from './pages/OrderHistorySeller'
 import PurchaseHistoryBuyer from './pages/PurchaseHistoryBuyer'
 import ItemPurchaseTable from './pages/ItemPurchaseTable'
+import Register from './pages/Register'
+import RegisterSeller from './pages/RegisterSeller'
+import RegisterBuyer from './pages/RegisterBuyer'
 
 const history = createHistory()
 
@@ -46,6 +50,9 @@ ReactDOM.render(
           <Route path="/orderhistoryseller" component={OrderHistorySeller}/>
           <Route path="/purchasehistorybuyer" component={PurchaseHistoryBuyer}/>
           <Route path="/itempurchaseTable/:id" component={ItemPurchaseTable}/>
+          <Route path="/register" component={Register}/>
+          <Route path="/registerseller" component={RegisterSeller}/>
+          <Route path="/registerbuyer" component={RegisterBuyer}/>
         </Switch>
       </App>
     </ConnectedRouter>
