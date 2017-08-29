@@ -1,0 +1,77 @@
+img {
+    height: 80px;
+    width: 80px;
+}
+
+th {
+    animation: fadein 1s;
+    font-size: 25px;
+    color: #5F5F5F;
+}
+
+td {
+    animation: fadein 4s;
+}
+
+.color_line_head {
+    animation: line_head_ani 1s;
+    background-color: #FBDC9D;
+    height: 8px;
+    width: 70px;
+}
+
+.head {
+    animation: fadein 1s;
+    text-align: left;
+    font-size: 50px;
+}
+
+.head_table_title {
+    font-weight: normal;
+}
+
+.head_table_title_center {
+    font-weight: normal;
+    text-align: center !important;
+}
+
+.seller_history_table, .purchase_history_table {
+    margin: 80px;
+}
+
+.product_name_shortdes {
+    text-align: left !important;
+}
+
+.product_info {
+    font-size: 17.5px;
+    margin: 0;
+}
+.product_shortdes {
+    font-size: 15px;
+}
+
+.order_card {
+    color: #5F5F5F;
+}
+
+.status_point {
+}
+
+.table {
+    animation: fadein 1s;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle !important;
+}
+
+@keyframes line_head_ani {
+    from { width: 0px;}
+    to { width: 70px; }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
