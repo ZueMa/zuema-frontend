@@ -5,7 +5,7 @@ import axios from 'axios'
 class Profile extends Component {
   constructor(props){
     super(props);
-    this.state = { profiles:[],type: 'SELLER' };
+    this.state = { profiles:[],type: 'BUYER' };
   }
 
   componentWillMount(){
@@ -31,26 +31,25 @@ class Profile extends Component {
               <div className="line-rectangle"></div>
               <p id="type">BUYER</p>
               <div className="info">
-                <div id="wrapper" className="input-form">
                   <table>
                     <td>
-                      <tr>USERNAME</tr>
-                      <tr>FIRSTNAME</tr>
-                      <tr>LASTNAME</tr>
-                      <tr>ADDRESS</tr>
+                      <tr><p>USERNAME</p></tr>
+                      <tr><p>FIRSTNAME</p></tr>
+                      <tr><p>LASTNAME</p></tr>
+                      <tr><p>ADDRESS</p></tr>
                     </td>
                     <td>
-                      <tr>{this.state.profiles.username}</tr>
-                      <tr>{this.state.profiles.first_name}</tr>
-                      <tr>{this.state.profiles.last_name}</tr>
-                      <tr>{this.state.profiles.address}</tr>
+                      <tr><p>{this.state.profiles.username}</p></tr>
+                      <tr><p>{this.state.profiles.first_name}</p></tr>
+                      <tr><p>{this.state.profiles.last_name}</p></tr>
+                      <tr><p>{this.state.profiles.address}</p></tr>
                     </td>
                   </table>
+                  <br/>
                   <a href={'http://localhost:3000/history'} id="history">VIEW PURCHASE HISTORY</a>  
                 </div>
               </div>
             </div>
-          </div>
       )
     }
     else if (this.state.type === 'SELLER'){
@@ -60,28 +59,27 @@ class Profile extends Component {
               <div className="line-rectangle"></div>
               <p id="type">SELLER</p>
               <div className="info">
-                <div id="wrapper" className="input-form">
                   <table>
                     <td>
-                      <tr>USERNAME</tr>
-                      <tr>FIRSTNAME</tr>
-                      <tr>LASTNAME</tr>
-                      <tr>COMPANY NAME</tr>
-                      <tr>INFORMATION</tr>
-                      <tr>ADDRESS</tr>
+                      <tr><p>USERNAME</p></tr>
+                      <tr><p>FIRSTNAME</p></tr>
+                      <tr><p>LASTNAME</p></tr>
+                      <tr><p>COMPANY NAME</p></tr>
+                      <tr><p>INFORMATION</p></tr>
+                      <tr><p>ADDRESS</p></tr>
                     </td>
                     <td>
-                      <tr>{this.state.profiles.username}</tr>
-                      <tr>{this.state.profiles.first_name}</tr>
-                      <tr>{this.state.profiles.last_name}</tr>
-                      <tr>{this.state.profiles.company_name}</tr>
-                      <tr>{this.state.profiles.description}</tr>
-                      <tr>{this.state.profiles.address}</tr>
+                      <tr><p>{this.state.profiles.username}</p></tr>
+                      <tr><p>{this.state.profiles.first_name}</p></tr>
+                      <tr><p>{this.state.profiles.last_name}</p></tr>
+                      <tr><p>{this.state.profiles.company_name}</p></tr>
+                      <tr><p>{this.state.profiles.description}</p></tr>
+                      <tr><p>{this.state.profiles.address}</p></tr>
                     </td>
                   </table>
-                  <a href={'http://localhost:3000/history'} id="history">VIEW ORDER HISTORY</a>  
+                  <br/>
+                  <a href={'http://localhost:3000/history'} id="history">VIEW ORDER HISTORY</a> 
                 </div>
-              </div>
             </div>
           </div>
       )

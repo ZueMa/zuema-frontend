@@ -8,22 +8,16 @@
   background: #f0f0f0;
 }
 
-h3 {
-  font-size: 30px;
-  display: inline;
-  padding-left: 3em;
-}
-
 table {
   width: 100%;
 }
 
-
-
 .info {
+  padding-top: 2%;
   font-size: 25px;
   padding-left: 5%;
 }
+
 
 
 #history{
@@ -38,17 +32,3 @@ table {
   /* width: 50%; */
   right: 0;
 }
-
-#wrapper{
-  margin-top: 2.5%;
-}
-/* 
-#left-col{
-    display:block;
-    float:left;
-}
-#right-col{
-    padding-left: 10%;
-    display:block;
-    float:left;
-} */
