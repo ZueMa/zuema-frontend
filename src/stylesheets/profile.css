@@ -2,10 +2,29 @@
   /*position: absolute;*/
   top: 250px;
   left: 150px;
-  font-size: 40px;
+  font-size: 30px;
   padding: 10px;
   border-left: 10px solid #ecac3f;
   background: #f0f0f0;
+}
+
+h3 {
+  font-size: 30px;
+  display: inline;
+  padding-left: 3em;
+}
+
+#lastname {
+  padding-left: 3.2em;
+}
+#address {
+  padding-left: 3.6em;
+}
+#company {
+  padding-left: 1.4em;
+}
+#des {
+  padding-left: 2.2em;
 }
 
 
@@ -13,12 +32,16 @@
   font-size: 25px;
   padding-left: 5%;
 }
+#indent {
+  text-indent: 30px;
+}
 
 #history{
   background-color: #ecac3f;
   border: none;
   color: white;
   font-size: 40px;
+  text-align: center;
   text-decoration: none;
   display: inline-block;
   padding: 10px 30px;
