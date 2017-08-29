@@ -12,6 +12,7 @@ class AddProduct extends Component {
       price: '',
       category: '',
       quantity: '',
+      image: [],
     }
   }
 
@@ -33,6 +34,8 @@ class AddProduct extends Component {
     })
   }
 
+  
+
   render() {
     return(
       <div className="container-box">
@@ -42,6 +45,7 @@ class AddProduct extends Component {
         </div>
 
         <div id="wrapper" className="input-form">
+        <h1>{this.state.image}</h1>
 
             <div id="left-col">
               <p>PRODUCT NAME*</p>
@@ -69,11 +73,11 @@ class AddProduct extends Component {
               <p>PRODUCT QTY*</p>
               <input name="quantity" type="number" size="5" onChange={(e) => this.setState({quantity: e.target.value})}/>
               <p>PRODUCT IMAGE*</p>
-              <a href={this.url} id="history">CHOOSE IMAGE</a>
+                <input type="file" name="image" onChange={(e) => this.setState({image: e.target.value})}/>
+                <input type="submit" name="submit" value="submit"/>
               <br/>
               <button onClick={(e) => this.addProduct(e)}>ADD PRODUCT</button>
             </div>
-
         </div>
       </div>
     )
