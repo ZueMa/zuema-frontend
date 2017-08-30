@@ -32,21 +32,27 @@ class Profile extends Component {
               <p id="type">BUYER</p>
               <div className="info">
                   <table>
-                    <td>
-                      <tr><p>USERNAME</p></tr>
-                      <tr><p>FIRSTNAME</p></tr>
-                      <tr><p>LASTNAME</p></tr>
-                      <tr><p>ADDRESS</p></tr>
-                    </td>
-                    <td>
-                      <tr><p>{this.state.profiles.username}</p></tr>
-                      <tr><p>{this.state.profiles.first_name}</p></tr>
-                      <tr><p>{this.state.profiles.last_name}</p></tr>
-                      <tr><p>{this.state.profiles.address}</p></tr>
-                    </td>
+                  <tbody>
+                  <tr>
+                    <td>USERNAME</td>
+                    <td>{this.state.profiles.username}</td>
+                  </tr>
+                  <tr>
+                    <td>FIRSTNAME</td>
+                    <td>{this.state.profiles.first_name}</td>
+                  </tr>
+                  <tr>
+                    <td>LASTNAME</td>
+                    <td>{this.state.profiles.last_name}</td>
+                </tr>
+                <tr>
+                        <td>ADDRESS</td>
+                        <td>{this.state.profiles.address}</td>
+                    </tr>
+                   </tbody>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/history'} id="history">VIEW PURCHASE HISTORY</a> 
+                  <a href={'http://localhost:3000/history'} id="history">VIEW PURCHASE HISTORY</a>
                 </div>
               </div>
             </div>
@@ -60,22 +66,32 @@ class Profile extends Component {
               <p id="type">SELLER</p>
               <div className="info">
                   <table>
-                    <td>
-                      <tr><p>USERNAME</p></tr>
-                      <tr><p>FIRSTNAME</p></tr>
-                      <tr><p>LASTNAME</p></tr>
-                      <tr><p>COMPANY NAME</p></tr>
-                      <tr><p>INFORMATION</p></tr>
-                      <tr><p>ADDRESS</p></tr>
-                    </td>
-                    <td>
-                      <tr><p>{this.state.profiles.username}</p></tr>
-                      <tr><p>{this.state.profiles.first_name}</p></tr>
-                      <tr><p>{this.state.profiles.last_name}</p></tr>
-                      <tr><p>{this.state.profiles.company_name}</p></tr>
-                      <tr><p>{this.state.profiles.description}</p></tr>
-                      <tr><p>{this.state.profiles.address}</p></tr>
-                    </td>
+                    <tbody>
+                    <tr>
+                      <td>USERNAME</td>
+                      <td>{this.state.profiles.username}</td>
+                    </tr>
+                    <tr>
+                      <td>FIRSTNAME</td>
+                      <td>{this.state.profiles.first_name}</td>
+                    </tr>
+                    <tr>
+                      <td>LASTNAME</td>
+                      <td>{this.state.profiles.last_name}</td>
+                    </tr>
+                      <tr>
+                        <td>INFORMATION</td>
+                        <td>{this.state.profiles.description}</td>
+                      </tr>
+                      <tr>
+                        <td>COMPANY NAME</td>
+                        <td>{this.state.profiles.company_name}</td>
+                      </tr>
+                      <tr>
+                        <td>ADDRESS</td>
+                        <td>{this.state.profiles.address}</td>
+                    </tr>
+                    </tbody>
                   </table>
                   <br/>
                   <a href={'http://localhost:3000/history'} id="history">VIEW ORDER HISTORY</a>
