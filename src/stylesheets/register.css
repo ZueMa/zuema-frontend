@@ -1,5 +1,10 @@
-.container-box {
+.container-fluid {
+    margin-top: 50px;
     text-align: left;
+}
+
+.row {
+    text-align: center;
 }
 
 .btn {
@@ -48,24 +53,12 @@
 }
 
 .data-input-head {
+    text-align: left;
     margin-left: 10%;
     margin-top: 3%;   
 }
 
-.data-input-field-s {
-    height: 40px;
-    width: 88%;
-    margin-top: 1%;
-}
-
-.data-input-field-l {
-    height: 125px;
-    width: 88%;
-    margin-top: 1%;
-}
-
-.data-input-field-xl {
-    height: 215px;
+.form-control {
     width: 88%;
     margin-top: 1%;
 }
@@ -73,7 +66,6 @@
 .btn-register {
     color: white !important;
     background-color: #F5AB0E;
-    margin-left: 10%;
     margin-top: 4%;
     height: 49px;
     width: 79%;

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 class Register extends Component {
     render() {
         return(
-        <div className="menu-register">
+        <div className="container-fluid">
             <div className="text-head">REGISTER
                 <div className="line-rectangle"></div>
             </div>
