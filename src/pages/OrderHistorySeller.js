@@ -42,7 +42,7 @@ class OrderHistorySeller extends Component {
                 <div className="seller_history_table">
                     <div className="head">ORDER HISTORY</div>
                     <div className="color_line_head"></div><br />
-                    <table className="table table-hover">
+                    <table className="table table-responsive table-hover">
                         <thead>
                             <tr>
                                 <th></th>
