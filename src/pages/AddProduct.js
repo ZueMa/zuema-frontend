@@ -11,7 +11,7 @@ class AddProduct extends Component {
       full_description: '',
       price: '',
       category: '',
-      num_stock: '',
+      num_stocks: '',
       image: [],
     }
   }
@@ -22,7 +22,7 @@ class AddProduct extends Component {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     
-      num_stock: this.state.num_stock,      
+      num_stocks: this.state.num_stock,      
       short_description: this.state.short_description,
       full_description: this.state.full_description,
       image: this.state.image
@@ -70,7 +70,7 @@ class AddProduct extends Component {
               <p>PRODUCT PRICE*</p>
               <input name="price" type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
               <p>PRODUCT QTY*</p>
-              <input name="num_stock" type="number" size="5" onChange={(e) => this.setState({num_stock: e.target.value})}/>
+              <input name="num_stocks" type="number" size="5" onChange={(e) => this.setState({num_stocks: e.target.value})}/>
               <p>PRODUCT IMAGE*</p>
                 <input type="file" name="image" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
               <div>
