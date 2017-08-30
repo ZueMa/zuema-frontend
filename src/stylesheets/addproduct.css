@@ -37,6 +37,16 @@ select{
   /*overflow: hidden;*/
 }
 
+button {
+  background-color: #ecac3f;
+  border: none;
+  color: white;
+  font-size: 50px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 150px;
+}
+
 @media (max-width: 575px) { 
   input {
     width: 95%;
@@ -60,14 +70,10 @@ select{
     padding-left: 0;
     float: left;
   }
+  button {
+    font-size: 20px;
+    padding: 10px 50px;
+  }
 }
 
-button {
-  background-color: #ecac3f;
-  border: none;
-  color: white;
-  font-size: 50px;
-  text-decoration: none;
-  display: inline-block;
-  padding: 10px 150px;
-}
+
