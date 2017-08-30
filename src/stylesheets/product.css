@@ -19,6 +19,15 @@
   border: 1px solid darkgrey;
 }
 
+.text-header {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: left !important;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 3%;
+}
+
 .text-side {
   text-align: left;
   margin-top: 15px;
@@ -41,7 +50,7 @@
 .btn-add-cart {
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 40px;
+  font-size: 30px;
   width: 90%;
   height: 8%;
   background-color: #F5AB0E;
@@ -54,15 +63,16 @@
 }
 
 .price {
-  font-size: 50px;
+  font-size: 40px;
   color: #5f5f5f;
   margin-left: 4.5%;
+  margin-right: 4.5%;
 }
 
 .product-text {
   color: #5f5f5f;
-  height: 300px;
-  font-size: 30px;
+  height: 250px;
+  font-size: 27.5px;
   margin-top: 8%;
   margin-left: 5%;
   margin-right: 5%;
@@ -82,7 +92,7 @@
 
 .btn-edit {
   margin-right: 5%;
-  font-size: 40px;
+  font-size: 30px;
   width: 47.5%;
   height: 8%;
   background-color: #F5AB0E;
@@ -95,7 +105,7 @@
 }
 
 .btn-remove{
-  font-size: 40px;
+  font-size: 30px;
   width: 47.5%;
   height: 8%;
   background-color: #FF6767;

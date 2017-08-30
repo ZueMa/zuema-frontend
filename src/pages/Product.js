@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { products } from './Store'
 import '../stylesheets/product.css'
+import { connect } from 'react-redux'
 
 class Product extends Component {
   constructor(props) {
     super(props)
     this.role = 'seller'
+    this.products = props.products
   }
 
   handleAddCart = (e) => {
@@ -30,14 +31,14 @@ class Product extends Component {
               <div className="product-full-image"></div>
             </div>
             <div className="col-md-6 text-side">
-              <div className="text-head">
-                {products[this.props.match.params.id].name}
+              <div className="text-header">
+                {this.products[this.props.match.params.id-1].name}
                 <div className="line-rectangle"></div>
               </div>
               <div className="product-full-info">
-                <p className="product-text">{products[this.props.match.params.id].detail}</p>
-                <div className="price">{products[this.props.match.params.id].price} BAHT</div>
-                <p className="product-stock">Only {products[this.props.match.params.id].stock} left in stock</p>
+                <p className="product-text">{this.products[this.props.match.params.id-1].short_description}</p>
+                <div className="price">{this.products[this.props.match.params.id-1].price} BAHT</div>
+                <p className="product-stock">Only {this.products[this.props.match.params.id-1].stock} left in stock</p>
               </div>
               <button className="btn btn-add-cart" onClick={this.handleAddCart}>ADD TO CART</button>
             </div>
@@ -52,14 +53,14 @@ class Product extends Component {
               <div className="product-full-image"></div>
             </div>
             <div className="col-md-6 text-side">
-              <div className="text-head">
-                {products[this.props.match.params.id].name}
+              <div className="text-header">
+                {this.products[this.props.match.params.id-1].name}
                 <div className="line-rectangle"></div>
               </div>
               <div className="product-full-info">
-                <p className="product-text">{products[this.props.match.params.id].detail}</p>
-                <div className="price">{products[this.props.match.params.id].price} BAHT</div>
-                <p className="product-stock">Only {products[this.props.match.params.id].stock} left in stock</p>
+                <p className="product-text">{this.products[this.props.match.params.id-1].short_description}</p>
+                <div className="price">{this.products[this.props.match.params.id-1].price} BAHT</div>
+                <p className="product-stock">Only {this.products[this.props.match.params.id-1].stock} left in stock</p>
               </div>
               <div className="button-container">
                 <button className="btn btn-edit" onClick={this.handleEdit}>EDIT</button>
@@ -78,4 +79,10 @@ class Product extends Component {
   }
 }
 
-export default Product;
+function mapStateToProps(state) {
+  return {
+    products: state.storage.products,
+  }
+}
+
+export default connect(mapStateToProps)(Product);

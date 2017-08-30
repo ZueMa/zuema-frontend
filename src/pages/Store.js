@@ -2,24 +2,21 @@ import React, { Component } from 'react'
 import ProductCard from '../components/ProductCard'
 import '../stylesheets/store.css'
 import Categories from '../components/Categories'
-
-export const products = [{name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5},
-                         {name:"PRODUCT NAME", detail:"Short description", price: 130.25, stock: 5}]
+import axios from 'axios'
+import { connect } from 'react-redux'
+import { updateStorage } from '../actions/storeAction'
 
 class Store extends Component {
+  componentDidMount() {
+    axios.get('https://private-00f7e-zuema.apiary-mock.com/products')
+    .then((res) => {
+      this.props.updateStorage(res.data.products)
+    })
+    .catch((res) => {
+      console.error(res) 
+    })
+  }
+
   render() {
     return(
       <div className="store">
@@ -37,12 +34,24 @@ class Store extends Component {
             <hr className="line"/>
           </div>
         </div>
-        {products.map((itm, id) => {
-          return <ProductCard name={itm.name} detail={itm.detail} id={id} price={itm.price} key={id}/>
+        {this.props.products.map((itm, id) => {
+          return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
         })}
       </div>
     )
   }
 }
 
-export default Store;
+function mapStateToProps(state) {
+  return {
+    products: state.storage.products,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    updateStorage: (products) => dispatch(updateStorage(products)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Store);
