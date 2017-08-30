@@ -6,35 +6,35 @@ class AddProduct extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      product_name: '',
-      short_des: '',
-      full_des: '',
+      name: '',
+      short_description: '',
+      full_description: '',
       price: '',
       category: '',
-      quantity: '',
+      num_stock: '',
       image: [],
     }
   }
 
   addProduct(e) {
     console.log(e)
-    axios.post('http://localhost:8000/addproduct/', {
-      product_name: this.state.product_name,
-      short_des: this.state.short_des,
-      full_des: this.state.full_des,
-      price: this.state.price,
-      category: this.state.category,
-      quantity: this.state.quantity
+    axios.post('https://private-00f7e-zuema.apiary-mock.com/sellers/me/products', {
+      name: this.state.name,
+      category: this.state.category,  
+      price: this.state.price,     
+      num_stock: this.state.num_stock,      
+      short_description: this.state.short_description,
+      full_description: this.state.full_description,
+      image: this.state.image
     })
     .then((response) => {
       console.log(response)
+      
     })
     .catch((response) => {
       console.error(response) 
     })
   }
-
-  
 
   render() {
     return(
@@ -45,17 +45,16 @@ class AddProduct extends Component {
         </div>
 
         <div id="wrapper" className="input-form">
-        <h1>{this.state.image}</h1>
-
+      
             <div id="left-col">
               <p>PRODUCT NAME*</p>
-              <input name="product_name" size="50" onChange={(e) => this.setState({price: e.target.value})}/>
+              <input name="name" onChange={(e) => this.setState({name: e.target.value})}/>
               <br/>
               <p>SHORT DESCRIPTION*</p>
-              <input name="short_des" size="50" onChange={(e) => this.setState({short_des: e.target.value})}/>
+              <input name="short_description" onChange={(e) => this.setState({short_description: e.target.value})}/>
               <br/>
               <p>FULL DESCRIPTION*</p>
-              <textarea name="full_des" id="input-text" cols="51" rows="6" onChange={(e) => this.setState({full_des: e.target.value})}/>
+              <textarea name="full_description" id="input-text" cols="51" rows="6" onChange={(e) => this.setState({full_description: e.target.value})}/>
             </div>
 
             <div id="right-col">
@@ -71,12 +70,13 @@ class AddProduct extends Component {
               <p>PRODUCT PRICE*</p>
               <input name="price" type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
               <p>PRODUCT QTY*</p>
-              <input name="quantity" type="number" size="5" onChange={(e) => this.setState({quantity: e.target.value})}/>
+              <input name="num_stock" type="number" size="5" onChange={(e) => this.setState({num_stock: e.target.value})}/>
               <p>PRODUCT IMAGE*</p>
-                <input type="file" name="image" onChange={(e) => this.setState({image: e.target.value})}/>
-                <input type="submit" name="submit" value="submit"/>
+                <input type="file" name="image" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
+              <div>
               <br/>
               <button onClick={(e) => this.addProduct(e)}>ADD PRODUCT</button>
+              </div>
             </div>
         </div>
       </div>

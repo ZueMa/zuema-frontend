@@ -26,9 +26,48 @@ a{
   margin-top: 2.5%;
 }
 
+input {
+  width: 100%;
+}
+
 select{
   width: 500px;
   height: 60px;
   border: 1px;
   /*overflow: hidden;*/
+}
+
+@media (max-width: 575px) { 
+  input {
+    width: 95%;
+    border: 1px solid lightgrey;    
+  }
+  input[type="number"]{
+    width: 40%;
+  }
+  textarea {
+    border: 1px solid lightgrey;        
+    width: 50%;
+  }
+  select {
+    width: 95%;
+    
+  }
+  #wrapper {
+    font-size: 20px;
+  }
+  #right-col{
+    padding-left: 0;
+    float: left;
+  }
+}
+
+button {
+  background-color: #ecac3f;
+  border: none;
+  color: white;
+  font-size: 50px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 150px;
 }
