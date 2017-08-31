@@ -85,6 +85,9 @@
 }
 
 .trash-btn {
-    border: none !important;
-    background-color: transparent !important;
+    border: none;
+    background-color: transparent;
+}
+.trash-btn:hover {
+    color: #FF6767;
 }
