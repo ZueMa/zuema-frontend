@@ -20,7 +20,7 @@ class ProductTableListCart extends Component {
         let quantity = null;
         let tash = null;
         if(this.page === "editCart") {  
-            quantity = <td className="product_info"><input type="number" min="1" max="10" value={this.quantity} class="form-control" id="input_quitity"></input></td>;
+            quantity = <td className="product_info"><input type="number" class="form-control" min="1" max="10" placeholder={this.quantity}/></td>;
             tash = <td className="product_info"><button className="trash-btn"><i className="fa fa-trash fa-4x" /></button></td>;
         }else {
             quantity = <td className="product_info">{this.quantity}</td>
