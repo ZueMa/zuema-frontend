@@ -41,10 +41,10 @@ button {
   background-color: #ecac3f;
   border: none;
   color: white;
-  font-size: 50px;
+  font-size: 30px;
   text-decoration: none;
   display: inline-block;
-  padding: 10px 150px;
+  padding: 10px 180px;
 }
 
 @media (max-width: 575px) { 
