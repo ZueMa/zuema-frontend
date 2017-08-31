@@ -2,17 +2,11 @@
 .cart {
     height: 100%;
     font-family: 'Oswald', sans-serif;
+    color: #5F5F5F;
 }
 
 .head-cart-page {
-    text-align: left;
     padding: 4rem 0 3rem 0;
-    display: inline-block;
-}
-
-.page-title {
-    font-size: 50px;
-    font-weight: bold;
 }
 
 .edit-cart-btn {
@@ -71,11 +65,10 @@
     margin: 20px 0 20px 0;
 }
 
-.table-cart tfoot td {
-    border-top: 1px solid #C2C2C2;
-    padding: 1rem 0 1rem 0;
+.cart tfoot td {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: normal;
+    text-align: center !important;
 }
 
 .order-name {
@@ -87,6 +80,11 @@
 }
 
 
-/* .table-hover tbody tr:hover  {
+.table-hover tbody tr:hover  {
     background-color:  #F8F1E0 !important;
-} */
+}
+
+.trash-btn {
+    border: none !important;
+    background-color: transparent !important;
+}
