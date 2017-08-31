@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import PurchaseHistoryCard from '../components/PurchaseHistoryCard'
 import BackButton from '../components/BackButton'
 import '../stylesheets/History.css'
@@ -60,39 +61,59 @@ export const purchaseHistoryList = [
     }
 ]
 
-class PurchaseHistoryBuyer extends Component{
+class PurchaseHistoryBuyer extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            purchaseList: []
+        }
+    }
+
+    handlePurchaseList(e) {
+        console.log(e)
+        axios.get('https://private-00f7e-zuema.apiary-mock.com/buyers/me/purchases').then((response) => {
+            console.log(response.data)
+            this.setState({purchaseList: response.data.purchases})
+        }).catch((response) => {
+            console.error(response)
+        })
+    }
+
+    componentDidMount(e) {
+        this.handlePurchaseList(e)
+    }
+
     render() {
         return (
             <div>
                 <BackButton />
                 <div className="purchase_history_table">
-                <div className="head">PURCHASE HISTORY</div>
-                <div className="color_line_head"></div><br />
-                <table className="table table-hover">
-                    <thead>
-                        <tr>
-                            <th className="head_table_title">ORDER</th>
-                            <th className="head_table_title_center">PRICE</th>
-                            <th className="head_table_title_center">QUANTITY</th>
-                            <th className="head_table_title_center">STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { purchaseHistoryList.map((items, id) => {
-                            return <PurchaseHistoryCard 
-                                        total_items={items.cart.total_items}
-                                        total_price={items.cart.total_price}
-                                        item_list={items.cart.item}
-                                        cart_id={items.cart.cart_id}
-                                        id={id}
-                                        key={id}
-                                        status={items.is_shipped}/>
-                        })}
-
-                    </tbody>
-                </table>
-
-            </div>
+                    <div className="head">PURCHASE HISTORY</div>
+                    <div className="color_line_head"></div><br />
+                    <table className="table table-hover">
+                        <thead>
+                            <tr>
+                                <th className="head_table_title">ORDER</th>
+                                <th className="head_table_title_center">PRICE</th>
+                                <th className="head_table_title_center">QUANTITY</th>
+                                <th className="head_table_title_center">STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { this.state.purchaseList.map((items, id) => {
+                                return <PurchaseHistoryCard 
+                                            total_items={items.cart.total_items}
+                                            total_price={items.cart.total_price}
+                                            item_list={items.cart.item}
+                                            cart_id={items.cart.cart_id}
+                                            id={id}
+                                            key={id}
+                                            status={items.is_shipped}/>
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }
