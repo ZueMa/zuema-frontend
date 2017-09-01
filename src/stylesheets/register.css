@@ -76,3 +76,8 @@
     background-color: white;
     border: 3px solid #FFC567 !important;
 }
+
+
+@media (max-width: 500px) {
+        
+}

@@ -116,3 +116,9 @@ h2 {
   background:#FBDC9B;
   margin-bottom: 2%;
 }
+
+@media (max-width: 500px) {
+  .text-head {
+    font-size: 30px;
+  }
+}
