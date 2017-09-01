@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class CategoryCard extends Component {
-  render() {
-    return(
-        <div className="CategoryCard">Category</div>
-    )
-  }
+const CategoryCard = () => {
+  return(
+      <div className="category-card">Category</div>
+  )
 }
 
 export default CategoryCard;

@@ -41,8 +41,7 @@ class EditProduct extends Component {
       image: this.state.image
     })
     .then((response) => {
-      console.log(response)
-      
+      console.log(response)    
     })
     .catch((response) => {
       console.error(response) 
@@ -84,9 +83,9 @@ class EditProduct extends Component {
               <p>PRODUCT QTY*</p>
               <input name="num_stock" value={this.state.num_stocks} type="number" size="5" onChange={(e) => this.setState({num_stocks: e.target.value})}/>
               <p>PRODUCT IMAGE*</p>
-                <input type="file"  name="image" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
-              <div>
-              <br/>
+              <input type="file"  name="image" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
+            <div>
+            <br/>
               <button onClick={(e) => this.updateProduct(e)}>SAVE</button>
               </div>
             </div>
