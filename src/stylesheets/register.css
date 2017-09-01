@@ -14,9 +14,10 @@
 
 .btn-seller {
     background-color:#FFC567 !important;
-    height: 400px;
+    height: 350px;
     width: 70%;
     font-size: 50px !important;
+    margin-top: 8%; 
 }
 
 .btn-seller:hover {
@@ -27,9 +28,10 @@
 
 .btn-buyer {
     background-color:#67D5FF !important;
-    height: 400px;
+    height: 350px;
     width: 70%;
     font-size: 50px !important;
+    margin-top: 8%;     
 }
 
 .btn-buyer:hover {
@@ -67,6 +69,7 @@
     color: white !important;
     background-color: #F5AB0E;
     margin-top: 4%;
+    margin-bottom: 10%;    
     height: 49px;
     width: 79%;
 }
@@ -76,3 +79,32 @@
     background-color: white;
     border: 3px solid #FFC567 !important;
 }
+
+@media (max-width: 500px) {
+    .btn-seller {
+        height: 180px;
+        width: 70%;
+        font-size: 30px !important;
+        margin-top: 10%; 
+    }
+
+    .btn-buyer {
+        height: 180px;
+        width: 70%;
+        font-size: 30px !important;        
+    }
+
+    .data-input-head {
+        font-size: 16px;
+        margin-top: 5%;
+    }
+
+    .box-quote {
+        margin-top: 5%;
+        font-size: 16px;
+    }
+
+    .box-quote {
+        margin-top: 5%;
+    }
+}   
