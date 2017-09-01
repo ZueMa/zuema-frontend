@@ -19,7 +19,7 @@ class EditProduct extends Component {
     axios.get('https://private-00f7e-zuema.apiary-mock.com/products/product_id').then( res => {
       this.setState({
         name: res.data.name,
-        short_description: '',
+        short_description: res.data.short_description,
         full_description: res.data.full_description,
         price: res.data.price,
         category: res.data.category,
@@ -63,7 +63,7 @@ class EditProduct extends Component {
               <input name="name" value={this.state.name} onChange={(e) => this.setState({name: e.target.value})}/>
               <br/>
               <p>SHORT DESCRIPTION*</p>
-              <input name="short_description" onChange={(e) => this.setState({short_description: e.target.value})}/>
+              <input name="short_description" value={this.state.short_description} onChange={(e) => this.setState({short_description: e.target.value})}/>
               <br/>
               <p>FULL DESCRIPTION*</p>
               <textarea name="full_description" id="input-text" value={this.state.full_description} cols="51" rows="6" onChange={(e) => this.setState({full_description: e.target.value})}/>
@@ -87,7 +87,7 @@ class EditProduct extends Component {
                 <input type="file"  name="image" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
               <div>
               <br/>
-              <button onClick={(e) => this.updateProduct(e)}>SAVE CHANGE</button>
+              <button onClick={(e) => this.updateProduct(e)}>SAVE</button>
               </div>
             </div>
         </div>
