@@ -1,40 +1,32 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import OrderHistoryCard from '../components/OrderHistoryCard'
 import BackButton from '../components/BackButton'
 import '../stylesheets/History.css'
 
-export const orderHistoryList = [
-    {
-        id: 1,
-        product: {
-            product_id: 1,
-            name: "Coke",
-            category: "Leisure",
-            short_description: "Good for relaxation!",
-            price: 1000.0,
-            image: "EX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r"
-        },
-        num_items: 2,
-        revenue: 2000.0,
-        timestamp: "25/04/17, 09:12:52"
-    },
-    {
-        id: 2,
-        product: {
-            product_id: 2,
-            name: "Cloth",
-            category: "Clothing",
-            short_description: "So soft!",
-            price: 500.0,
-            image: "2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg"
-        },
-        num_items: 1,
-        revenue: 500.0,
-        timestamp: "25/04/17, 09:12:52"
-    }
-]
-
 class OrderHistorySeller extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            orders: []
+        }
+    }
+
+    handleOrderHis(e) {
+        console.log(e)
+        axios.get('https://private-00f7e-zuema.apiary-mock.com/sellers/me/orders').then((response) => {
+            console.log(response)
+            this.setState({orders: response.data.orders})
+        }).catch((response) => {
+            console.error(response)
+        })
+    }
+
+    componentDidMount(e) {
+        this.handleOrderHis(e)
+    }
+
     render(){
         return (
             <div>
@@ -42,7 +34,7 @@ class OrderHistorySeller extends Component {
                 <div className="seller_history_table">
                     <div className="head">ORDER HISTORY</div>
                     <div className="color_line_head"></div><br />
-                    <table className="table table-hover">
+                    <table className="table table-responsive table-hover">
                         <thead>
                             <tr>
                                 <th></th>
@@ -53,7 +45,7 @@ class OrderHistorySeller extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            { orderHistoryList.map((item, id) => {
+                            { this.state.orders.map((item, id) => {
                                 return <OrderHistoryCard 
                                             name={item.product.name}
                                             short_description={item.product.short_description}

@@ -1,0 +1,66 @@
+.text-details {
+    font-size: 20px;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;    
+}
+
+.btn-login-seller {
+    color: white !important;
+    background-color: #F5AB0E;
+    margin-top: 4%;
+    margin-left: 18%;    
+    height: 50px;
+    width: 30%;
+}
+
+.btn-login-seller:hover {
+    color: #F5AB0E !important;
+    background-color: white;
+    border: 3px solid #FFC567 !important;
+}
+
+.btn-login-buyer {
+    color: white !important;
+    background-color: #67D5FF;
+    margin-top: 4%;
+    margin-left: 3%;
+    height: 50px;
+    width: 30%;
+}
+
+.btn-login-buyer:hover {
+    color: #67D5FF !important;
+    background-color: white;
+    border: 3px solid #67D5FF !important;
+}
+
+.footer-container {
+    text-align: center;
+    margin-top: 2%;    
+}
+
+.register-link {
+    text-align: center;
+    color: #E57935 !important;
+    font-style: medium;
+}
+.register-link:hover {
+    color: #E57935 !important;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 500px) {
+    .btn-login-buyer {
+        font-size: 10px;
+        height: 40px;
+    }
+
+    .btn-login-seller {
+        font-size: 10px;
+        height: 40px;
+    }
+}
+
