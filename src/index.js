@@ -18,6 +18,8 @@ import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import AddProduct from './pages/AddProduct'
+import EditProduct from './pages/EditProduct'
 import OrderHistorySeller from './pages/OrderHistorySeller'
 import PurchaseHistoryBuyer from './pages/PurchaseHistoryBuyer'
 import ItemPurchaseTable from './pages/ItemPurchaseTable'
@@ -53,6 +55,8 @@ ReactDOM.render(
           <Route path="/register" component={Register}/>
           <Route path="/registerseller" component={RegisterSeller}/>
           <Route path="/registerbuyer" component={RegisterBuyer}/>
+          <Route exact path="/addproduct" component={AddProduct}/>
+          <Route exact path="/editproduct" component={EditProduct}/>
         </Switch>
       </App>
     </ConnectedRouter>
