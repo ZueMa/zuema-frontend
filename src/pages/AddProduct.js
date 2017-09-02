@@ -44,22 +44,22 @@ class AddProduct extends Component {
           <p id="type">SELLER</p>
         </div>
 
-        <div id="wrapper" className="input-form">
+        <div className="input-form">
       
-            <div id="left-col">
-              <p>PRODUCT NAME*</p>
-              <input name="name" onChange={(e) => this.setState({name: e.target.value})}/>
+            <div className="left-col">
+              <p className="label">PRODUCT NAME*</p>
+              <input className="input-text" onChange={(e) => this.setState({name: e.target.value})}/>
               <br/>
-              <p>SHORT DESCRIPTION*</p>
-              <input name="short_description" onChange={(e) => this.setState({short_description: e.target.value})}/>
+              <p className="label">SHORT DESCRIPTION*</p>
+              <input className="input-text" onChange={(e) => this.setState({short_description: e.target.value})}/>
               <br/>
-              <p>FULL DESCRIPTION*</p>
-              <textarea name="full_description" id="input-text" cols="51" rows="6" onChange={(e) => this.setState({full_description: e.target.value})}/>
+              <p className="label">FULL DESCRIPTION*</p>
+              <textarea className="input-box" id="input-text" cols="51" rows="6" onChange={(e) => this.setState({full_description: e.target.value})}/>
             </div>
 
-            <div id="right-col">
-              <p>CHOOSE CATEGORY*</p>
-              <select name="category" onChange={(e) => this.setState({category: e.target.value})}>
+            <div className="right-col">
+              <p className="label">CHOOSE CATEGORY*</p>
+              <select className="select-category" onChange={(e) => this.setState({category: e.target.value})}>
                 <option>CLOTHES</option>
                 <option>SPORTS</option>
                 <option>KIDS</option>
@@ -67,15 +67,15 @@ class AddProduct extends Component {
                 <option>GARDEN</option>
                 <option>...</option>
               </select>
-              <p>PRODUCT PRICE*</p>
-              <input name="price" type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
-              <p>PRODUCT QTY*</p>
-              <input name="num_stocks" type="number" size="5" onChange={(e) => this.setState({num_stocks: e.target.value})}/>
-              <p>PRODUCT IMAGE*</p>
-                <input type="file" name="image" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
+              <p className="label">PRODUCT PRICE*</p>
+              <input className="input-num" type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
+              <p className="label">PRODUCT QTY*</p>
+              <input className="input-num" type="number" size="5" onChange={(e) => this.setState({num_stocks: e.target.value})}/>
+              <p className="label">PRODUCT IMAGE*</p>
+                <input type="file" className="input-text" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
               <div>
               <br/>
-              <button onClick={(e) => this.addProduct(e)}>ADD PRODUCT</button>
+              <button className="submit-button"onClick={(e) => this.addProduct(e)}>ADD PRODUCT</button>
               </div>
             </div>
         </div>

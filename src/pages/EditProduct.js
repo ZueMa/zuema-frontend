@@ -56,21 +56,21 @@ class EditProduct extends Component {
           <p id="type">SELLER</p>
         </div>
 
-        <div id="wrapper" className="input-form">
-            <div id="left-col">
-              <p>PRODUCT NAME*</p>
-              <input name="name" value={this.state.name} onChange={(e) => this.setState({name: e.target.value})}/>
+        <div className="input-form">
+            <div className="left-col">
+              <p className="label">PRODUCT NAME*</p>
+              <input className="input-text" value={this.state.name} onChange={(e) => this.setState({name: e.target.value})}/>
               <br/>
-              <p>SHORT DESCRIPTION*</p>
-              <input name="short_description" value={this.state.short_description} onChange={(e) => this.setState({short_description: e.target.value})}/>
+              <p className="label">SHORT DESCRIPTION*</p>
+              <input className="input-text" value={this.state.short_description} onChange={(e) => this.setState({short_description: e.target.value})}/>
               <br/>
-              <p>FULL DESCRIPTION*</p>
-              <textarea name="full_description" id="input-text" value={this.state.full_description} cols="51" rows="6" onChange={(e) => this.setState({full_description: e.target.value})}/>
+              <p className="label">FULL DESCRIPTION*</p>
+              <textarea  className="input-box" value={this.state.full_description} cols="51" rows="6" onChange={(e) => this.setState({full_description: e.target.value})}/>
             </div>
 
-            <div id="right-col">
-              <p>CHOOSE CATEGORY*</p>
-              <select name="category" value={this.state.category} onChange={(e) => this.setState({category: e.target.value})}>
+            <div className="right-col">
+              <p className="label">CHOOSE CATEGORY*</p>
+              <select className="select-category" value={this.state.category} onChange={(e) => this.setState({category: e.target.value})}>
                 <option>CLOTHES</option>
                 <option>SPORTS</option>
                 <option>KIDS</option>
@@ -78,15 +78,15 @@ class EditProduct extends Component {
                 <option>GARDEN</option>
                 <option>...</option>
               </select>
-              <p>PRODUCT PRICE*</p>
-              <input name="price" value={this.state.price} type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
-              <p>PRODUCT QTY*</p>
-              <input name="num_stock" value={this.state.num_stocks} type="number" size="5" onChange={(e) => this.setState({num_stocks: e.target.value})}/>
-              <p>PRODUCT IMAGE*</p>
-              <input type="file"  name="image" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
+              <p className="label">PRODUCT PRICE*</p>
+              <input className="input-num" value={this.state.price} type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
+              <p className="label">PRODUCT QTY*</p>
+              <input className="input-num" value={this.state.num_stocks} type="number" size="5" onChange={(e) => this.setState({num_stocks: e.target.value})}/>
+              <p className="label">PRODUCT IMAGE*</p>
+              <input  className="input-text" type="file" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
             <div>
             <br/>
-              <button onClick={(e) => this.updateProduct(e)}>SAVE</button>
+              <button className="submit-button" onClick={(e) => this.updateProduct(e)}>SAVE</button>
               </div>
             </div>
         </div>

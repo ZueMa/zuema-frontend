@@ -1,76 +1,78 @@
+.container-box{
+  margin-right: 5%;
+}
+
 .input-form {
-  padding-left: 5%;
   font-size: 30px;
   text-align: left;
+  margin-top: 5%;
 }
 
-p{
-  margin-top: 1.5%;
+.label{
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-#wrapper{
-  margin-top: 2.5%;
-}
-
-#left-col{
+.left-col{
+    padding-left: 5%;
     display:block;
     float:left;
 }
-#right-col{
+
+.right-col{
     padding-left: 10%;
     display:block;
     float:left;
 }
 
-a{
-  margin-top: 2.5%;
-}
-
-input {
+.input-text {
   width: 100%;
 }
 
-select{
+
+.select-category{
   width: 500px;
   height: 60px;
   border: 1px;
-  /*overflow: hidden;*/
 }
 
-button {
+.submit-button {
   background-color: #ecac3f;
   border: none;
   color: white;
   font-size: 30px;
   text-decoration: none;
   display: inline-block;
-  padding: 10px 180px;
+  padding: 10px 200px;
 }
 
 @media (max-width: 575px) { 
-  input {
-    width: 95%;
+  .input-text {
     border: 1px solid lightgrey;    
   }
-  input[type="number"]{
-    width: 40%;
-  }
-  textarea {
-    border: 1px solid lightgrey;        
+  .input-num{
     width: 50%;
+    border: 1px solid lightgrey;        
   }
-  select {
+  .input-box {
+    border: 1px solid lightgrey;        
+    width: 100%;
+  }
+  .select-category {
     width: 95%;
     
   }
-  #wrapper {
+ .input-form {
     font-size: 20px;
   }
-  #right-col{
-    padding-left: 0;
+  .right-col{
+    padding-left: 5%;    
     float: left;
   }
-  button {
+  .left-col{
+    padding-left: 5%;
+  }
+  .submit-button {
     font-size: 20px;
     padding: 10px 50px;
   }
