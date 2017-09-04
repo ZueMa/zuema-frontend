@@ -12,6 +12,8 @@ import App from './pages/App'
 
 // Reducers
 import storeReducer from './reducers/storeReducer'
+import productReducer from './reducers/productReducer'
+
 // Pages
 import Cart from './pages/Cart'
 import Login from './pages/Login'
@@ -33,6 +35,7 @@ const middleware = routerMiddleware(history)
 
 const store = createStore(
   combineReducers({
+    product: productReducer,
     storage: storeReducer,
     router: routerReducer
   }),
