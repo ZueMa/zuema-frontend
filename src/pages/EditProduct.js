@@ -71,13 +71,14 @@ class EditProduct extends Component {
             <div className="right-col">
               <p className="label">CHOOSE CATEGORY*</p>
               <select className="select-category" value={this.state.category} onChange={(e) => this.setState({category: e.target.value})}>
-                <option>CLOTHES</option>
-                <option>SPORTS</option>
-                <option>KIDS</option>
-                <option>IT</option>
-                <option>GARDEN</option>
-                <option>...</option>
-              </select>
+                <option value="" disabled hidden>CHOOSE CATEGORY</option>
+                <option value="clothes">CLOTHES</option>
+                <option value="electronics">ELECTRONICS</option>
+                <option value="kids">KIDS</option>
+                <option value="sport">SPORT</option>
+                <option value="Cosmetics">COSMETICS</option>
+                <option value="garden">GARDEN</option>
+            </select>
               <p className="label">PRODUCT PRICE*</p>
               <input className="input-num" value={this.state.price} type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
               <p className="label">PRODUCT QTY*</p>
