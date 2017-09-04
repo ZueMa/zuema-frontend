@@ -11,7 +11,7 @@ import 'font-awesome/css/font-awesome.css'
 import App from './pages/App'
 
 // Reducers
-import appReducer from './reducers/appReducer'
+import storeReducer from './reducers/storeReducer'
 // Pages
 import Cart from './pages/Cart'
 import Login from './pages/Login'
@@ -33,7 +33,7 @@ const middleware = routerMiddleware(history)
 
 const store = createStore(
   combineReducers({
-    app: appReducer,
+    storage: storeReducer,
     router: routerReducer
   }),
   applyMiddleware(middleware)
