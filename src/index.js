@@ -11,13 +11,15 @@ import 'font-awesome/css/font-awesome.css'
 import App from './pages/App'
 
 // Reducers
-import appReducer from './reducers/appReducer'
+import storeReducer from './reducers/storeReducer'
 // Pages
 import Cart from './pages/Cart'
 import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import AddProduct from './pages/AddProduct'
+import EditProduct from './pages/EditProduct'
 import OrderHistorySeller from './pages/OrderHistorySeller'
 import PurchaseHistoryBuyer from './pages/PurchaseHistoryBuyer'
 import ItemPurchaseTable from './pages/ItemPurchaseTable'
@@ -31,7 +33,7 @@ const middleware = routerMiddleware(history)
 
 const store = createStore(
   combineReducers({
-    app: appReducer,
+    storage: storeReducer,
     router: routerReducer
   }),
   applyMiddleware(middleware)
@@ -53,6 +55,8 @@ ReactDOM.render(
           <Route path="/register" component={Register}/>
           <Route path="/registerseller" component={RegisterSeller}/>
           <Route path="/registerbuyer" component={RegisterBuyer}/>
+          <Route exact path="/addproduct" component={AddProduct}/>
+          <Route exact path="/editproduct" component={EditProduct}/>
         </Switch>
       </App>
     </ConnectedRouter>
