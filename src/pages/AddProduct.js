@@ -20,12 +20,11 @@ class AddProduct extends Component {
     console.log(e)
     console.log(this.state)
     // axios.post('https://private-00f7e-zuema.apiary-mock.com/sellers/me/products', {
-    axios.post('http://127.0.0.1:8000/sellers/me/products/', {
-      withCredentials: true,
+    axios.post('http://127.0.0.1:8000/sellers/1/products/', {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     
-      num_stocks: this.state.num_stock,      
+      num_stocks: this.state.num_stocks,      
       short_description: this.state.short_description,
       full_description: this.state.full_description,
       image: this.state.image

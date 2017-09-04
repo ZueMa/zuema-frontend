@@ -16,7 +16,7 @@ class EditProduct extends Component {
     }
   }
   componentWillMount(){
-    axios.get('https://private-00f7e-zuema.apiary-mock.com/products/product_id').then( res => {
+    axios.get('http://localhost:8000/products/2/').then( res => {
       this.setState({
         name: res.data.name,
         short_description: res.data.short_description,
@@ -31,11 +31,11 @@ class EditProduct extends Component {
 
   updateProduct(e) {
     console.log(e)
-    axios.put('https://private-00f7e-zuema.apiary-mock.com/sellers/me/products/product_id', {
+    axios.put('http://localhost:8000/sellers/1/products/2/', {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     
-      num_stocks: this.state.num_stock,      
+      num_stocks: this.state.num_stocks,      
       short_description: this.state.short_description,
       full_description: this.state.full_description,
       image: this.state.image
@@ -72,12 +72,12 @@ class EditProduct extends Component {
               <p className="label">CHOOSE CATEGORY*</p>
               <select className="select-category" value={this.state.category} onChange={(e) => this.setState({category: e.target.value})}>
                 <option value="" disabled hidden>CHOOSE CATEGORY</option>
-                <option value="clothes">CLOTHES</option>
-                <option value="electronics">ELECTRONICS</option>
-                <option value="kids">KIDS</option>
-                <option value="sport">SPORT</option>
+                <option value="Clothes">CLOTHES</option>
+                <option value="Electronics">ELECTRONICS</option>
+                <option value="Kids">KIDS</option>
+                <option value="Sports">SPORT</option>
                 <option value="Cosmetics">COSMETICS</option>
-                <option value="garden">GARDEN</option>
+                <option value="Home & Garden">HOME & GARDEN</option>
             </select>
               <p className="label">PRODUCT PRICE*</p>
               <input className="input-num" value={this.state.price} type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
