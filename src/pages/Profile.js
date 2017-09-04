@@ -5,7 +5,7 @@ import axios from 'axios'
 class Profile extends Component {
   constructor(props){
     super(props);
-    this.state = { profiles:[],type: 'SELLER' };
+    this.state = { profiles:[],type: 'BUYER' };
   }
 
   componentWillMount(){
@@ -16,7 +16,7 @@ class Profile extends Component {
       });
     }
     else if (this.state.type === 'BUYER'){
-      axios.get('https://private-00f7e-zuema.apiary-mock.com/buyers/me').then( res => {
+      axios.get('http://localhost:8000/buyers/1/').then( res => {
         const profiles = res.data;
         this.setState({ profiles });
       });
