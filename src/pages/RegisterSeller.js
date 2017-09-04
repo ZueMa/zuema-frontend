@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BackButton from '../components/BackButton'
 import axios from 'axios'
 
 class RegisterSeller extends Component {
@@ -36,49 +37,54 @@ class RegisterSeller extends Component {
 
     render() {
         return(
-        <div className="container-box">
-            <div className="text-head">REGISTER
-                <div className="line-rectangle"></div>
+        <div>
+            <div className="back-button">
+                <i class="fa fa-angle-left" aria-hidden="true" onClick={() => this.props.history.goBack()}>BACK</i>
             </div>
-            <div className="box-quote">&nbsp;&nbsp;&nbsp;SELLER</div>
 
-            <div className="row">
-                <div className="col-sm-6 col-md-6">
-                    <p className="data-input-head">
-                        USERNAME <br/>
-                        <input className="data-input-field-s" type="text" name="username" onChange={(e) => this.setState({username: e.target.value})}/>
-                    </p>
-                    <p className="data-input-head">
-                        PASSWORD <br/>
-                        <input className="data-input-field-s" type="text" name="password" onChange={(e) => this.setState({password: e.target.value})}/>
-                    </p>
-                    <p className="data-input-head">
-                        COMPANY NAME <br/>
-                        <input className="data-input-field-s" type="text" name="company_name" onChange={(e) => this.setState({company_name: e.target.value})}/>
-                    </p>
-                    <p className="data-input-head">
-                        FIRSTNAME <br/>
-                        <input className="data-input-field-s" type="text" name="first_name" onChange={(e) => this.setState({first_name: e.target.value})}/>
-                    </p>
-                    <p className="data-input-head">
-                        LASTNAME <br/>
-                        <input className="data-input-field-s" type="text" name="last_name" onChange={(e) => this.setState({last_name: e.target.value})}/>
-                    </p>
+            <div className="container-fluid">
+                <div className="text-head">REGISTER
+                    <div className="line-rectangle"></div>
                 </div>
+                <div className="box-quote">&nbsp;&nbsp;&nbsp;SELLER</div>
 
-                <div className="col-sm-6 col-md-6">
-                    <p className="data-input-head">
-                        ADDRESS <br/>
-                        <input className="data-input-field-l" type="text" name="address" onChange={(e) => this.setState({address: e.target.value})}/>
-                    </p>
-                    <p className="data-input-head">
-                        INFORMATION <br/>
-                        <input className="data-input-field-l" type="text" name="description" onChange={(e) => this.setState({description: e.target.value})}/>
-                    </p>
-                    <button type="button" className="btn btn-register" onClick={(e) => this.handleRegister(e)}>REGISTER</button>
+                <div className="row">
+                    <div className="col-sm-6 col-md-6">
+                        <p className="data-input-head">
+                            USERNAME <br/>
+                            <input className="form-control" type="text" name="username" onChange={(e) => this.setState({username: e.target.value})}/>
+                        </p>
+                        <p className="data-input-head">
+                            PASSWORD <br/>
+                            <input className="form-control" type="password" name="password" onChange={(e) => this.setState({password: e.target.value})}/>
+                        </p>
+                        <p className="data-input-head">
+                            COMPANY NAME <br/>
+                            <input className="form-control" type="text" name="company_name" onChange={(e) => this.setState({company_name: e.target.value})}/>
+                        </p>
+                        <p className="data-input-head">
+                            FIRSTNAME <br/>
+                            <input className="form-control" type="text" name="first_name" onChange={(e) => this.setState({first_name: e.target.value})}/>
+                        </p>
+                        <p className="data-input-head">
+                            LASTNAME <br/>
+                            <input className="form-control" type="text" name="last_name" onChange={(e) => this.setState({last_name: e.target.value})}/>
+                        </p>
+                    </div>
+
+                    <div className="col-sm-6 col-md-6">
+                        <p className="data-input-head">
+                            ADDRESS <br/>
+                            <textarea rows="6" className="form-control" type="text" name="address" onChange={(e) => this.setState({address: e.target.value})}/>
+                        </p>
+                        <p className="data-input-head">
+                            INFORMATION <br/>
+                            <textarea rows="4" className="form-control" type="text" name="description" onChange={(e) => this.setState({description: e.target.value})}/>
+                        </p>
+                        <button type="button" className="btn btn-register" onClick={(e) => this.handleRegister(e)}>REGISTER</button>
+                    </div>
                 </div>
             </div>
-        
         </div>
     )
   }
