@@ -34,10 +34,6 @@
 }
 
 @media (max-width: 575px) { 
-  .category-card {
-    height: 250px;
-  }
-
   .text-side {
     height: 100%;
   }

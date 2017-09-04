@@ -6,24 +6,24 @@ const Categories = () => {
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-4 no-padding">
-          <CategoryCard/> 
+          <CategoryCard text="Cosmetics" url="#cosmetics"/> 
         </div>
         <div className="col-md-4 no-padding">
-          <CategoryCard/> 
+          <CategoryCard text="Clothes" url="#clothes"/> 
         </div>
         <div className="col-md-4 no-padding">
-          <CategoryCard/> 
+          <CategoryCard text="Electronics" url="#electronics"/> 
         </div>
       </div>
       <div className="row">
         <div className="col-md-4 no-padding">
-          <CategoryCard/> 
+          <CategoryCard text="Home & Garden" url="#home-garden"/> 
         </div>
         <div className="col-md-4 no-padding">
-          <CategoryCard/> 
+          <CategoryCard text="Kids" url="#kids"/> 
         </div>
         <div className="col-md-4 no-padding">
-          <CategoryCard/> 
+          <CategoryCard text="Sports" url="#sports"/> 
         </div>
       </div>
     </div>
