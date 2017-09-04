@@ -15,7 +15,7 @@ class Login extends Component {
 
   handleRegister(e, type) {
     console.log(e)
-    axios.post('https://private-00f7e-zuema.apiary-mock.com/authentication', {
+    axios.post('http://localhost:8000/authentication/', {
       username: this.state.username,
       password: this.state.password,
       user_type: type
