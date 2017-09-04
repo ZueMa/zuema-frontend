@@ -25,6 +25,7 @@ class Cart extends Component {
               <th className="head_table_title">PRODUCT NAME</th>
               <th className="head_table_title_center">PRICE</th>
               <th className="head_table_title_center">QUILITY</th>
+              <th className="head_table_title_center">DELETE</th>
             </tr>
           </thead>
 
@@ -39,6 +40,7 @@ class Cart extends Component {
 
           <tfoot>
             <tr>
+              <td></td>
               <td></td>
               <td></td>
               <td>TOTAL</td>

@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
+import logo from '../res/logo.png'
 
 class ProductTableListCart extends Component {
     constructor(props) {
@@ -12,31 +13,25 @@ class ProductTableListCart extends Component {
         this.price = props.price
         this.img = props.image
         this.url = "/products/" + this.id
-
-        this.page = props.page
     }
 
     render() {
-        let quantity = null;
-        let tash = null;
-        if(this.page === "editCart") {  
-            quantity = <td className="product_info"><input type="number" class="form-control" min="1" max="10" placeholder={this.quantity}/></td>;
-            tash = <td className="product_info"><button className="trash-btn"><i className="fa fa-trash fa-2x" /></button></td>;
-        }else {
-            quantity = <td className="product_info">{this.quantity}</td>
-        }
         return (
             <tr className="order_card">
                 <td>
-                    <img className="product_img_list" src="./src/res/logo.png" class="img-thumbnail"/>
+                    <img className="product_img_list" src={logo}/>
                 </td>
                 <td className="product_name_shortdes">
                     <p className="product_info">{this.name}</p>
                     <p className="product_shortdes">{this.short_description}</p>
                 </td>
                 <td className="product_info">{this.price}</td>
-                {quantity}
-                {tash}
+                <td className="product_info">
+                    <input type="number" min="1" max="10" placeholder={this.quantity}/>
+                </td>
+                <td className="product_info">
+                    <button className="trash-btn"><i className="fa fa-trash fa-2x" /></button>
+                </td>
             </tr>
         )
     }
