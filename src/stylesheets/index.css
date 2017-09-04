@@ -20,7 +20,7 @@ a {
 .app {
   height: 100%;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
 }
 
 .logo {
@@ -55,7 +55,7 @@ a {
 
 .nav-button-rec {
   display: flex;
-  justify-content: center;  
+  justify-content: center;
   align-items: center;
   height: 7vh;
   width: 98%;
