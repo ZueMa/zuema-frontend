@@ -50,7 +50,7 @@ ReactDOM.render(
           <Route path="/orderhistoryseller" component={OrderHistorySeller}/>
           <Route path="/purchasehistorybuyer" component={PurchaseHistoryBuyer}/>
           <Route path="/itempurchaseTable/:id" component={ItemPurchaseTable}/>
-          <Route path="/register" component={Register}/>
+          <Route path="/register/" component={Register}/>
           <Route path="/registerseller" component={RegisterSeller}/>
           <Route path="/registerbuyer" component={RegisterBuyer}/>
         </Switch>

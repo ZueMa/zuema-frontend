@@ -14,8 +14,8 @@ class RegisterBuyer extends Component {
     }
     
     handleRegister(e) {
-        console.log(e)
-        axios.post('https://private-00f7e-zuema.apiary-mock.com/buyers', {
+        console.log(this.state)
+        axios.post('http://localhost:8000/buyers/', {
           username: this.state.username,
           password: this.state.password,
           first_name: this.state.first_name,
