@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import BackButton from '../components/BackButton'
 import axios from 'axios'
 
 class RegisterSeller extends Component {
