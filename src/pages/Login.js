@@ -13,12 +13,12 @@ class Login extends Component {
     }
   }
 
-  handleRegister(e) {
+  handleRegister(e, type) {
     console.log(e)
     axios.post('https://private-00f7e-zuema.apiary-mock.com/authentication', {
       username: this.state.username,
       password: this.state.password,
-      user_type: this.state.user_type
+      user_type: type
     })
     .then((response) => {
       console.log(response)
@@ -49,10 +49,10 @@ class Login extends Component {
         
         <div className="row">
           <div className="col-sm-6 col-md-6">
-            <button type="button" className="btn btn-login-seller" onChange={(e) => this.setState({user_type: 'seller'})} onClick={(e) => this.handleRegister(e)}>LOGIN AS SELLER</button>
+            <button type="button" className="btn btn-login-seller" onClick={(e) => this.handleRegister(e, 'seller')}>LOGIN AS SELLER</button>
           </div>
           <div className="col-sm-6 col-md-6">
-            <button type="button" className="btn btn-login-buyer" onChange={(e) => this.setState({user_type: 'buyer'})} onClick={(e) => this.handleRegister(e)}>LOGIN AS BUYER</button>
+            <button type="button" className="btn btn-login-buyer" onClick={(e) => this.handleRegister(e, 'buyer')}>LOGIN AS BUYER</button>
           </div>
         </div>
 
