@@ -8,9 +8,8 @@ import { updateStorage } from '../actions/storeAction'
 
 class Store extends Component {
   componentDidMount() {
-    axios.get('https://private-00f7e-zuema.apiary-mock.com/products')
+    axios.get('http://localhost:8000/products/')
     .then((res) => {
-      console.log(res.data.products)
       this.props.updateStorage(res.data.products)
     })
     .catch((res) => {
