@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
 import '../stylesheets/addproduct.css'
 
 class EditProduct extends Component {
@@ -12,10 +13,11 @@ class EditProduct extends Component {
       price: '',
       category: '',
       num_stocks: '',
-      image: [],
+      image: '',
     }
+    this.product = props.product
   }
-  componentWillMount(){
+  componentDidMount(){
     axios.get('http://localhost:8000/products/2/').then( res => {
       this.setState({
         name: res.data.name,
@@ -31,6 +33,9 @@ class EditProduct extends Component {
 
   updateProduct(e) {
     console.log(e)
+    if (this.state.image === ""){
+      this.setState({image: this.state.image.replace("localhost:8000", "")})
+    }
     axios.put('http://localhost:8000/sellers/1/products/2/', {
       name: this.state.name,
       category: this.state.category,  
@@ -59,18 +64,18 @@ class EditProduct extends Component {
         <div className="input-form">
             <div className="left-col">
               <p className="label">PRODUCT NAME*</p>
-              <input className="input-text" value={this.state.name} onChange={(e) => this.setState({name: e.target.value})}/>
+              <input className="input-text" value={this.props.product.name} onChange={(e) => this.setState({name: e.target.value})}/>
               <br/>
               <p className="label">SHORT DESCRIPTION*</p>
-              <input className="input-text" value={this.state.short_description} onChange={(e) => this.setState({short_description: e.target.value})}/>
+              <input className="input-text" value={this.props.product.short_description} onChange={(e) => this.setState({short_description: e.target.value})}/>
               <br/>
               <p className="label">FULL DESCRIPTION*</p>
-              <textarea  className="input-box" value={this.state.full_description} cols="51" rows="6" onChange={(e) => this.setState({full_description: e.target.value})}/>
+              <textarea  className="input-box" value={this.props.product.full_description} cols="51" rows="6" onChange={(e) => this.setState({full_description: e.target.value})}/>
             </div>
 
             <div className="right-col">
               <p className="label">CHOOSE CATEGORY*</p>
-              <select className="select-category" value={this.state.category} onChange={(e) => this.setState({category: e.target.value})}>
+              <select className="select-category" value={this.props.product.category} onChange={(e) => this.setState({category: e.target.value})}>
                 <option value="" disabled hidden>CHOOSE CATEGORY</option>
                 <option value="Clothes">CLOTHES</option>
                 <option value="Electronics">ELECTRONICS</option>
@@ -80,9 +85,9 @@ class EditProduct extends Component {
                 <option value="Home & Garden">HOME & GARDEN</option>
             </select>
               <p className="label">PRODUCT PRICE*</p>
-              <input className="input-num" value={this.state.price} type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
+              <input className="input-num" value={this.props.product.price} type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
               <p className="label">PRODUCT QTY*</p>
-              <input className="input-num" value={this.state.num_stocks} type="number" size="5" onChange={(e) => this.setState({num_stocks: e.target.value})}/>
+              <input className="input-num" value={this.props.product.num_stocks} type="number" size="5" onChange={(e) => this.setState({num_stocks: e.target.value})}/>
               <p className="label">PRODUCT IMAGE*</p>
               <input  className="input-text" type="file" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
             <div>
@@ -95,5 +100,13 @@ class EditProduct extends Component {
     )
   }
 }
+
+// function mapStateToProps(state) {
+//   return {
+//     product: state.product.data
+//   }
+// }
+
+// export default connect(mapStateToProps)(EditProduct);
 
 export default EditProduct;
