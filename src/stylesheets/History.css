@@ -57,10 +57,19 @@ td {
 
 .table {
     animation: fadein 1s;
+
 }
 
 .table > tbody > tr > td {
     vertical-align: middle !important;
+}
+
+.status_point_received {
+    color: #90BA80;
+}
+
+.status_point_delivering {
+    color: #E57935;
 }
 
 @keyframes line_head_ani {

@@ -1,5 +1,10 @@
 .container-box {
+    margin-top: 50px;
     text-align: left;
+}
+
+.row {
+    text-align: center;
 }
 
 .btn {
@@ -9,9 +14,10 @@
 
 .btn-seller {
     background-color:#FFC567 !important;
-    height: 400px;
+    height: 350px;
     width: 70%;
     font-size: 50px !important;
+    margin-top: 8%; 
 }
 
 .btn-seller:hover {
@@ -22,9 +28,10 @@
 
 .btn-buyer {
     background-color:#67D5FF !important;
-    height: 400px;
+    height: 350px;
     width: 70%;
     font-size: 50px !important;
+    margin-top: 8%;     
 }
 
 .btn-buyer:hover {
@@ -48,24 +55,12 @@
 }
 
 .data-input-head {
+    text-align: left;
     margin-left: 10%;
     margin-top: 3%;   
 }
 
-.data-input-field-s {
-    height: 40px;
-    width: 88%;
-    margin-top: 1%;
-}
-
-.data-input-field-l {
-    height: 125px;
-    width: 88%;
-    margin-top: 1%;
-}
-
-.data-input-field-xl {
-    height: 215px;
+.form-control {
     width: 88%;
     margin-top: 1%;
 }
@@ -73,8 +68,8 @@
 .btn-register {
     color: white !important;
     background-color: #F5AB0E;
-    margin-left: 10%;
     margin-top: 4%;
+    margin-bottom: 10%;    
     height: 49px;
     width: 79%;
 }
@@ -84,3 +79,28 @@
     background-color: white;
     border: 3px solid #FFC567 !important;
 }
+
+@media (max-width: 500px) {
+    .btn-seller {
+        height: 180px;
+        width: 70%;
+        font-size: 30px !important;
+        margin-top: 10%; 
+    }
+
+    .btn-buyer {
+        height: 180px;
+        width: 70%;
+        font-size: 30px !important;        
+    }
+
+    .data-input-head {
+        font-size: 16px;
+        margin-top: 5%;
+    }
+
+    .box-quote {
+        margin-top: 10%;
+        font-size: 16px;
+    }
+}   
