@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../stylesheets/product.css'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import { push } from 'react-router-redux'
 import { updateProduct } from '../actions/productAction'
 
 class Product extends Component {
@@ -26,7 +27,7 @@ class Product extends Component {
   }
 
   handleEdit = (e) => {
-
+    this.props.push('/editproduct')
   }
 
   handleRemove = (e) => {
@@ -102,7 +103,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateProduct: (product) => dispatch(updateProduct(product))
+    updateProduct: (product) => dispatch(updateProduct(product)),
+    push: (url) => dispatch(push(url)), 
+    
   }
 }
 
