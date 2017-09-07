@@ -1,4 +1,4 @@
-.container-fluid {
+.container-box {
     margin-top: 50px;
     text-align: left;
 }
@@ -100,11 +100,7 @@
     }
 
     .box-quote {
-        margin-top: 5%;
+        margin-top: 10%;
         font-size: 16px;
-    }
-
-    .box-quote {
-        margin-top: 5%;
     }
 }   

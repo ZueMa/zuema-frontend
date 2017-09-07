@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import '../stylesheets/login.css'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 class Login extends Component {
@@ -7,20 +9,16 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      firstname: '',
-      lastname: '',
-      address: ''
+      user_type: ''
     }
   }
 
-  handleRegister(e) {
+  handleRegister(e, type) {
     console.log(e)
-    axios.post('https://private-00f7e-zuema.apiary-mock.com/authentication?New%20item=', {
+    axios.post('http://localhost:8000/authentication/', {
       username: this.state.username,
       password: this.state.password,
-      first_name: this.state.firstname,
-      last_name: this.state.lastname,
-      address: this.state.address
+      user_type: type
     })
     .then((response) => {
       console.log(response)
@@ -32,29 +30,36 @@ class Login extends Component {
 
   render() {
     return(
-      <div>
-        Register
-        <p>
-          username
-          <input type="text" name="username" onChange={(e) => this.setState({username: e.target.value})}/>
-        </p>
-        <p>
-          password
-          <input type="text" name="password" onChange={(e) => this.setState({password: e.target.value})}/>
-        </p>
-        <p>
-          firstname
-          <input type="text" name="firstname" onChange={(e) => this.setState({firstname: e.target.value})}/>
-        </p>
-        <p>
-          lastname
-          <input type="text" name="lastname" onChange={(e) => this.setState({lastname: e.target.value})}/>
-        </p>
-        <p>
-          address
-          <input type="text" name="address" onChange={(e) => this.setState({address: e.target.value})}/>
-        </p>
-        <button onClick={(e) => this.handleRegister(e)}>Submit</button>
+      <div className="container-fluid">
+        <div className="indent-head">
+          <div className="text-head">LOGIN
+            <div className="line-rectangle"></div>
+          </div>
+        </div>
+        <div className="text-details">
+          <p className="data-input-head">
+            USERNAME <br/>
+            <input className="form-control" type="text" name="username" onChange={(e) => this.setState({username: e.target.value})}/>
+          </p>
+          <p className="data-input-head">
+            PASSWORD <br/>
+            <input className="form-control" type="password" name="username" onChange={(e) => this.setState({password: e.target.value})}/>
+          </p>
+        </div>
+        
+        <div className="row">
+          <div className="col-sm-6 col-md-6">
+            <button type="button" className="btn btn-login-seller" onClick={(e) => this.handleRegister(e, 'seller')}>LOGIN AS SELLER</button>
+          </div>
+          <div className="col-sm-6 col-md-6">
+            <button type="button" className="btn btn-login-buyer" onClick={(e) => this.handleRegister(e, 'buyer')}>LOGIN AS BUYER</button>
+          </div>
+        </div>
+
+        <br/>
+        <div className="footer-container">
+          <span>NOT A MEMBER? <Link to={`/register`}><span className="register-link">REGISTER</span></Link></span>
+        </div>
       </div>
     )
   }
