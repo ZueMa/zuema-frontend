@@ -8,7 +8,7 @@ import swal from 'sweetalert'
 class Product extends Component {
   constructor(props) {
     super(props)
-    this.role = 'buyer'
+    this.role = 'seller'
     this.products = props.products
   }
 
