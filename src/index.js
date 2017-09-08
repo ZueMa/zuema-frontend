@@ -7,11 +7,12 @@ import { Route, Switch } from 'react-router'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 import './stylesheets/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
-
-// Components
-import NavButton from './components/NavButton'
+import 'font-awesome/css/font-awesome.css'
+import App from './pages/App'
 
 // Reducers
+import storeReducer from './reducers/storeReducer'
+import productReducer from './reducers/productReducer'
 
 // Pages
 import Cart from './pages/Cart'
@@ -19,6 +20,14 @@ import Login from './pages/Login'
 import Store from './pages/Store'
 import Profile from './pages/Profile'
 import Product from './pages/Product'
+import AddProduct from './pages/AddProduct'
+import EditProduct from './pages/EditProduct'
+import OrderHistorySeller from './pages/OrderHistorySeller'
+import PurchaseHistoryBuyer from './pages/PurchaseHistoryBuyer'
+import ItemPurchaseTable from './pages/ItemPurchaseTable'
+import Register from './pages/Register'
+import RegisterSeller from './pages/RegisterSeller'
+import RegisterBuyer from './pages/RegisterBuyer'
 
 const history = createHistory()
 
@@ -26,37 +35,34 @@ const middleware = routerMiddleware(history)
 
 const store = createStore(
   combineReducers({
+    product: productReducer,
+    storage: storeReducer,
     router: routerReducer
   }),
   applyMiddleware(middleware)
 )
 
 ReactDOM.render(
-  <div className="App">
-    <div className="Nav">
-      <div className="NavContainer">
-        <div className="Logo">LOGO</div>
-      </div> 
-      <div>
-        <NavButton text="HOME" url="/" shape="circle"/>
-        <NavButton text="CART" url="/cart" shape="circle"/>
-        <NavButton text="PROFILE" url="/profile" shape="circle"/>
-      </div>
-      <NavButton text="LOGIN" url="/login" shape="rec"/>
-    </div>
-    <div className="Store">
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <Switch>
-            <Route exact path="/" component={Store}/>
-            <Route exact path="/products/:id" component={Product}/>
-            <Route exact path="/cart" component={Cart}/>
-            <Route exact path="/profile" component={Profile}/>
-            <Route exact path="/login" component={Login}/>
-          </Switch>
-        </ConnectedRouter>
-      </Provider>
-    </div>
-  </div>
-  , document.getElementById('root')
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App>          
+        <Switch>
+          <Route exact path="/" component={Store}/>
+          <Route path="/products/:id" component={Product}/>
+          <Route path="/cart" component={Cart}/>
+          <Route path="/profile" component={Profile}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/orderhistoryseller" component={OrderHistorySeller}/>
+          <Route path="/purchasehistorybuyer" component={PurchaseHistoryBuyer}/>
+          <Route path="/itempurchaseTable/:id" component={ItemPurchaseTable}/>
+          <Route path="/register/" component={Register}/>
+          <Route path="/registerseller" component={RegisterSeller}/>
+          <Route path="/registerbuyer" component={RegisterBuyer}/>
+          <Route exact path="/addproduct" component={AddProduct}/>
+          <Route exact path="/editproduct" component={EditProduct}/>
+        </Switch>
+      </App>
+    </ConnectedRouter>
+  </Provider>
+  ,document.getElementById('root')
 )
