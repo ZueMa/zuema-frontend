@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import swal from 'sweetalert'
 
 class ProductCard extends Component {
   constructor(props) {
@@ -8,6 +9,13 @@ class ProductCard extends Component {
       this.detail = props.detail
       this.id = props.id
       this.price = props.price
+  }
+
+  handleOnClick = () => {
+    swal({
+      title: "Product Added!",
+      icon: "success",
+    });
   }
 
   render() {
@@ -26,7 +34,7 @@ class ProductCard extends Component {
                 {this.price}
               </div>
               <div className="text-right">
-                <i className="fa fa-cart-plus fa-lg pointer" onClick={() => console.log("item added")}></i>
+                <i className="fa fa-cart-plus fa-lg pointer" onClick={this.handleOnClick}></i>
               </div>
             </div>
           </div>
