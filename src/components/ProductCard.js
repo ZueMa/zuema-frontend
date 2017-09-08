@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-class ProductCard extends Component {
+class ProductCard extends React.Component {
   constructor(props) {
     super(props);
       this.name = props.name
@@ -12,26 +12,18 @@ class ProductCard extends Component {
 
   render() {
     return (
-      <div className="card">
-        <div className="product-card">
-          <Link to={`/products/${this.id}`} className="product-img">
-          </Link>
-          <div className="product-info">
-            <div>
-              <div className="product-name">{this.name}</div>
-              <div className="product-detail">{this.detail}</div> 
-            </div>
-            <div className="product-price flex">
-              <div>
-                {this.price}
-              </div>
-              <div className="text-right">
-                <i className="fa fa-cart-plus fa-lg pointer" onClick={() => console.log("item added")}></i>
-              </div>
-            </div>
+      <Link to={`/products/${this.id}`} style={{display: "inline-block"}}>
+        <div className="ProductCard">
+          <div className="ProductImg">
           </div>
+          <div className="ProductInfo">
+              <div className="ProductName">{this.name}</div>
+              <div className="ProductDetail">{this.detail}</div> 
+              <div className="ProductPrice">{this.price}</div>
+          </div>
+          
         </div>
-      </div>
+      </Link>
     )
   }
 }
