@@ -1,33 +1,26 @@
 import React, { Component } from 'react'
-import { push } from 'react-router-redux'
-import { connect } from 'react-redux'
 
-class NavButton extends Component {
+export default class NavComponent extends Component {
   constructor(props) {
     super(props);
     this.text = props.text;
     this.url = props.url;
     this.shape = props.shape;
-    this.icon = props.icon;
   }
 
   render() {
     let button = undefined;
     if (this.shape === "circle") {
-      button = (
-        <div className="nav-container nav-add-margin" onClick={() => this.props.push(this.url)}>
-          <i className={this.icon + ` fa-4x`}></i>
-          <h5>{this.text}</h5>
-        </div>
-      )
+      button = <a href={this.url} className="NavContainer">
+                 <div className="NavButtonCircle"></div>
+                 <h5>{this.text}</h5>
+               </a>
     } else {
-      button = (
-        <div className="nav-container" onClick={() => this.props.push(this.url)}>
-          <div className="nav-button-rec">
-            <h4>{this.text}</h4>
-          </div>
-        </div>
-      )
+        button = <a href={this.url} className="NavContainer">
+                  <div className="NavButtonRec">
+                    <h4>{this.text}</h4>
+                  </div>
+                </a>
     }
     return(
       <div>
@@ -36,11 +29,3 @@ class NavButton extends Component {
     )
   }
 }
-
-function mapDispatchToProps(dispatch) {
-  return{
-    push: (url) => dispatch(push(url))
-  }
-}
-
-export default connect(null, mapDispatchToProps)(NavButton);
