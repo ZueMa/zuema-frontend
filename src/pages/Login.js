@@ -47,7 +47,7 @@ class Login extends Component {
           </p>
         </div>
         
-        <div className="row">
+        <div className="row lower-margin">
           <div className="col-sm-6 col-md-6">
             <button type="button" className="btn btn-login-seller" onClick={(e) => this.handleRegister(e, 'seller')}>LOGIN AS SELLER</button>
           </div>
