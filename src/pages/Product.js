@@ -3,6 +3,7 @@ import '../stylesheets/product.css'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { updateProduct } from '../actions/productAction'
+import swal from 'sweetalert'
 
 class Product extends Component {
   constructor(props) {
@@ -22,7 +23,10 @@ class Product extends Component {
   }
 
   handleAddCart = (e) => {
-
+    swal({
+      title: "Product Added!",
+      icon: "success",
+    });
   }
 
   handleEdit = (e) => {
