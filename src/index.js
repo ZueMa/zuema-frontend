@@ -13,6 +13,7 @@ import App from './pages/App'
 // Reducers
 import storeReducer from './reducers/storeReducer'
 import productReducer from './reducers/productReducer'
+import cartReducer from './reducers/cartReducer'
 
 // Pages
 import Cart from './pages/Cart'
@@ -28,7 +29,6 @@ import ItemPurchaseTable from './pages/ItemPurchaseTable'
 import Register from './pages/Register'
 import RegisterSeller from './pages/RegisterSeller'
 import RegisterBuyer from './pages/RegisterBuyer'
-import CartEdit from './pages/CartEdit'
 
 const history = createHistory()
 
@@ -36,6 +36,7 @@ const middleware = routerMiddleware(history)
 
 const store = createStore(
   combineReducers({
+    cart: cartReducer,
     product: productReducer,
     storage: storeReducer,
     router: routerReducer

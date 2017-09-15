@@ -1,10 +1,40 @@
 import React, { Component } from 'react'
 import '../stylesheets/cart.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import { updateCart } from '../actions/cartAction'
 import ProductTableListCart from '../components/ProductTableListCart'
 
+
 class Cart extends Component {
+  handleConnectApi = () => {
+    axios.get('http://localhost:8000/buyers/1/cart/')
+    .then((res) => {
+      console.log("new data: " + res.data)
+      this.props.updateCart(res.data.cart_id, res.data.total_price, res.data.items)
+    })
+    .catch((res) => {
+      console.error(res)
+    })
+  }
+
+  componentDidMount(e) {
+    this.handleConnectApi();
+  }
+
+  checkoutCart(e) {
+    axios.post('https://localhost:8000/buyers/1/cart/purchase/')
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((res) => {
+      console.log(res)
+    })
+  }
+
   render() {
+    console.log('render')
     return(
       <div className="container cart">
         <div className="head-cart-page row">
@@ -13,8 +43,7 @@ class Cart extends Component {
             <div className="color_line_head"></div><br />
           </div>
           <div className="col-md-6">
-            <button className="btn checkout-cart-btn">CHECKOUT</button>
-            <Link to={'/cartedit'}><button className="btn edit-cart-btn">EDIT</button></Link>
+            <Link to={'/purchasehistorybuyer'}><button className="btn checkout-cart-btn" onClick={(e) => {this.checkoutCart(e)}}>CHECKOUT</button></Link>
           </div>
         </div>
         
@@ -30,12 +59,15 @@ class Cart extends Component {
           </thead>
 
           <tbody>
-            <ProductTableListCart 
-            name="PRODUCT NAME" 
-            short_descrition="Short description"
-            price="100"
-            image="logo.png"
-            quantity="1"/>
+            {this.props.cartList.map((itm, id) => {
+              return <ProductTableListCart 
+              product_id={itm.product_id}
+              name={itm.name}
+              short_descrition={itm.short_descrition}
+              price={itm.price}
+              quantity={itm.num_items}
+              key={itm.product_id} />
+            })}
           </tbody>
 
           <tfoot>
@@ -44,7 +76,7 @@ class Cart extends Component {
               <td></td>
               <td></td>
               <td>TOTAL</td>
-              <td>1000.00</td>
+              <td>{this.props.total_price}</td>
             </tr>
           </tfoot>
         </table>
@@ -53,4 +85,18 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+function mapStateToProps(state) {
+  return {
+    cart_id: state.cart.cart_id,
+    total_price: state.cart.total_price,
+    cartList: state.cart.cartList,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return{
+    updateCart: (cart_id, total_price, cartList) => dispatch(updateCart(cart_id, total_price, cartList)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

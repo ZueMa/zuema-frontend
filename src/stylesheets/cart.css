@@ -91,3 +91,15 @@
 .trash-btn:hover {
     color: #FF6767;
 }
+
+.quantity-product-btn {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    outline: none;
+    margin: 5px;
+}
+.quantity-product-btn:hover {
+    border: 1px solid #FFC567;
+    color: #FFC567;
+}
