@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import '../stylesheets/login.css'
+import { push } from 'react-router-redux'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { addCookie } from '../actions/cookieActions'
 import axios from 'axios'
+
 
 class Login extends Component {
   constructor(props) {
@@ -9,23 +13,23 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      user_type: ''
+      user_type: '',
+      next_url: '/'
     }
   }
 
-  handleRegister(e, type) {
+  handleLogin(e, user_type) {
     console.log(e)
     axios.post('http://localhost:8000/authentication/', {
       username: this.state.username,
       password: this.state.password,
-      user_type: type
+      user_type: user_type
     })
-    .then((response) => {
-      console.log(response)
-    })
-    .catch((response) => {
-      console.error(response) 
-    })
+    .then((res) => {
+      console.log(res)
+      this.props.cookie(res.data.user_id, res.data.user_type)
+      this.props.push(this.state.next_url);
+    });
   }
 
   render() {
@@ -49,10 +53,10 @@ class Login extends Component {
         
         <div className="row lower-margin">
           <div className="col-sm-6 col-md-6">
-            <button type="button" className="btn btn-login-seller" onClick={(e) => this.handleRegister(e, 'seller')}>LOGIN AS SELLER</button>
+            <button type="button" className="btn btn-login-seller" onClick={(e) => this.handleLogin(e, 'seller')}>LOGIN AS SELLER</button>
           </div>
           <div className="col-sm-6 col-md-6">
-            <button type="button" className="btn btn-login-buyer" onClick={(e) => this.handleRegister(e, 'buyer')}>LOGIN AS BUYER</button>
+            <button type="button" className="btn btn-login-buyer" onClick={(e) => this.handleLogin(e, 'buyer')}>LOGIN AS BUYER</button>
           </div>
         </div>
 
@@ -65,4 +69,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapDispatchToProps(dispatch) {
+  return {
+    cookie: (user_id, user_type) => dispatch(addCookie(user_id, user_type)),
+    push: (next_url) => dispatch(push(next_url)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login);
