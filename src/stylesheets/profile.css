@@ -1,5 +1,4 @@
 #type{
-  /*position: absolute;*/
   top: 250px;
   left: 150px;
   font-size: 30px;
@@ -19,26 +18,30 @@ table {
 }
 
 #history{
-  background-color: #ecac3f;
+  color: white !important;
+  background-color: #F5AB0E;
   border: none;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   padding: 20px 60px;
+  border: 3px solid #F5AB0E !important;
+  
+}
+
+#history:hover {
+  color: #F5AB0E !important;
+  background-color: white;
+  border: 3px solid #FFC567 !important;
 }
 
 @media (max-width: 575px) { 
   #type{
     font-size: 25px;
   }
-  .info {
-    
+  .info {  
     font-size: 20px;
   }
   #history{
     font-size: 20px;
     padding: 20px 40px;
   }
+
 }
