@@ -14,6 +14,7 @@ class AddProduct extends Component {
       category: '',
       num_stocks: '',
       image: '',
+      id:'',
     }
   }
 

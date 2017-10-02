@@ -15,6 +15,7 @@ class EditProduct extends Component {
       category: this.product.category,
       num_stocks: this.product.num_stocks,
       image: '',
+      product_id: this.props.product.product_id
     }
   }
 
@@ -33,11 +34,13 @@ class EditProduct extends Component {
   // }
 
   updateProduct(e) {
+    console.log(this.props.id);
+    console.log(this.state.product_id);
     // console.log(e)
     // if (this.state.image === ""){
     //   this.setState({image: this.state.image.replace("localhost:8000", "")})
     // }
-    axios.put('http://localhost:8000/sellers/1/products/2/', {
+    axios.put('http://localhost:8000/sellers/'+this.props.id+'/products/'+this.state.product_id+'/', {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     
@@ -104,7 +107,8 @@ class EditProduct extends Component {
 
 function mapStateToProps(state) {
   return {
-    product: state.product.data
+    product: state.product.data,
+    id: state.cookie.id,
   }
 }
 
