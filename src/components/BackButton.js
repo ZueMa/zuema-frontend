@@ -9,7 +9,7 @@ class BackButton extends Component {
     render() {
         return (
             <div className="back_button">
-                <Link to={this.url}><i class="fa fa-angle-left" aria-hidden="true">BACK</i></Link>
+                <Link to={'profile'}><i class="fa fa-angle-left" aria-hidden="true">BACK</i></Link>
             </div>
         )
     }
