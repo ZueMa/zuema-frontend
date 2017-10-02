@@ -1,30 +1,36 @@
 import React, { Component } from 'react'
 import '../stylesheets/profile.css'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
 class Profile extends Component {
   constructor(props){
     super(props);
-    this.state = { profiles:[],type: 'BUYER' };
+    this.state = { profiles:[]};
   }
 
   componentWillMount(){
-    if (this.state.type === 'SELLER'){
-      axios.get('https://private-00f7e-zuema.apiary-mock.com/sellers/me').then( res => {
+
+    console.log(this.props.type);
+    if (this.props.type === 'seller'){
+      axios.get('http://localhost:8000/sellers/'+this.props.id+'/').then( res => {
         const profiles = res.data;
         this.setState({ profiles });
       });
     }
-    else if (this.state.type === 'BUYER'){
-      axios.get('http://localhost:8000/buyers/1/').then( res => {
+    else if (this.props.type === 'buyer'){
+      axios.get('http://localhost:8000/buyers/'+this.props.id+'/').then( res => {
         const profiles = res.data;
         this.setState({ profiles });
       });
+    }
+    else {
+      
     }
   }
 
   render() {
-    if (this.state.type === 'BUYER'){
+    if (this.props.type === 'buyer'){
       return(
           <div className="container-box">
             <div className="text-head">PROFILE
@@ -52,13 +58,13 @@ class Profile extends Component {
                    </tbody>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/history'} id="history">VIEW PURCHASE HISTORY</a>
+                  <a href={'http://localhost:3000/purchasehistorybuyer/'+this.props.id+'/'} id="history">VIEW PURCHASE HISTORY</a>
                 </div>
               </div>
             </div>
       )
     }
-    else if (this.state.type === 'SELLER'){
+    else if (this.props.type === 'seller'){
       return(
         <div className="container-box">
             <div className="text-head">PROFILE
@@ -94,13 +100,23 @@ class Profile extends Component {
                     </tbody>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/history'} id="history">VIEW ORDER HISTORY</a>
+                  <a href={'http://localhost:3000/orderhistoryseller/'+this.props.id+'/'} id="history">VIEW ORDER HISTORY</a>
                 </div>
             </div>
           </div>
       )
     }
+    else {
+      return (<h1>LOGIN</h1>)
+    }
   }
 }
 
-export default Profile;
+function mapStateToProps(state) {
+  return {
+   id: state.cookie.id,
+   type: state.cookie.type,
+  }
+}
+
+export default connect(mapStateToProps)(Profile);
