@@ -103,3 +103,12 @@
     border: 1px solid #FFC567;
     color: #FFC567;
 }
+
+.cal-btn {
+    font-size: 18px;
+    color: black;
+}
+
+.cal-btn:hover{
+    color: #FFC567;
+}
