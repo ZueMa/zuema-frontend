@@ -20,7 +20,7 @@ class Store extends Component {
   render() {
     return(
       <div className="store">
-        <div className="top-bar"  hidden>
+        <div className="top-bar" hidden>
           <h3 className="no-margin">
             <i className="fa fa-search icon-margin"></i>
             SEARCH

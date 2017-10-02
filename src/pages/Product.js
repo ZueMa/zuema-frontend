@@ -23,18 +23,22 @@ class Product extends Component {
   }
 
   handleAddCart = (e) => {
-    axios.post('http://localhost:8000/buyers/'+ this.props.id +'/cart/items/',{
-      product_id: this.props.product.product_id
-    })
-    .then((res) => {
+    if (this.props.id === '') {
       swal({
-        title: "Product Added!",
-        icon: "success",
+        title: "Please Login First!",
+        icon: "Error",
       });
-    })
-  }
-
-  handleEdit = (e) => {
+    } else {
+      axios.post('http://localhost:8000/buyers/'+ this.props.id +'/cart/items/',{
+        product_id: this.props.product.product_id
+      })
+      .then((res) => {
+        swal({
+          title: "Product Added!",
+          icon: "success",
+        });
+      })
+    }
   }
 
   handleRemove = (e) => {
@@ -47,29 +51,7 @@ class Product extends Component {
   render() {
     let component = null
     if (this.product !== '') {
-      if (this.props.type === 'buyer') {
-        component = (
-          <div className="container-fluid product-height">
-            <div className="row product-style-div">
-              <div className="col-md-6 no-padding image-side">
-                <div className="product-full-image"></div>
-              </div>
-              <div className="col-md-6 text-side">
-                <div className="text-header">
-                  {this.props.product.name}
-                  <div className="line-rectangle"></div>
-                </div>
-                <div className="product-full-info">
-                  <p className="product-text">{this.props.product.full_description}</p>
-                  <div className="price">{this.props.product.price} BAHT</div>
-                  <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
-                </div>
-                <button className="btn btn-add-cart" onClick={this.handleAddCart}>ADD TO CART</button>
-              </div>
-            </div>
-          </div>
-        ) 
-      } else if (this.props.type === 'seller') {
+      if (this.props.type === 'seller') {
         component = (
           <div className="container-fluid product-height">
             <div className="row product-style-div">
@@ -96,8 +78,26 @@ class Product extends Component {
         )
       } else {
         component = (
-          <h1 style={{marginTop: '15px'}}>Please Login First!!</h1>
-        )
+          <div className="container-fluid product-height">
+            <div className="row product-style-div">
+              <div className="col-md-6 no-padding image-side">
+                <div className="product-full-image"></div>
+              </div>
+              <div className="col-md-6 text-side">
+                <div className="text-header">
+                  {this.props.product.name}
+                  <div className="line-rectangle"></div>
+                </div>
+                <div className="product-full-info">
+                  <p className="product-text">{this.props.product.full_description}</p>
+                  <div className="price">{this.props.product.price} BAHT</div>
+                  <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
+                </div>
+                <button className="btn btn-add-cart" onClick={this.handleAddCart}>ADD TO CART</button>
+              </div>
+            </div>
+          </div>
+        ) 
       }
     }
     return(
