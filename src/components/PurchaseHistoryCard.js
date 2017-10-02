@@ -12,6 +12,7 @@ class PurchaseHistoryCard extends Component {
         this.total_price = props.total_price
         this.status = props.status
         this.item_list = props.item_list
+        this.date = props.date
         this.url = "/itempurchasetable/" + this.id
     }
 
@@ -30,6 +31,7 @@ class PurchaseHistoryCard extends Component {
                 </td>
                 <td className="product_info w3-animate-top">{this.total_price}</td>
                 <td className="product_info">{this.total_items}</td>
+                <td className="product_info">{this.date}</td>
                 <td className="product_info">
                     <div className="status_point">
                         <p>◉  &nbsp;{this.checkStatus}</p>
