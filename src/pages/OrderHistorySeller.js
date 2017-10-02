@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import OrderHistoryCard from '../components/OrderHistoryCard'
 import BackButton from '../components/BackButton'
+import { connect } from 'react-redux'
 import '../stylesheets/History.css'
 
 class OrderHistorySeller extends Component {
@@ -14,7 +15,7 @@ class OrderHistorySeller extends Component {
     }
 
     handleOrderHis(e) {
-        axios.get('http://localhost:8000/sellers/1/orders/').then((response) => {
+        axios.get('http://localhost:8000/sellers/'+ this.props.id +'/orders/').then((response) => {
             console.log(response)
             this.setState({orders: response.data.orders})
         }).catch((response) => {
@@ -65,4 +66,11 @@ class OrderHistorySeller extends Component {
     }
 }
 
-export default OrderHistorySeller;
+function mapStateToProps(state) {
+    return {
+     id: state.cookie.id,
+     type: state.cookie.type,
+    }
+  }
+  
+export default connect(mapStateToProps)(OrderHistorySeller);
