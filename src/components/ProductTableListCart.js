@@ -7,7 +7,7 @@ import '../stylesheets/cart.css'
 
 class ProductTableListCart extends Component {
     handleConnectApi = () => {
-        axios.get('http://localhost:8000/buyers/1/cart/')
+        axios.get('http://localhost:8000/buyers/' + this.props.id + '/cart/')
         .then((res) => {
           console.log(res.data)
           this.props.updateCart(res.data.cart_id, res.data.total_price, res.data.items)
@@ -18,7 +18,7 @@ class ProductTableListCart extends Component {
     }
 
     deleteProductCart(id) {
-        axios.delete('http://localhost:8000/buyers/1/cart/items/' + id + '/')
+        axios.delete('http://localhost:8000/buyers/' + this.props.id + '/cart/items/' + id + '/')
         .then((response) => {
           console.log(response.data)
           this.handleConnectApi();
@@ -30,7 +30,7 @@ class ProductTableListCart extends Component {
 
     updateProductQuantity(status, id) {
         console.log('id: ' + id)
-        axios.post('http://localhost:8000/buyers/1/cart/items/' + id + '/', {
+        axios.post('http://localhost:8000/buyers/' + this.props.id + '/cart/items/' + id + '/', {
             action: status
         })
         .then((response) => {
@@ -54,7 +54,6 @@ class ProductTableListCart extends Component {
                 </td>
                 <td className="product_info">{this.props.price}</td>
                 <td className="product_info">
-                    {/* <input type="number" min="1" max="10" placeholder={this.quantity} onChange={(e) => {this.updateProductQuantity(e)}}/> */}
                     <p>{this.props.quantity}</p>
                     <button className="btn quantity-product-btn" onClick={(e) => {this.updateProductQuantity('increase', this.props.product_id)}}><i>+</i></button>
                     <button className="btn quantity-product-btn" onClick={(e) => {this.updateProductQuantity('decrease', this.props.product_id)}}><i className="t-btn">-</i></button>
@@ -72,5 +71,12 @@ function mapDispatchToProps(dispatch) {
       updateCart: (cart_id, total_price, cartList) => dispatch(updateCart(cart_id, total_price, cartList)),
     }
 }
-  
-export default connect(null, mapDispatchToProps)(ProductTableListCart);
+
+function mapStateToProps(state) {
+    return {
+      id: state.cookie.id,
+      type: state.cookie.type,
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductTableListCart);
