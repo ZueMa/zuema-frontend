@@ -18,6 +18,7 @@ table {
 }
 
 #history{
+  margin-left: 55%;    
   color: white !important;
   background-color: #F5AB0E;
   border: none;
@@ -40,8 +41,16 @@ table {
     font-size: 20px;
   }
   #history{
+    margin-left: 0%;        
     font-size: 20px;
-    padding: 20px 40px;
+    padding: 10px 40px;
+    border: 3px solid #F5AB0E !important;
+    
+  }
+  #history:hover {
+    color: #F5AB0E !important;
+    background-color: white;
+    border: 3px solid #FFC567 !important;
   }
 
 }
