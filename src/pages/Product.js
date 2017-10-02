@@ -3,13 +3,13 @@ import '../stylesheets/product.css'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { updateProduct } from '../actions/productAction'
+import { push } from 'react-router-redux'
 import swal from 'sweetalert'
 
 class Product extends Component {
   constructor(props) {
-    super(props)
-    this.role = 'seller'
-    this.products = props.products
+    super(props);
+    this.products = props.products 
   }
 
   componentDidMount() {
@@ -23,24 +23,31 @@ class Product extends Component {
   }
 
   handleAddCart = (e) => {
-    swal({
-      title: "Product Added!",
-      icon: "success",
-    });
+    axios.post('http://localhost:8000/buyers/'+ this.props.id +'/cart/items/',{
+      product_id: this.props.product.product_id
+    })
+    .then((res) => {
+      swal({
+        title: "Product Added!",
+        icon: "success",
+      });
+    })
   }
 
   handleEdit = (e) => {
-
   }
 
   handleRemove = (e) => {
-
+    axios.delete('http://localhost:8000/sellers/' + this.props.id + '/products/' + this.props.product.product_id)
+    .catch((res) => {
+      console.log(res)
+    })
   }
 
   render() {
     let component = null
     if (this.product !== '') {
-      if (this.role === 'buyer') {
+      if (this.props.type === 'buyer') {
         component = (
           <div className="container-fluid product-height">
             <div className="row product-style-div">
@@ -62,7 +69,7 @@ class Product extends Component {
             </div>
           </div>
         ) 
-      } else if (this.role === 'seller') {
+      } else if (this.props.type === 'seller') {
         component = (
           <div className="container-fluid product-height">
             <div className="row product-style-div">
@@ -80,12 +87,16 @@ class Product extends Component {
                   <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
                 </div>
                 <div className="button-container">
-                  <button className="btn btn-edit" onClick={this.handleEdit}>EDIT</button>
+                  <button className="btn btn-edit" onClick={() => this.props.push('/editproduct')}>EDIT</button>
                   <button className="btn btn-remove" onClick={this.handleRemove}>REMOVE</button>
                 </div>
               </div>
             </div>
           </div>
+        )
+      } else {
+        component = (
+          <h1 style={{marginTop: '15px'}}>Please Login First!!</h1>
         )
       }
     }
@@ -99,6 +110,8 @@ class Product extends Component {
 
 function mapStateToProps(state) {
   return {
+    id: state.cookie.id,
+    type: state.cookie.type,
     products: state.storage.products,
     product: state.product.data
   }
@@ -106,7 +119,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateProduct: (product) => dispatch(updateProduct(product))
+    updateProduct: (product) => dispatch(updateProduct(product)),
+    push: (url) => dispatch(push(url))
   }
 }
 

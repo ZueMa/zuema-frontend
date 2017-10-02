@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import PurchaseHistoryCard from '../components/PurchaseHistoryCard'
 import BackButton from '../components/BackButton'
+import { connect } from 'react-redux'
 import '../stylesheets/History.css'
 
 class PurchaseHistoryBuyer extends Component {
@@ -14,7 +15,7 @@ class PurchaseHistoryBuyer extends Component {
     }
 
     handlePurchaseList(e) {
-        axios.get('http://localhost:8000/buyers/1/purchases/').then((response) => {
+        axios.get('http://localhost:8000/buyers/'+ this.props.id +'/purchases/').then((response) => {
             console.log(response.data)
             this.setState({purchaseList: response.data.purchases})
         }).catch((response) => {
@@ -63,4 +64,12 @@ class PurchaseHistoryBuyer extends Component {
     }
 }
 
-export default PurchaseHistoryBuyer;
+
+function mapStateToProps(state) {
+    return {
+     id: state.cookie.id,
+     type: state.cookie.type,
+    }
+  }
+  
+export default connect(mapStateToProps)(PurchaseHistoryBuyer);

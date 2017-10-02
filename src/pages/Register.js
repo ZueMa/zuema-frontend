@@ -7,7 +7,7 @@ class Register extends Component {
         return(
         <div>
             <div className="back-button">
-                <i class="fa fa-angle-left" aria-hidden="true" onClick={() => this.props.history.goBack()}>BACK</i>
+                <i className="fa fa-angle-left" aria-hidden="true" onClick={() => this.props.history.goBack()}>BACK</i>
             </div>
             
             
