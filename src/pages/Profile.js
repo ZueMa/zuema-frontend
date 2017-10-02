@@ -58,7 +58,7 @@ class Profile extends Component {
                    </tbody>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/purchasehistorybuyer/'+this.props.id+'/'} id="history">VIEW PURCHASE HISTORY</a>
+                  <a href={'http://localhost:3000/purchasehistorybuyer'} id="history">VIEW PURCHASE HISTORY</a>
                 </div>
               </div>
             </div>
@@ -100,7 +100,7 @@ class Profile extends Component {
                     </tbody>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/orderhistoryseller/'+this.props.id+'/'} id="history">VIEW ORDER HISTORY</a>
+                  <a href={'http://localhost:3000/orderhistoryseller'} id="history">VIEW ORDER HISTORY</a>
                 </div>
             </div>
           </div>
