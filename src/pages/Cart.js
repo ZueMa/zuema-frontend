@@ -9,7 +9,7 @@ import ProductTableListCart from '../components/ProductTableListCart'
 
 class Cart extends Component {
   handleConnectApi = () => {
-    axios.get('http://localhost:8000/buyers/1/cart/')
+    axios.get('http://localhost:8000/buyers/' + this.props.id + '/cart/')
     .then((res) => {
       console.log("new data: " + res.data)
       this.props.updateCart(res.data.cart_id, res.data.total_price, res.data.items)
@@ -24,7 +24,7 @@ class Cart extends Component {
   }
 
   checkoutCart(e) {
-    axios.post('https://localhost:8000/buyers/1/cart/purchase/')
+    axios.post('https://localhost:8000/buyers/' + this.props.id + '/cart/purchase/')
     .then((res) => {
       console.log(res)
     })
@@ -90,6 +90,8 @@ function mapStateToProps(state) {
     cart_id: state.cart.cart_id,
     total_price: state.cart.total_price,
     cartList: state.cart.cartList,
+    id: state.cookie.id,
+    type: state.cookie.type,
   }
 }
 
