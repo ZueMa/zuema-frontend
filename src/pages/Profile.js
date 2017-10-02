@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../stylesheets/profile.css'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class Profile extends Component {
   constructor(props){
@@ -58,7 +59,7 @@ class Profile extends Component {
                    </tbody>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/purchasehistorybuyer'} id="history">VIEW PURCHASE HISTORY</a>
+                  <Link to={'purchasehistorybuyer'} id="history">VIEW PURCHASE HISTORY</Link>
                 </div>
               </div>
             </div>
@@ -100,7 +101,7 @@ class Profile extends Component {
                     </tbody>
                   </table>
                   <br/>
-                  <a href={'http://localhost:3000/orderhistoryseller'} id="history">VIEW ORDER HISTORY</a>
+                  <Link to={'orderhistoryseller'} id="history">VIEW ORDER HISTORY</Link>
                 </div>
             </div>
           </div>
