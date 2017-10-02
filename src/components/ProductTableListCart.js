@@ -55,8 +55,8 @@ class ProductTableListCart extends Component {
                 <td className="product_info">{this.props.price}</td>
                 <td className="product_info">
                     <p>{this.props.quantity}</p>
-                    <button className="btn quantity-product-btn" onClick={(e) => {this.updateProductQuantity('increase', this.props.product_id)}}><i>+</i></button>
-                    <button className="btn quantity-product-btn" onClick={(e) => {this.updateProductQuantity('decrease', this.props.product_id)}}><i className="t-btn">-</i></button>
+                    <button className="btn quantity-product-btn" onClick={(e) => {this.updateProductQuantity('increase', this.props.product_id)}}><i className="cal-btn">+</i></button>
+                    <button className="btn quantity-product-btn" onClick={(e) => {this.updateProductQuantity('decrease', this.props.product_id)}}><i className="cal-btn">-</i></button>
                 </td>
                 <td className="product_info">
                     <button id={this.props.product_id} className="trash-btn" onClick={(e) => {this.deleteProductCart(this.props.product_id)}}><i className="fa fa-trash fa-2x" /></button>

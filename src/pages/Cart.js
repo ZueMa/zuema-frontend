@@ -3,6 +3,7 @@ import '../stylesheets/cart.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { updateCart } from '../actions/cartAction'
 import ProductTableListCart from '../components/ProductTableListCart'
 
@@ -27,6 +28,7 @@ class Cart extends Component {
     axios.post('http://localhost:8000/buyers/' + this.props.id + '/cart/purchase/')
     .then((res) => {
       console.log(res)
+      this.props.push('/purchasehistorybuyer')
     })
     .catch((res) => {
       console.log(res)
@@ -43,7 +45,7 @@ class Cart extends Component {
             <div className="color_line_head"></div><br />
           </div>
           <div className="col-md-6">
-            <Link to={'purchasehistorybuyer'}><button className="btn checkout-cart-btn" onClick={(e) => {this.checkoutCart(e)}}>CHECKOUT</button></Link>
+            <button className="btn checkout-cart-btn" onClick={(e) => {this.checkoutCart(e)}}>CHECKOUT</button>
           </div>
         </div>
         
@@ -53,7 +55,7 @@ class Cart extends Component {
               <th></th>
               <th className="head_table_title">PRODUCT NAME</th>
               <th className="head_table_title_center">PRICE</th>
-              <th className="head_table_title_center">QUILITY</th>
+              <th className="head_table_title_center">QUANTITY</th>
               <th className="head_table_title_center">DELETE</th>
             </tr>
           </thead>
@@ -97,6 +99,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return{
+    push: (url) => dispatch(push(url)),
     updateCart: (cart_id, total_price, cartList) => dispatch(updateCart(cart_id, total_price, cartList)),
   }
 }
