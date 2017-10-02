@@ -24,7 +24,7 @@ class Cart extends Component {
   }
 
   checkoutCart(e) {
-    axios.post('https://localhost:8000/buyers/' + this.props.id + '/cart/purchase/')
+    axios.post('http://localhost:8000/buyers/' + this.props.id + '/cart/purchase/')
     .then((res) => {
       console.log(res)
     })
@@ -43,7 +43,7 @@ class Cart extends Component {
             <div className="color_line_head"></div><br />
           </div>
           <div className="col-md-6">
-            <Link to={'/purchasehistorybuyer'}><button className="btn checkout-cart-btn" onClick={(e) => {this.checkoutCart(e)}}>CHECKOUT</button></Link>
+            <Link to={'purchasehistorybuyer'}><button className="btn checkout-cart-btn" onClick={(e) => {this.checkoutCart(e)}}>CHECKOUT</button></Link>
           </div>
         </div>
         
