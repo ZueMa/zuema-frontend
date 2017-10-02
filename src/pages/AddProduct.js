@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../stylesheets/addproduct.css'
+import { connect } from 'react-redux'
 
 class AddProduct extends Component {
   constructor(props) {
@@ -19,8 +20,7 @@ class AddProduct extends Component {
   addProduct(e) {
     console.log(e)
     console.log(this.state)
-    // axios.post('https://private-00f7e-zuema.apiary-mock.com/sellers/me/products', {
-    axios.post('http://127.0.0.1:8000/sellers/1/products/', {
+    axios.post('http://127.0.0.1:8000/sellers/'+this.props.id+'/products/', {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     
@@ -87,4 +87,10 @@ class AddProduct extends Component {
   }
 }
 
-export default AddProduct;
+function mapStateToProps(state) {
+  return {
+   id: state.cookie.id,
+  }
+}
+
+export default connect(mapStateToProps)(AddProduct);

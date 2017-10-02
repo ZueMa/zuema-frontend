@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import { push } from 'react-router-redux'
 import { updateProduct } from '../actions/productAction'
-import { push } from 'react-router-redux'
 import swal from 'sweetalert'
 
 class Product extends Component {
