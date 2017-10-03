@@ -52,7 +52,7 @@ class ProductTableListCart extends Component {
                     <p className="product_info">{this.props.name}</p>
                     <p className="product_shortdes">{this.props.short_description}</p>
                 </td>
-                <td className="product_info">{this.props.price}</td>
+                <td className="product_info">{this.props.price.toFixed(2)}</td>
                 <td className="product_info">
                     <p>{this.props.quantity}</p>
                     <button className="btn quantity-product-btn" onClick={(e) => {this.updateProductQuantity('increase', this.props.product_id)}}><i className="cal-btn">+</i></button>
