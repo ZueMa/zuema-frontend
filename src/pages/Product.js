@@ -65,7 +65,7 @@ class Product extends Component {
                 </div>
                 <div className="product-full-info">
                   <p className="product-text">{this.props.product.full_description}</p>
-                  <div className="price">{this.props.product.price} BAHT</div>
+                  <div className="price">{this.props.product.price.toFixed(2)} BAHT</div>
                   <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
                 </div>
                 <div className="button-container">
