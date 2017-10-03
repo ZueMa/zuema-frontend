@@ -4,7 +4,7 @@ class BackButton extends Component {
     render() {
         return (
             <div className="back_button">
-                <i class="fa fa-angle-left" aria-hidden="true">BACK</i>
+                <i className="fa fa-angle-left" aria-hidden="true">BACK</i>
             </div>
         )
     }
