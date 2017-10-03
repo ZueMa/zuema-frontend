@@ -21,7 +21,7 @@ class AddProduct extends Component {
   addProduct(e) {
     console.log(e)
     console.log(this.state)
-    axios.post('http://127.0.0.1:8000/sellers/'+this.props.id+'/products/', {
+    axios.post('http://localhost:8000/sellers/'+this.props.id+'/products/', {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     

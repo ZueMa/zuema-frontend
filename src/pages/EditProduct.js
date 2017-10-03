@@ -16,46 +16,45 @@ class EditProduct extends Component {
       category: this.product.category,
       num_stocks: this.product.num_stocks,
       image: '',
-
+      imagetmp: this.product.image,
     }
-    
   }
 
-  // componentDidMount(){
-  //   axios.get('http://localhost:8000/products/2/').then( res => {
-  //     this.setState({
-  //       name: res.data.name,
-  //       short_description: res.data.short_description,
-  //       full_description: res.data.full_description,
-  //       price: res.data.price,
-  //       category: res.data.category,
-  //       num_stocks: res.data.num_stocks,
-  //       image: res.data.image,
-  //     });
-  //   })
-  // }
-
   updateProduct(e) {
-    console.log(this.props.product.product_id);
-    // console.log(e)
-    // if (this.state.image === ""){
-    //   this.setState({image: this.state.image.replace("localhost:8000", "")})
-    // }
-    axios.put('http://localhost:8000/sellers/'+this.props.id+'/products/'+this.props.product.product_id+'/', {
-      name: this.state.name,
-      category: this.state.category,  
-      price: this.state.price,     
-      num_stocks: this.state.num_stocks,      
-      short_description: this.state.short_description,
-      full_description: this.state.full_description,
-      image: this.state.image
-    })
-    .then((response) => {
-      console.log(response)    
-    })
-    .catch((response) => {
-      console.error(response) 
-    })
+    if (this.state.image === ""){
+      axios.put('http://localhost:8000/sellers/'+this.props.id+'/products/'+this.props.product.product_id+'/', {
+        name: this.state.name,
+        category: this.state.category,  
+        price: this.state.price.toFixed(2),     
+        num_stocks: this.state.num_stocks,      
+        short_description: this.state.short_description,
+        full_description: this.state.full_description,
+        image: this.state.imagetmp.replace("http://localhost:8000/images/", "")
+      })
+      .then((response) => {
+        console.log(response)    
+      })
+      .catch((response) => {
+        console.error(response) 
+      })
+    }
+    else {
+      axios.put('http://localhost:8000/sellers/'+this.props.id+'/products/'+this.props.product.product_id+'/', {
+        name: this.state.name,
+        category: this.state.category,  
+        price: this.state.price.toFixed(2),     
+        num_stocks: this.state.num_stocks,      
+        short_description: this.state.short_description,
+        full_description: this.state.full_description,
+        image: this.state.image
+      })
+      .then((response) => {
+        console.log(response)          
+      })
+      .catch((response) => {
+        console.error(response) 
+      })
+    }
   }
 
   render() {
