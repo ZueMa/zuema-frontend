@@ -8,13 +8,23 @@ import { updateStorage } from '../actions/storeAction'
 
 class Store extends Component {
   componentDidMount() {
-    axios.get('http://localhost:8000/products/')
-    .then((res) => {
-      this.props.updateStorage(res.data.products)
-    })
-    .catch((res) => {
-      console.error(res) 
-    })
+    if (this.props.type === 'seller') {
+      axios.get('http://localhost:8000/sellers/' + this.props.id +'/products/')
+      .then((res) => {
+        this.props.updateStorage(res.data.products)
+      })
+      .catch((res) => {
+        console.error(res) 
+      })
+    } else {
+      axios.get('http://localhost:8000/products/')
+      .then((res) => {
+        this.props.updateStorage(res.data.products)
+      })
+      .catch((res) => {
+        console.error(res) 
+      })
+    }
   }
 
   render() {
@@ -130,6 +140,8 @@ class Store extends Component {
 
 function mapStateToProps(state) {
   return {
+    id: state.cookie.id,
+    type: state.cookie.type,
     products: state.storage.products,
   }
 }
