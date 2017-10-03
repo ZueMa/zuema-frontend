@@ -30,7 +30,7 @@ class ProductCard extends Component {
             </div>
             <div className="product-price flex">
               <div>
-                {this.props.price}
+                {this.props.price.toFixed(2)}
               </div>
               <div className="text-right">
                 <i className="fa fa-cart-plus fa-lg pointer" onClick={this.handleOnClick}></i>
