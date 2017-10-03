@@ -14,6 +14,7 @@ import App from './pages/App'
 import cookieReducer from './reducers/cookieReducer'
 import storeReducer from './reducers/storeReducer'
 import productReducer from './reducers/productReducer'
+import cartReducer from './reducers/cartReducer'
 
 // Pages
 import Cart from './pages/Cart'
@@ -37,6 +38,7 @@ const middleware = routerMiddleware(history)
 
 const store = createStore(
   combineReducers({
+    cart: cartReducer,
     cookie: cookieReducer,
     product: productReducer,
     storage: storeReducer,
