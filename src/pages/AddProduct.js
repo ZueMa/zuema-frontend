@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../stylesheets/addproduct.css'
+import { connect } from 'react-redux'
 
 class AddProduct extends Component {
   constructor(props) {
@@ -12,17 +13,19 @@ class AddProduct extends Component {
       price: '',
       category: '',
       num_stocks: '',
-      image: [],
+      image: '',
+      id:'',
     }
   }
 
   addProduct(e) {
     console.log(e)
-    axios.post('https://private-00f7e-zuema.apiary-mock.com/sellers/me/products', {
+    console.log(this.state)
+    axios.post('http://localhost:8000/sellers/'+this.props.id+'/products/', {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     
-      num_stocks: this.state.num_stock,      
+      num_stocks: this.state.num_stocks,      
       short_description: this.state.short_description,
       full_description: this.state.full_description,
       image: this.state.image
@@ -59,13 +62,14 @@ class AddProduct extends Component {
 
             <div className="right-col">
               <p className="label">CHOOSE CATEGORY*</p>
-              <select className="select-category" onChange={(e) => this.setState({category: e.target.value})}>
-                <option>CLOTHES</option>
-                <option>SPORTS</option>
-                <option>KIDS</option>
-                <option>IT</option>
-                <option>GARDEN</option>
-                <option>...</option>
+              <select defaultValue="" className="select-category" onChange={(e) => this.setState({category: e.target.value})}>
+                <option value="" disabled hidden>CHOOSE CATEGORY</option>
+                <option value="Clothes">CLOTHES</option>
+                <option value="Electronics">ELECTRONICS</option>
+                <option value="Kids">KIDS</option>
+                <option value="Sport">SPORT</option>
+                <option value="Cosmetics">COSMETIC</option>
+                <option value="Garden">GARDEN</option>
               </select>
               <p className="label">PRODUCT PRICE*</p>
               <input className="input-num" type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
@@ -84,4 +88,10 @@ class AddProduct extends Component {
   }
 }
 
-export default AddProduct;
+function mapStateToProps(state) {
+  return {
+   id: state.cookie.id,
+  }
+}
+
+export default connect(mapStateToProps)(AddProduct);
