@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import swal from 'sweetalert'
 
 class RegisterSeller extends Component {
     constructor(props) {
@@ -27,10 +28,16 @@ class RegisterSeller extends Component {
           description: this.state.description
         })
         .then((response) => {
-          console.log(response)
+          swal({
+            title: "Register Success!",
+            icon: "success",
+          });
         })
         .catch((response) => {
-          console.error(response) 
+          swal({
+            title: "Register Error!",
+            icon: "error",
+          }); 
         })
     }
 

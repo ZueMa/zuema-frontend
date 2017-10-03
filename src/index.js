@@ -29,6 +29,7 @@ import ItemPurchaseTable from './pages/ItemPurchaseTable'
 import Register from './pages/Register'
 import RegisterSeller from './pages/RegisterSeller'
 import RegisterBuyer from './pages/RegisterBuyer'
+import Logout from './pages/Logout'
 
 const history = createHistory()
 
@@ -47,8 +48,8 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App>          
-        <Switch>
+      <Switch>
+        <App>          
           <Route exact path="/" component={Store}/>
           <Route path="/products/:id" component={Product}/>
           <Route path="/cart" component={Cart}/>
@@ -62,8 +63,9 @@ ReactDOM.render(
           <Route path="/registerbuyer" component={RegisterBuyer}/>
           <Route exact path="/addproduct" component={AddProduct}/>
           <Route exact path="/editproduct" component={EditProduct}/>
-        </Switch>
-      </App>
+          <Route path="/logout" component={Logout} />
+        </App>
+      </Switch>
     </ConnectedRouter>
   </Provider>
   ,document.getElementById('root')
