@@ -13,7 +13,7 @@ class Product extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8000/products/' + this.products[this.props.match.params.id-1].product_id)
+    axios.get('http://localhost:8000/products/' + this.products[this.props.match.params.id].product_id)
     .then((res) => {
       this.props.updateProduct(res.data)
     })
