@@ -8,19 +8,29 @@ import { updateStorage } from '../actions/storeAction'
 
 class Store extends Component {
   componentDidMount() {
-    axios.get('http://localhost:8000/products/')
-    .then((res) => {
-      this.props.updateStorage(res.data.products)
-    })
-    .catch((res) => {
-      console.error(res) 
-    })
+    if (this.props.type === 'seller') {
+      axios.get('http://localhost:8000/sellers/' + this.props.id +'/products/')
+      .then((res) => {
+        this.props.updateStorage(res.data.products)
+      })
+      .catch((res) => {
+        console.error(res) 
+      })
+    } else {
+      axios.get('http://localhost:8000/products/')
+      .then((res) => {
+        this.props.updateStorage(res.data.products)
+      })
+      .catch((res) => {
+        console.error(res) 
+      })
+    }
   }
 
   render() {
     return(
       <div className="store">
-        <div className="top-bar"  hidden>
+        <div className="top-bar" hidden>
           <h3 className="no-margin">
             <i className="fa fa-search icon-margin"></i>
             SEARCH
@@ -36,7 +46,7 @@ class Store extends Component {
             </div>
           </div>
           {this.props.products.map((itm, id) => {
-            return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+            return <ProductCard name={itm.name} detail={itm.short_description} id={id} price={itm.price} key={id}/>
           })}
         </div>
         <div id="cosmetics">
@@ -49,7 +59,7 @@ class Store extends Component {
           </div>
           {this.props.products.map((itm, id) => {
             if(itm.category === 'Cosmetics')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -63,7 +73,7 @@ class Store extends Component {
           </div>
           {this.props.products.map((itm, id) => {
             if(itm.category === 'Clothes')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -77,7 +87,7 @@ class Store extends Component {
           </div>
           {this.props.products.map((itm, id) => {
             if(itm.category === 'Electronics')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -91,7 +101,7 @@ class Store extends Component {
           </div>
           {this.props.products.map((itm, id) => {
             if(itm.category === 'Home & Garden')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -105,7 +115,7 @@ class Store extends Component {
           </div>
           {this.props.products.map((itm, id) => {
             if(itm.category === 'Kids')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -119,7 +129,7 @@ class Store extends Component {
           </div>
           {this.props.products.map((itm, id) => {
             if(itm.category === 'Sports')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -130,6 +140,8 @@ class Store extends Component {
 
 function mapStateToProps(state) {
   return {
+    id: state.cookie.id,
+    type: state.cookie.type,
     products: state.storage.products,
   }
 }

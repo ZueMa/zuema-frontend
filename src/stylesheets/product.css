@@ -72,6 +72,7 @@
   margin-top: 8%;
   margin-left: 5%;
   margin-right: 5%;
+  overflow-y: auto;
 }
 
 .product-stock {
