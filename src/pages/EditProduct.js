@@ -12,7 +12,7 @@ class EditProduct extends Component {
       name: this.product.name,
       short_description: this.product.short_description,
       full_description: this.product.full_description,
-      price: this.product.price,
+      price: this.product.price.toFixed(2),
       category: this.product.category,
       num_stocks: this.product.num_stocks,
       image: '',
@@ -25,7 +25,7 @@ class EditProduct extends Component {
       axios.put('http://localhost:8000/sellers/'+this.props.id+'/products/'+this.props.product.product_id+'/', {
         name: this.state.name,
         category: this.state.category,  
-        price: this.state.price.toFixed(2),     
+        price: this.state.price,     
         num_stocks: this.state.num_stocks,      
         short_description: this.state.short_description,
         full_description: this.state.full_description,
@@ -42,7 +42,7 @@ class EditProduct extends Component {
       axios.put('http://localhost:8000/sellers/'+this.props.id+'/products/'+this.props.product.product_id+'/', {
         name: this.state.name,
         category: this.state.category,  
-        price: this.state.price.toFixed(2),     
+        price: this.state.price,     
         num_stocks: this.state.num_stocks,      
         short_description: this.state.short_description,
         full_description: this.state.full_description,
