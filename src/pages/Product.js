@@ -13,7 +13,10 @@ class Product extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8000/products/' + this.products[this.props.match.params.id-1].product_id)
+    console.log(this.products)
+    console.log(this.props.match.params.id-1)
+    console.log(this.products[this.props.match.params.id-1])
+    axios.get('http://localhost:8000/products/' + this.products[this.props.match.params.id-1].product_id + '/')
     .then((res) => {
       this.props.updateProduct(res.data)
     })
@@ -42,7 +45,7 @@ class Product extends Component {
   }
 
   handleRemove = (e) => {
-    axios.delete('http://localhost:8000/sellers/' + this.props.id + '/products/' + this.props.product.product_id)
+    axios.delete('http://localhost:8000/sellers/' + this.props.id + '/products/' + this.props.product.product_id + '/')
     .catch((res) => {
       console.log(res)
     })

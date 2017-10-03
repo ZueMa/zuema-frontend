@@ -5,6 +5,7 @@ import '../stylesheets/addproduct.css'
 
 class EditProduct extends Component {
   constructor(props) {
+    
     super(props)
     this.product = props.product    
     this.state = {
@@ -15,8 +16,9 @@ class EditProduct extends Component {
       category: this.product.category,
       num_stocks: this.product.num_stocks,
       image: '',
-      product_id: this.props.product.product_id
+
     }
+    
   }
 
   // componentDidMount(){
@@ -34,13 +36,12 @@ class EditProduct extends Component {
   // }
 
   updateProduct(e) {
-    console.log(this.props.id);
-    console.log(this.state.product_id);
+    console.log(this.props.product.product_id);
     // console.log(e)
     // if (this.state.image === ""){
     //   this.setState({image: this.state.image.replace("localhost:8000", "")})
     // }
-    axios.put('http://localhost:8000/sellers/'+this.props.id+'/products/'+this.state.product_id+'/', {
+    axios.put('http://localhost:8000/sellers/'+this.props.id+'/products/'+this.props.product.product_id+'/', {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     
