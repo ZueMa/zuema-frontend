@@ -26,7 +26,7 @@ class Cart extends Component {
         title: "Please Login First!",
         icon: "Error",
       });
-      this.props.push('/')
+      this.props.push('/login')
     } else {
       this.handleConnectApi();
     }
