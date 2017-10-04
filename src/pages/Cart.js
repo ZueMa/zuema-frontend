@@ -37,7 +37,7 @@ class Cart extends Component {
     .then((res) => {
       console.log(res)
       swal({
-        title: "Youe cart has been purchased",
+        title: "Your cart has been purchased",
         icon: "success",
       });
       this.props.push('/purchasehistorybuyer')
