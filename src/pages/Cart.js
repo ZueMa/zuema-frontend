@@ -26,7 +26,7 @@ class Cart extends Component {
         title: "Please Login First!",
         icon: "Error",
       });
-      this.props.push('/')
+      this.props.push('/login')
     } else {
       this.handleConnectApi();
     }
@@ -36,6 +36,10 @@ class Cart extends Component {
     axios.post('http://localhost:8000/buyers/' + this.props.id + '/cart/purchase/')
     .then((res) => {
       console.log(res)
+      swal({
+        title: "Youe cart has been purchased",
+        icon: "success",
+      });
       this.props.push('/purchasehistorybuyer')
     })
     .catch((res) => {
