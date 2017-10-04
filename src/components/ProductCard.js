@@ -7,9 +7,8 @@ import { connect } from 'react-redux'
 
 class ProductCard extends Component {
   handleOnClick = () => {
-    console.log(this.props.id)
     if (this.props.user_id !== '') {
-     axios.post('http://localhost:8000/buyers/'+ this.props.user_id +'/cart/items/',{
+      axios.post('http://localhost:8000/buyers/'+ this.props.user_id +'/cart/items/',{
         product_id: this.props.id
       })
       .then((res) => {
@@ -17,6 +16,12 @@ class ProductCard extends Component {
           title: "Product Added!",
           icon: "success",
         });
+      })
+      .catch(() => {
+        swal({
+          title: "This Product is Already Added!",
+          icon: "error"
+        })
       })
     } else {
       swal({
