@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import BackButton from '../components/BackButton'
 import '../stylesheets/History.css'
+import { connect } from 'react-redux'
 import ProductTableList from '../components/ProductTableList'
 
 class ItemPurchaseTable extends Component {
@@ -9,15 +10,14 @@ class ItemPurchaseTable extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            purchase_id: '',
-            itemList: []
+            itemList: [],
+            total_price: 0
         }
     }
 
     handlePurchaseItems(e) {
-        axios.get('http://localhost:8000/buyers/1/purchases/purchase_id').then((response) => {
-        console.log(response.data)
-            this.setState({itemList: response.data.items, purchase_id: response.data.purchase_id})
+        axios.get('http://localhost:8000/buyers/'+ this.props.id +'/purchases/' + this.props.match.params.id).then((response) => {
+            this.setState({itemList: response.data.items, total_price: response.data.total_price})
         }).catch((response) => {
             console.error(response)
         })
@@ -32,7 +32,7 @@ class ItemPurchaseTable extends Component {
             <div>
                 <BackButton url="/purchasehistorybuyer"/>
                 <div className="purchase_history_table">
-                    <div className="head">PURCHASE HISTORY : ORDER #{this.state.purchase_id}</div>
+                    <div className="head">PURCHASE HISTORY : PURCHASE #{this.props.match.params.id}</div>
                     <div className="color_line_head"></div><br />
                     <table className="table table-hover">
                         <thead>
@@ -56,6 +56,14 @@ class ItemPurchaseTable extends Component {
                                         key={id}/>
                             })}
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>TOTAL</td>
+                                <td>{this.state.total_price.toFixed(2)}</td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -63,4 +71,12 @@ class ItemPurchaseTable extends Component {
     }
 }
 
-export default ItemPurchaseTable;
+
+function mapStateToProps(state) {
+    return {
+     id: state.cookie.id,
+     type: state.cookie.type,
+    }
+  }
+  
+export default connect(mapStateToProps)(ItemPurchaseTable);

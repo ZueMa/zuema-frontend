@@ -25,7 +25,7 @@ class ProductTableList extends Component {
                     <p className="product_info">{this.name}</p>
                     <p className="product_shortdes">{this.short_description}</p>
                 </td>
-                <td className="product_info">{this.price * this.quantity}</td>
+                <td className="product_info">{ (this.price * this.quantity).toFixed(2)}</td>
                 <td className="product_info">{this.quantity}</td>
             </tr>
         )

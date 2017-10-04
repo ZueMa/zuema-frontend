@@ -16,7 +16,6 @@ class PurchaseHistoryBuyer extends Component {
 
     handlePurchaseList(e) {
         axios.get('http://localhost:8000/buyers/'+ this.props.id +'/purchases/').then((response) => {
-            console.log(response.data)
             this.setState({purchaseList: response.data.purchases})
         }).catch((response) => {
             console.error(response)
