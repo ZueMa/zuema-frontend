@@ -10,14 +10,14 @@ class ItemPurchaseTable extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            itemList: []
+            itemList: [],
+            total_price: 0
         }
     }
 
     handlePurchaseItems(e) {
         axios.get('http://localhost:8000/buyers/'+ this.props.id +'/purchases/' + this.props.match.params.id).then((response) => {
-        console.log(response.data)
-            this.setState({itemList: response.data.items})
+            this.setState({itemList: response.data.items, total_price: response.data.total_price})
         }).catch((response) => {
             console.error(response)
         })
@@ -60,9 +60,8 @@ class ItemPurchaseTable extends Component {
                             <tr>
                                 <td></td>
                                 <td></td>
-                                <td></td>
                                 <td>TOTAL</td>
-                                <td>{this.props.total_price}</td>
+                                <td>{this.state.total_price.toFixed(2)}</td>
                             </tr>
                         </tfoot>
                     </table>

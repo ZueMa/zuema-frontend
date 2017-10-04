@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
+import '../stylesheets/History.css'
 
 class PurchaseHistoryCard extends Component {
 
@@ -29,7 +30,7 @@ class PurchaseHistoryCard extends Component {
                 <td className="product_name_shortdes">
                     <p className="product_info">PURCHASE #{this.purchase_id}</p>
                 </td>
-                <td className="product_info w3-animate-top">{this.total_price}</td>
+                <td className="product_info w3-animate-top">{this.total_price.toFixed(2)}</td>
                 <td className="product_info">{this.total_items}</td>
                 <td className="product_info">{this.date}</td>
                 <td className="product_info">
