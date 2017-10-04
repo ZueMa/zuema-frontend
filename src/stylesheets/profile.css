@@ -7,8 +7,18 @@
   background: #f0f0f0;
 }
 
-table {
-  width: 100%;
+dt {
+  float: left;
+  clear: left;
+  margin-right: 5px;
+  font-weight: bold;
+  width: 300px;
+}
+dd{ 
+  margin-left: 305px;
+}
+.panel .dl-horizontal dt {
+  white-space: normal;
 }
 
 .info {
@@ -51,6 +61,12 @@ table {
     color: #F5AB0E !important;
     background-color: white;
     border: 3px solid #FFC567 !important;
+  }
+  .panel {
+    width: 500px;  
+  }
+  dd{ 
+    margin-left: 0px;
   }
 
 }
