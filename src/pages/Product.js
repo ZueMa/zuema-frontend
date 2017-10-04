@@ -26,8 +26,11 @@ class Product extends Component {
     if (this.props.id === '') {
       swal({
         title: "Please Login First!",
-        icon: "Error",
-      });
+        icon: "error",
+      })
+      .then(() => {
+        this.props.push('/login')
+      })
     } else {
       axios.post('http://localhost:8000/buyers/'+ this.props.id +'/cart/items/',{
         product_id: this.props.product.product_id
@@ -37,6 +40,12 @@ class Product extends Component {
           title: "Product Added!",
           icon: "success",
         });
+      })
+      .catch(() => {
+        swal({
+          title: "This Product is Already Added!",
+          icon: "error"
+        })
       })
     }
   }
@@ -65,7 +74,7 @@ class Product extends Component {
                 </div>
                 <div className="product-full-info">
                   <p className="product-text">{this.props.product.full_description}</p>
-                  <div className="price">{this.props.product.price.toFixed(2)} BAHT</div>
+                  <div className="price">{Number(this.props.product.price).toFixed(2)} BAHT</div>
                   <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
                 </div>
                 <div className="button-container">
@@ -90,7 +99,7 @@ class Product extends Component {
                 </div>
                 <div className="product-full-info">
                   <p className="product-text">{this.props.product.full_description}</p>
-                  <div className="price">{this.props.product.price} BAHT</div>
+                  <div className="price">{Number(this.props.product.price).toFixed(2)} BAHT</div>
                   <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
                 </div>
                 <button className="btn btn-add-cart" onClick={this.handleAddCart}>ADD TO CART</button>

@@ -3,18 +3,17 @@ import '../stylesheets/profile.css'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { push } from 'react-router-redux'
 import swal from 'sweetalert'
 
 
 class Profile extends Component {
   constructor(props){
     super(props);
-    this.state = { profiles:[]};
+    this.state = { profiles:[] };
   }
 
-  componentWillMount(){
-
-    console.log(this.props.type);
+  componentDidMount(){
     if (this.props.type === 'seller'){
       axios.get('http://localhost:8000/sellers/'+this.props.id+'/').then( res => {
         const profiles = res.data;
@@ -26,13 +25,12 @@ class Profile extends Component {
         const profiles = res.data;
         this.setState({ profiles });
       });
-    }
-    else {
+    } else {
       swal({
         title: "Please Login First!",
-        icon: "Error",
-      }).then (function(){
-        window.location.href = 'http://localhost:3000/login';
+        icon: "error",
+      }).then (() => {
+        this.props.push('/login')
       });
     }
   }
@@ -71,8 +69,7 @@ class Profile extends Component {
               </div>
             </div>
       )
-    }
-    else if (this.props.type === 'seller'){
+    } else if (this.props.type === 'seller'){
       return(
         <div className="container-box">
             <div className="text-head">PROFILE
@@ -113,6 +110,8 @@ class Profile extends Component {
             </div>
           </div>
       )
+    } else {
+      return null;
     }
   }
 }
@@ -121,8 +120,12 @@ function mapStateToProps(state) {
   return {
    id: state.cookie.id,
    type: state.cookie.type,
-  
   }
 }
 
-export default connect(mapStateToProps)(Profile);
+function mapDispatchToProps(dispatch) {
+  return {
+    push: (url) => dispatch(push(url)),
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

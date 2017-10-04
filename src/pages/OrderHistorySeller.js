@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import OrderHistoryCard from '../components/OrderHistoryCard'
-import BackButton from '../components/BackButton'
 import { connect } from 'react-redux'
 import '../stylesheets/History.css'
 
@@ -30,7 +29,6 @@ class OrderHistorySeller extends Component {
     render(){
         return (
             <div>
-                <BackButton />
                 <div className="seller_history_table">
                     <div className="head">ORDER HISTORY</div>
                     <div className="color_line_head"></div><br />
