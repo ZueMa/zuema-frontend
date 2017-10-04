@@ -96,7 +96,7 @@
     background-color: transparent;
     color: black;
     border: 1px solid black;
-    outline: none;
+    outline: none !important;
     margin: 5px;
     border-radius: 26px;
 }
