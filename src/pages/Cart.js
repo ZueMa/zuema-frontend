@@ -18,13 +18,15 @@ class Cart extends Component {
     })
   }
 
-  componentDidMount(e) {
+  componentWillMount(e) {
     if (this.props.id === '') {
       swal({
         title: "Please Login First!",
-        icon: "Error",
+        icon: "error",
+      })
+      .then(() => {
+        this.props.push('/login')
       });
-      this.props.push('/login')
     } else {
       this.handleConnectApi();
     }
@@ -48,53 +50,56 @@ class Cart extends Component {
   }
 
   render() {
-    return(
-      <div className="container cart">
-        <div className="head-cart-page row">
-          <div className="col-md-6">
-            <div className="head">YOUR SHOPPING CART</div>
-            <div className="color_line_head"></div><br />
+    if (this.props.id !== '') {
+      return(
+        <div className="container cart">
+          <div className="head-cart-page row">
+            <div className="col-md-6">
+              <div className="head">YOUR SHOPPING CART</div>
+              <div className="color_line_head"></div><br />
+            </div>
+            <div className="col-md-6">
+              <button className="btn checkout-cart-btn" onClick={(e) => {this.checkoutCart(e)}}>CHECKOUT</button>
+            </div>
           </div>
-          <div className="col-md-6">
-            <button className="btn checkout-cart-btn" onClick={(e) => {this.checkoutCart(e)}}>CHECKOUT</button>
-          </div>
+          
+          <table className="table table-hover">
+            <thead>
+              <tr>
+                <th></th>
+                <th className="head_table_title">PRODUCT NAME</th>
+                <th className="head_table_title_center">PRICE</th>
+                <th className="head_table_title_center">QUANTITY</th>
+                <th className="head_table_title_center">DELETE</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {this.props.cartList.map((itm, id) => {
+                return <ProductTableListCart 
+                product_id={itm.product_id}
+                name={itm.name}
+                short_descrition={itm.short_descrition}
+                price={itm.price}
+                quantity={itm.num_items}
+                key={itm.product_id} />
+              })}
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>TOTAL</td>
+                <td>{Number(this.props.total_price).toFixed(2)}</td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
-        
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th></th>
-              <th className="head_table_title">PRODUCT NAME</th>
-              <th className="head_table_title_center">PRICE</th>
-              <th className="head_table_title_center">QUANTITY</th>
-              <th className="head_table_title_center">DELETE</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {this.props.cartList.map((itm, id) => {
-              return <ProductTableListCart 
-              product_id={itm.product_id}
-              name={itm.name}
-              short_descrition={itm.short_descrition}
-              price={itm.price}
-              quantity={itm.num_items}
-              key={itm.product_id} />
-            })}
-          </tbody>
-
-          <tfoot>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>TOTAL</td>
-              <td>{Number(this.props.total_price).toFixed(2)}</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    )
+      )
+    }
+    return null;
   }
 }
 

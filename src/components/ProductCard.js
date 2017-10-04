@@ -26,7 +26,7 @@ class ProductCard extends Component {
     } else {
       swal({
         title: "Please Login First!",
-        icon: "Error",
+        icon: "error",
       })
       .then(() => {
         this.props.push('/login')
