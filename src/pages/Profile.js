@@ -3,6 +3,8 @@ import '../stylesheets/profile.css'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import swal from 'sweetalert'
+
 
 class Profile extends Component {
   constructor(props){
@@ -108,7 +110,12 @@ class Profile extends Component {
       )
     }
     else {
-      return (<h1>LOGIN</h1>)
+        swal({
+          title: "Please Login First!",
+          icon: "Error",
+        }).then (function(){
+          window.location.href = 'http://localhost:3000/login';
+        });
     }
   }
 }
@@ -117,6 +124,7 @@ function mapStateToProps(state) {
   return {
    id: state.cookie.id,
    type: state.cookie.type,
+  
   }
 }
 
