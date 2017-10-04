@@ -28,7 +28,12 @@ class Profile extends Component {
       });
     }
     else {
-      
+      swal({
+        title: "Please Login First!",
+        icon: "Error",
+      }).then (function(){
+        window.location.href = 'http://localhost:3000/login';
+      });
     }
   }
 
@@ -108,14 +113,6 @@ class Profile extends Component {
             </div>
           </div>
       )
-    }
-    else {
-        swal({
-          title: "Please Login First!",
-          icon: "Error",
-        }).then (function(){
-          window.location.href = 'http://localhost:3000/login';
-        });
     }
   }
 }
