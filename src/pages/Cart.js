@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { updateCart } from '../actions/cartAction'
 import ProductTableListCart from '../components/ProductTableListCart'
-
+import swal from 'sweetalert'
 
 class Cart extends Component {
   handleConnectApi = () => {
@@ -21,7 +21,15 @@ class Cart extends Component {
   }
 
   componentDidMount(e) {
-    this.handleConnectApi();
+    if (this.props.id === '') {
+      swal({
+        title: "Please Login First!",
+        icon: "Error",
+      });
+      this.props.push('/')
+    } else {
+      this.handleConnectApi();
+    }
   }
 
   checkoutCart(e) {
