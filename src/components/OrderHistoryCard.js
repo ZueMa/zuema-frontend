@@ -13,7 +13,7 @@ class OrderHistoryCard extends Component {
         this.revenue = props.revenue
         this.date = props.date
         this.img = props.image
-        this.url = "/products/" + this.product_id
+        this.url = "/products/" + this.id
     }
 
     render() {

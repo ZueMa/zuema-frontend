@@ -62,9 +62,7 @@ dd{
     background-color: white;
     border: 3px solid #FFC567 !important;
   }
-  .panel {
-    width: 500px;  
-  }
+  
   dd{ 
     margin-left: 0px;
   }

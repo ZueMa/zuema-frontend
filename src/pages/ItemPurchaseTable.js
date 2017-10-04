@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import BackButton from '../components/BackButton'
 import '../stylesheets/History.css'
 import { connect } from 'react-redux'
 import ProductTableList from '../components/ProductTableList'
@@ -30,7 +29,6 @@ class ItemPurchaseTable extends Component {
     render() {
         return (
             <div>
-                <BackButton url="/purchasehistorybuyer"/>
                 <div className="purchase_history_table">
                     <div className="head">PURCHASE HISTORY : PURCHASE #{this.props.match.params.id}</div>
                     <div className="color_line_head"></div><br />
