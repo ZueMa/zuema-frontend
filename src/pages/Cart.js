@@ -78,7 +78,7 @@ class Cart extends Component {
               <td></td>
               <td></td>
               <td>TOTAL</td>
-              <td>{this.props.total_price.toFixed(2)}</td>
+              <td>{Number(this.props.total_price).toFixed(2)}</td>
             </tr>
           </tfoot>
         </table>
