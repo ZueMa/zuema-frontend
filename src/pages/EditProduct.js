@@ -3,6 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import '../stylesheets/addproduct.css'
 import swal from 'sweetalert'
+import { Link } from 'react-router-dom'
 
 
 class EditProduct extends Component {
@@ -34,10 +35,10 @@ class EditProduct extends Component {
         image: this.state.imagetmp.replace("http://localhost:8000/images/", "")
       })
       .then((response) => {
-        swal({
-          title: "Product Updated!",
-          icon: "success",
-        })
+        // swal({
+        //   title: "Product Updated!",
+        //   icon: "success",
+        // })
       })
       .catch((response) => {
         swal({
@@ -104,7 +105,7 @@ class EditProduct extends Component {
               <input  className="input-text" type="file" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
             <div>
             <br/>
-              <button className="submit-button" onClick={(e) => this.updateProduct(e)}>SAVE</button>
+              <Link to={'products/'+this.props.product.product_id+'/'} className="submit-button" onClick={(e) => this.updateProduct(e)}>SAVE</Link>
               </div>
             </div>
         </div>
