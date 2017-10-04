@@ -98,6 +98,7 @@
     border: 1px solid black;
     outline: none;
     margin: 5px;
+    border-radius: 26px;
 }
 .quantity-product-btn:hover {
     border: 1px solid #FFC567;
@@ -107,6 +108,7 @@
 .cal-btn {
     font-size: 18px;
     color: black;
+    padding: 0 8px;
 }
 
 .cal-btn:hover{
