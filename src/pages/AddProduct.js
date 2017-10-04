@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import '../stylesheets/addproduct.css'
 import { connect } from 'react-redux'
+import swal from 'sweetalert'
+
 
 class AddProduct extends Component {
   constructor(props) {
@@ -19,7 +21,6 @@ class AddProduct extends Component {
   }
 
   addProduct(e) {
-    console.log(e)
     console.log(this.state)
     axios.post('http://localhost:8000/sellers/'+this.props.id+'/products/', {
       name: this.state.name,
@@ -31,11 +32,17 @@ class AddProduct extends Component {
       image: this.state.image
     })
     .then((response) => {
-      console.log(response)
-      
+      swal({
+        title: "Product Added!",
+        icon: "success",
+        confirmButtonText: "Go to home"
+      }) 
     })
     .catch((response) => {
-      console.error(response) 
+      swal({
+        title: "Please fill in all information!",
+        icon: "error",
+      }); 
     })
   }
 
