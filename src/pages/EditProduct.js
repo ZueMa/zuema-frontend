@@ -3,6 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import '../stylesheets/addproduct.css'
 import swal from 'sweetalert'
+import { push } from 'react-router-redux'
 import { Link } from 'react-router-dom'
 
 
@@ -35,10 +36,12 @@ class EditProduct extends Component {
         image: this.state.imagetmp.replace("http://localhost:8000/images/", "")
       })
       .then((response) => {
-        // swal({
-        //   title: "Product Updated!",
-        //   icon: "success",
-        // })
+        swal({
+          title: "Product Updated!",
+          icon: "success",
+        }).then (() => {
+          this.props.push('/')
+        });
       })
       .catch((response) => {
         swal({
@@ -58,10 +61,18 @@ class EditProduct extends Component {
         image: this.state.image
       })
       .then((response) => {
-        console.log(response)          
+        swal({
+          title: "Product Updated!",
+          icon: "success",
+        }).then (() => {
+          this.props.push('/')
+        });
       })
       .catch((response) => {
-        console.error(response) 
+        swal({
+          title: "Please fill in all information!",
+          icon: "error",
+        })
       })
     }
   }
@@ -105,7 +116,7 @@ class EditProduct extends Component {
               <input  className="input-text" type="file" onChange={(e) => this.setState({image: e.target.value.replace("C:\\fakepath\\", "")})}/>
             <div>
             <br/>
-              <Link to={'products/'+this.props.product.product_id+'/'} className="submit-button" onClick={(e) => this.updateProduct(e)}>SAVE</Link>
+              <button className="submit-button" onClick={(e) => this.updateProduct(e)}>SAVE</button>
               </div>
             </div>
         </div>
@@ -121,4 +132,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(EditProduct);
+function mapDispatchToProps(dispatch) {
+  return {
+    push: (url) => dispatch(push(url)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditProduct);

@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import '../stylesheets/addproduct.css'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import swal from 'sweetalert'
 
 
 class AddProduct extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: '',
       short_description: '',
@@ -17,11 +18,10 @@ class AddProduct extends Component {
       num_stocks: '',
       image: '',
       id:'',
-    }
+    };
   }
 
   addProduct(e) {
-    console.log(this.state)
     axios.post('http://localhost:8000/sellers/'+this.props.id+'/products/', {
       name: this.state.name,
       category: this.state.category,  
@@ -35,8 +35,9 @@ class AddProduct extends Component {
       swal({
         title: "Product Added!",
         icon: "success",
-        confirmButtonText: "Go to home"
-      }) 
+      }).then (() => {
+        this.props.push('/')
+      });
     })
     .catch((response) => {
       swal({
@@ -101,4 +102,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(AddProduct);
+function mapDispatchToProps(dispatch) {
+  return {
+    push: (url) => dispatch(push(url)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);
