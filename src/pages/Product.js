@@ -27,7 +27,10 @@ class Product extends Component {
       swal({
         title: "Please Login First!",
         icon: "Error",
-      });
+      })
+      .then(() => {
+        this.props.push('/login')
+      })
     } else {
       axios.post('http://localhost:8000/buyers/'+ this.props.id +'/cart/items/',{
         product_id: this.props.product.product_id

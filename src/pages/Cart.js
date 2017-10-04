@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../stylesheets/cart.css'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
@@ -12,7 +11,6 @@ class Cart extends Component {
   handleConnectApi = () => {
     axios.get('http://localhost:8000/buyers/' + this.props.id + '/cart/')
     .then((res) => {
-      console.log("new data: " + res.data)
       this.props.updateCart(res.data.cart_id, res.data.total_price, res.data.items)
     })
     .catch((res) => {
@@ -44,7 +42,6 @@ class Cart extends Component {
   }
 
   render() {
-    console.log('render')
     return(
       <div className="container cart">
         <div className="head-cart-page row">
