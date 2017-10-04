@@ -32,7 +32,7 @@ class ItemPurchaseTable extends Component {
             <div>
                 <BackButton url="/purchasehistorybuyer"/>
                 <div className="purchase_history_table">
-                    <div className="head">PURCHASE HISTORY : ORDER #{this.props.match.params.id}</div>
+                    <div className="head">PURCHASE HISTORY : PURCHASE #{this.props.match.params.id}</div>
                     <div className="color_line_head"></div><br />
                     <table className="table table-hover">
                         <thead>
@@ -56,6 +56,15 @@ class ItemPurchaseTable extends Component {
                                         key={id}/>
                             })}
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>TOTAL</td>
+                                <td>{this.props.total_price}</td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>

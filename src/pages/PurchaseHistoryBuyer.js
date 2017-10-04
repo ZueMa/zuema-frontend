@@ -57,15 +57,6 @@ class PurchaseHistoryBuyer extends Component {
                                             status={items.is_shipped}/>
                             })}
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>TOTAL</td>
-                                <td>{this.props.total_price}</td>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </div>
