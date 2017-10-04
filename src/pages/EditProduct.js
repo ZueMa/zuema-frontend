@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import '../stylesheets/addproduct.css'
+import swal from 'sweetalert'
+
 
 class EditProduct extends Component {
   constructor(props) {
@@ -32,10 +34,16 @@ class EditProduct extends Component {
         image: this.state.imagetmp.replace("http://localhost:8000/images/", "")
       })
       .then((response) => {
-        console.log(response)    
+        swal({
+          title: "Product Updated!",
+          icon: "success",
+        })
       })
       .catch((response) => {
-        console.error(response) 
+        swal({
+          title: "Please fill in all information!",
+          icon: "error",
+        })
       })
     }
     else {
