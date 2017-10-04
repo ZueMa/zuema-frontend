@@ -12,7 +12,7 @@ class ProductTableList extends Component {
         this.quantity = props.quantity
         this.price = props.price
         this.img = props.image
-        this.url = "/products/" + this.product_id
+        this.url = "/products/" + this.id
     }
 
     render() {
