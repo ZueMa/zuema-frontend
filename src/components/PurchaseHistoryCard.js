@@ -6,14 +6,14 @@ class PurchaseHistoryCard extends Component {
 
     constructor(props) {
         super(props);
-        this.id = props.id
+        this.purchase_id = props.purchase_id
         this.cart_id = props.cart_id
         this.total_items = props.total_items
         this.total_price = props.total_price
         this.status = props.status
         this.item_list = props.item_list
         this.date = props.date
-        this.url = "/itempurchasetable/" + this.id
+        this.url = "/itempurchasetable/" + this.purchase_id
     }
 
     get checkStatus(){
@@ -27,7 +27,7 @@ class PurchaseHistoryCard extends Component {
         return (
             <tr className="order_card" onClick={() => this.props.push(this.url)}>
                 <td className="product_name_shortdes">
-                    <p className="product_info">ORDER #{this.cart_id}</p>
+                    <p className="product_info">PURCHASE #{this.purchase_id}</p>
                 </td>
                 <td className="product_info w3-animate-top">{this.total_price}</td>
                 <td className="product_info">{this.total_items}</td>
