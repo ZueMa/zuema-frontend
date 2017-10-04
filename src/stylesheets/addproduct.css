@@ -38,12 +38,16 @@
 
 .submit-button {
   background-color: #ecac3f;
-  border: none;
   color: white;
-  font-size: 30px;
-  text-decoration: none;
   display: inline-block;
   padding: 10px 200px;
+  border: 3px solid #ecac3f !important;  
+  
+}
+.submit-button:hover {
+  color: #F5AB0E !important;
+  background-color: white;
+  border: 3px solid #F5AB0E !important;  
 }
 
 @media (max-width: 575px) { 
@@ -76,4 +80,9 @@
     font-size: 20px;
     padding: 10px 50px;
   }
+  .submit-button:hover {
+    color: #F5AB0E !important;
+    background-color: white;
+    border: 3px solid #FFC567 !important;
+}
 }

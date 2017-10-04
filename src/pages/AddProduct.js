@@ -71,12 +71,12 @@ class AddProduct extends Component {
               <p className="label">CHOOSE CATEGORY*</p>
               <select defaultValue="" className="select-category" onChange={(e) => this.setState({category: e.target.value})}>
                 <option value="" disabled hidden>CHOOSE CATEGORY</option>
-                <option value="Clothes">CLOTHES</option>
-                <option value="Electronics">ELECTRONICS</option>
-                <option value="Kids">KIDS</option>
-                <option value="Sport">SPORT</option>
-                <option value="Cosmetics">COSMETIC</option>
-                <option value="Garden">GARDEN</option>
+                <option value="Cosmetics">Cosmetics</option>
+                <option value="Clothes">Clothes</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Kids">Kids</option>
+                <option value="Sports">Sports</option>
+                <option value="Home & Garden">Home & Garden</option>
               </select>
               <p className="label">PRODUCT PRICE*</p>
               <input className="input-num" type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
