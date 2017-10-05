@@ -29,10 +29,14 @@
 .product-name {
   font-size: 1.5rem;
   font-weight: bold;
+  height: 36px;
+  overflow-y: hidden;
 }
 
 .product-detail {
   font-size: 1rem;
+  height: 48px;
+  overflow-y: hidden;
 }
 
 .product-price {
