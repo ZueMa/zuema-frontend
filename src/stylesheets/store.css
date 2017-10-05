@@ -52,10 +52,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
-  background-color: lightgrey;
-  border: 1px solid gray;
+  height: 200px;
+  background-color: #574D4F;
+  border: 1.5px solid #4C4345;
   font-size: 36px;
+}
+
+.category-card:hover {
+  background-color: #413A38;
+  color: #edac14;
+  transition: 0.5;
 }
 
 @media (max-width: 575px) { 

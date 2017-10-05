@@ -51,6 +51,15 @@ class Product extends Component {
 
   handleRemove = (e) => {
     axios.delete('http://localhost:8000/sellers/' + this.props.id + '/products/' + this.props.product.product_id)
+    .then((res) => {
+      swal({
+        title: "Product has been deleted!",
+        icon: "success"
+      })
+      .then(() => {
+        this.props.push('/')
+      })
+    })
     .catch((res) => {
       console.log(res)
     })
