@@ -19,14 +19,12 @@ class Login extends Component {
   }
 
   handleLogin(e, user_type) {
-    console.log(e)
     axios.post('http://localhost:8000/authentication/', {
       username: this.state.username,
       password: this.state.password,
       user_type: user_type
     })
     .then((res) => {
-      console.log(res)
       this.props.cookie(res.data.user_id, res.data.user_type)
       this.props.push(this.state.next_url);
     });

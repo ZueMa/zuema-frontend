@@ -3,6 +3,8 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import '../stylesheets/addproduct.css'
 import swal from 'sweetalert'
+import { push } from 'react-router-redux'
+import { Link } from 'react-router-dom'
 
 
 class EditProduct extends Component {
@@ -37,7 +39,9 @@ class EditProduct extends Component {
         swal({
           title: "Product Updated!",
           icon: "success",
-        })
+        }).then (() => {
+          this.props.push('/')
+        });
       })
       .catch((response) => {
         swal({
@@ -57,10 +61,18 @@ class EditProduct extends Component {
         image: this.state.image
       })
       .then((response) => {
-        console.log(response)          
+        swal({
+          title: "Product Updated!",
+          icon: "success",
+        }).then (() => {
+          this.props.push('/')
+        });
       })
       .catch((response) => {
-        console.error(response) 
+        swal({
+          title: "Please fill in all information!",
+          icon: "error",
+        })
       })
     }
   }
@@ -89,12 +101,12 @@ class EditProduct extends Component {
               <p className="label">CHOOSE CATEGORY*</p>
               <select className="select-category" value={this.state.category} onChange={(e) => this.setState({category: e.target.value})}>
                 <option value="" disabled hidden>CHOOSE CATEGORY</option>
-                <option value="Clothes">CLOTHES</option>
-                <option value="Electronics">ELECTRONICS</option>
-                <option value="Kids">KIDS</option>
-                <option value="Sports">SPORT</option>
-                <option value="Cosmetics">COSMETICS</option>
-                <option value="Home & Garden">HOME & GARDEN</option>
+                <option value="Cosmetics">Cosmetics</option>
+                <option value="Clothes">Clothes</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Kids">Kids</option>
+                <option value="Sports">Sports</option>
+                <option value="Home & Garden">Home & Garden</option>
             </select>
               <p className="label">PRODUCT PRICE*</p>
               <input className="input-num" value={this.state.price} type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
@@ -120,4 +132,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(EditProduct);
+function mapDispatchToProps(dispatch) {
+  return {
+    push: (url) => dispatch(push(url)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditProduct);
