@@ -42,10 +42,6 @@ class RegisterBuyer extends Component {
     render() {
         return(
         <div>
-            <div className="back-button">
-                <i className="fa fa-angle-left" aria-hidden="true" onClick={() => this.props.history.goBack()}>BACK</i>
-            </div>
-
             <div className="container-fluid">
                 <div className="container-box">
                     <div className="text-head">REGISTER
