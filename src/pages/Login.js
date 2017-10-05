@@ -3,6 +3,7 @@ import '../stylesheets/login.css'
 import { push } from 'react-router-redux'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import swal from 'sweetalert'
 import { addCookie } from '../actions/cookieActions'
 import axios from 'axios'
 
@@ -27,6 +28,12 @@ class Login extends Component {
     .then((res) => {
       this.props.cookie(res.data.user_id, res.data.user_type)
       this.props.push(this.state.next_url);
+    })
+    .catch((res) => {
+      swal({
+        title: "Wrong ID or Password!",
+        icon: "error",
+      });
     });
   }
 
