@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+.cart {
+    height: 100%;
+    font-family: 'Oswald', sans-serif;
+    color: #5F5F5F;
+}
+
+.head-cart-page {
+    padding: 4rem 0 3rem 0;
+}
+
+.edit-cart-btn {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #E57935;
+    border: 2.5px solid #E57935;
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 10px;
+    float: right;
+}
+.edit-cart-btn:hover {
+    background-color: transparent;
+    color: #E57835 !important;
+}
+
+.checkout-cart-btn {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #FFC567;
+    border: 2.5px solid #FFC567;
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 10px;
+    float: right;
+}
+.checkout-cart-btn:hover {
+    background-color: transparent;
+    color: #FFC567 !important;
+}
+
+.table-cart {
+    width: 100%;
+    color: #5F5F5F;
+}
+
+.table-cart thead th{
+    border-top: 1px solid #C2C2C2;
+    border-bottom: 1px solid #C2C2C2;
+    padding: 0.8rem 0 0.8rem 0;
+    font-size: 24px;
+}
+
+.topic-center {
+    text-align: center;
+}
+
+.cart-product-list {
+    text-align: left;
+}
+
+.cart-product-img {
+    width: 100px;
+    height: 100px;
+    margin: 20px 0 20px 0;
+}
+
+.cart tfoot td {
+    font-size: 30px;
+    font-weight: normal;
+    text-align: center !important;
+}
+
+.order-name {
+    font-size: 17.5px;
+}
+
+.order-drescription {
+    font-size: 15px;
+}
+
+
+.table-hover tbody tr:hover  {
+    background-color:  #F8F1E0 !important;
+}
+
+.trash-btn {
+    border: none;
+    background-color: transparent;
+}
+.trash-btn:hover {
+    color: #FF6767;
+}
+
+.quantity-product-btn {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    outline: none !important;
+    margin: 5px;
+    border-radius: 26px;
+}
+.quantity-product-btn:hover {
+    border: 1px solid #FFC567;
+    color: #FFC567;
+}
+
+.cal-btn {
+    font-size: 18px;
+    color: black;
+    padding: 0 8px;
+}
+
+.cal-btn:hover{
+    color: #FFC567;
+}

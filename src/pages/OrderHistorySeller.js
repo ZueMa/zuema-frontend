@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import OrderHistoryCard from '../components/OrderHistoryCard'
-import BackButton from '../components/BackButton'
+import { connect } from 'react-redux'
 import '../stylesheets/History.css'
 
 class OrderHistorySeller extends Component {
@@ -14,9 +14,7 @@ class OrderHistorySeller extends Component {
     }
 
     handleOrderHis(e) {
-        console.log(e)
-        axios.get('https://private-00f7e-zuema.apiary-mock.com/sellers/me/orders').then((response) => {
-            console.log(response)
+        axios.get('http://localhost:8000/sellers/'+ this.props.id +'/orders/').then((response) => {
             this.setState({orders: response.data.orders})
         }).catch((response) => {
             console.error(response)
@@ -30,7 +28,6 @@ class OrderHistorySeller extends Component {
     render(){
         return (
             <div>
-                <BackButton />
                 <div className="seller_history_table">
                     <div className="head">ORDER HISTORY</div>
                     <div className="color_line_head"></div><br />
@@ -39,7 +36,7 @@ class OrderHistorySeller extends Component {
                             <tr>
                                 <th></th>
                                 <th className="head_table_title">PRODUCT NAME</th>
-                                <th className="head_table_title_center">PRICE</th>
+                                <th className="head_table_title_center">REVENUE</th>
                                 <th className="head_table_title_center">QUANTITY</th>
                                 <th className="head_table_title_center">DATE</th>
                             </tr>
@@ -47,13 +44,14 @@ class OrderHistorySeller extends Component {
                         <tbody>
                             { this.state.orders.map((item, id) => {
                                 return <OrderHistoryCard 
-                                            name={item.product.name}
-                                            short_description={item.product.short_description}
-                                            id={item.product.product_id}
-                                            price={item.revenue}
+                                            name={item.name}
+                                            short_description={item.short_description}
+                                            product_id={item.product_id}
+                                            revenue={item.revenue}
                                             quantity={item.num_items}
                                             date={item.timestamp}
-                                            img={item.product.image}
+                                            img={item.image}
+                                            id={id}
                                             key={id}/>
                             })}
                         </tbody>
@@ -65,4 +63,11 @@ class OrderHistorySeller extends Component {
     }
 }
 
-export default OrderHistorySeller;
+function mapStateToProps(state) {
+    return {
+     id: state.cookie.id,
+     type: state.cookie.type,
+    }
+  }
+  
+export default connect(mapStateToProps)(OrderHistorySeller);

@@ -12,11 +12,13 @@
 
 .product-full-image {
   height: 100%;
-  background-color: lightgray;
 }
 
 .image-side {
   border: 1px solid darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-header {
@@ -72,6 +74,7 @@
   margin-top: 8%;
   margin-left: 5%;
   margin-right: 5%;
+  overflow-y: auto;
 }
 
 .product-stock {

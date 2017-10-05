@@ -1,17 +1,36 @@
 import React, { Component } from 'react'
-import BackButton from '../components/BackButton'
+import axios from 'axios'
 import '../stylesheets/History.css'
-import { purchaseHistoryList } from './PurchaseHistoryBuyer'
+import { connect } from 'react-redux'
 import ProductTableList from '../components/ProductTableList'
 
 class ItemPurchaseTable extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            itemList: [],
+            total_price: 0
+        }
+    }
+
+    handlePurchaseItems(e) {
+        axios.get('http://localhost:8000/buyers/'+ this.props.id +'/purchases/' + this.props.match.params.id).then((response) => {
+            this.setState({itemList: response.data.items, total_price: response.data.total_price})
+        }).catch((response) => {
+            console.error(response)
+        })
+    }
+
+    componentDidMount(e) {
+        this.handlePurchaseItems(e)
+    }
+
     render() {
         return (
             <div>
-                <BackButton url="/purchasehistorybuyer"/>
                 <div className="purchase_history_table">
-                    <div className="head">PURCHASE HISTORY : ORDER #{purchaseHistoryList[this.props.match.params.id].cart.cart_id}</div>
+                    <div className="head">PURCHASE HISTORY : PURCHASE #{this.props.match.params.id}</div>
                     <div className="color_line_head"></div><br />
                     <table className="table table-hover">
                         <thead>
@@ -23,17 +42,26 @@ class ItemPurchaseTable extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            { (purchaseHistoryList[this.props.match.params.id].cart.items).map((item, id) => {
+                            { this.state.itemList.map((item, id) => {
                                 return <ProductTableList 
                                         name={item.name}
-                                        short_description={item.description}
+                                        short_description={item.short_description}
                                         price={item.price}
                                         image={item.image}
-                                        quantity={item.num_purchased}
-                                        id={item.id}
+                                        quantity={item.num_items}
+                                        product_id={item.product_id}
+                                        id={id}
                                         key={id}/>
                             })}
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>TOTAL</td>
+                                <td>{this.state.total_price.toFixed(2)}</td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -41,4 +69,12 @@ class ItemPurchaseTable extends Component {
     }
 }
 
-export default ItemPurchaseTable;
+
+function mapStateToProps(state) {
+    return {
+     id: state.cookie.id,
+     type: state.cookie.type,
+    }
+  }
+  
+export default connect(mapStateToProps)(ItemPurchaseTable);

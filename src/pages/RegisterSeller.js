@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import swal from 'sweetalert'
 
 class RegisterSeller extends Component {
     constructor(props) {
@@ -27,10 +28,18 @@ class RegisterSeller extends Component {
           description: this.state.description
         })
         .then((response) => {
-          console.log(response)
+          swal({
+            title: "Register Success!",
+            icon: "success",
+          }).then (function(){
+            window.location.href = 'http://localhost:3000/login';
+          });
         })
         .catch((response) => {
-          console.error(response) 
+          swal({
+            title: "Register Error!",
+            icon: "error",
+          }); 
         })
     }
 
@@ -38,7 +47,7 @@ class RegisterSeller extends Component {
         return(
         <div>
             <div className="back-button">
-                <i class="fa fa-angle-left" aria-hidden="true" onClick={() => this.props.history.goBack()}>BACK</i>
+                <i className="fa fa-angle-left" aria-hidden="true" onClick={() => this.props.history.goBack()}>BACK</i>
             </div>
 
             <div className="container-fluid">

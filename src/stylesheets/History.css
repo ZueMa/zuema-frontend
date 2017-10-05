@@ -4,24 +4,24 @@
 }
 
 th {
-    animation: fadein 1s;
+    /* animation: fadein 1s; */
     font-size: 25px;
     color: #5F5F5F;
 }
 
 td {
-    animation: fadein 4s;
+    /* animation: fadein 4s; */
 }
 
 .color_line_head {
-    animation: line_head_ani 1s;
+    /* animation: line_head_ani 1s; */
     background-color: #FBDC9D;
     height: 8px;
     width: 70px;
 }
 
 .head {
-    animation: fadein 1s;
+    /* animation: fadein 1s; */
     text-align: left;
     font-size: 50px;
 }
@@ -56,12 +56,20 @@ td {
 }
 
 .table {
-    animation: fadein 1s;
+    /* animation: fadein 1s; */
 
 }
 
 .table > tbody > tr > td {
     vertical-align: middle !important;
+}
+
+.status_point_received {
+    color: #90BA80;
+}
+
+.status_point_delivering {
+    color: #E57935;
 }
 
 @keyframes line_head_ani {

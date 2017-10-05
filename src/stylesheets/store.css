@@ -12,7 +12,6 @@
 }
 
 .product-img {
-  background-color: lightgrey;
   flex: 2;
 }
 
@@ -30,10 +29,14 @@
 .product-name {
   font-size: 1.5rem;
   font-weight: bold;
+  height: 36px;
+  overflow-y: hidden;
 }
 
 .product-detail {
   font-size: 1rem;
+  height: 48px;
+  overflow-y: hidden;
 }
 
 .product-price {
@@ -49,10 +52,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
-  background-color: lightgrey;
-  border: 1px solid gray;
+  height: 200px;
+  background-color: #574D4F;
+  border: 1.5px solid #4C4345;
   font-size: 36px;
+}
+
+.category-card:hover {
+  background-color: #413A38;
+  color: #edac14;
+  transition: 0.5;
 }
 
 @media (max-width: 575px) { 
@@ -110,4 +119,19 @@
 
 .text-right {
   text-align: right;
+}
+
+.sm-img {
+  width: 180px;
+  height: 220px;
+}
+
+.xs-img {
+  width: 120px;
+  height: 120px;
+}
+
+.lg-img {
+  width: 500px;
+  height: 800px;
 }

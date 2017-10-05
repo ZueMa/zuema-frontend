@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../stylesheets/addproduct.css'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
+import swal from 'sweetalert'
+
 
 class AddProduct extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: '',
       short_description: '',
@@ -12,27 +16,34 @@ class AddProduct extends Component {
       price: '',
       category: '',
       num_stocks: '',
-      image: [],
-    }
+      image: '',
+      id:'',
+    };
   }
 
   addProduct(e) {
-    console.log(e)
-    axios.post('https://private-00f7e-zuema.apiary-mock.com/sellers/me/products', {
+    axios.post('http://localhost:8000/sellers/'+this.props.id+'/products/', {
       name: this.state.name,
       category: this.state.category,  
       price: this.state.price,     
-      num_stocks: this.state.num_stock,      
+      num_stocks: this.state.num_stocks,      
       short_description: this.state.short_description,
       full_description: this.state.full_description,
       image: this.state.image
     })
     .then((response) => {
-      console.log(response)
-      
+      swal({
+        title: "Product Added!",
+        icon: "success",
+      }).then (() => {
+        this.props.push('/')
+      });
     })
     .catch((response) => {
-      console.error(response) 
+      swal({
+        title: "Please fill in all information!",
+        icon: "error",
+      }); 
     })
   }
 
@@ -59,13 +70,14 @@ class AddProduct extends Component {
 
             <div className="right-col">
               <p className="label">CHOOSE CATEGORY*</p>
-              <select className="select-category" onChange={(e) => this.setState({category: e.target.value})}>
-                <option>CLOTHES</option>
-                <option>SPORTS</option>
-                <option>KIDS</option>
-                <option>IT</option>
-                <option>GARDEN</option>
-                <option>...</option>
+              <select defaultValue="" className="select-category" onChange={(e) => this.setState({category: e.target.value})}>
+                <option value="" disabled hidden>CHOOSE CATEGORY</option>
+                <option value="Cosmetics">Cosmetics</option>
+                <option value="Clothes">Clothes</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Kids">Kids</option>
+                <option value="Sports">Sports</option>
+                <option value="Home & Garden">Home & Garden</option>
               </select>
               <p className="label">PRODUCT PRICE*</p>
               <input className="input-num" type="number" size="5" onChange={(e) => this.setState({price: e.target.value})}/>
@@ -84,4 +96,16 @@ class AddProduct extends Component {
   }
 }
 
-export default AddProduct;
+function mapStateToProps(state) {
+  return {
+   id: state.cookie.id,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    push: (url) => dispatch(push(url)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);

@@ -5,12 +5,7 @@ import { Link } from 'react-router-dom'
 class Register extends Component {
     render() {
         return(
-        <div>
-            <div className="back-button">
-                <i class="fa fa-angle-left" aria-hidden="true" onClick={() => this.props.history.goBack()}>BACK</i>
-            </div>
-            
-            
+        <div> 
             <div className="container-fluid">
                 <div className="container-box">
                     <div className="text-head">REGISTER
