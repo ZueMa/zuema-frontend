@@ -6,10 +6,12 @@ class NavButton extends Component {
   render() {
     let button = undefined;
     if (this.props.shape === "circle") {
+      let text = this.props.text.split(' ')
       button = (
         <div className="nav-container nav-add-margin" onClick={() => this.props.push(this.props.url)}>
           <i className={this.props.icon + ` fa-4x`}></i>
-          <h5>{this.props.text}</h5>
+          <h5>{text[0]}</h5>
+          <h5>{text[1]}</h5>
         </div>
       )
     } else {
