@@ -14,9 +14,11 @@ dt {
   font-weight: bold;
   width: 300px;
 }
+
 dd{ 
   margin-left: 305px;
 }
+
 .panel .dl-horizontal dt {
   white-space: normal;
 }
@@ -25,6 +27,7 @@ dd{
   padding-top: 2%;
   font-size: 30px;
   padding-left: 5%;
+  margin-bottom: 20px;
 }
 
 #history{
