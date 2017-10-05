@@ -7,13 +7,12 @@ import { updateProduct } from '../actions/productAction'
 import swal from 'sweetalert'
 
 class Product extends Component {
-  constructor(props) {
-    super(props);
-    this.products = props.products 
-  }
-
   componentDidMount() {
-    axios.get('http://localhost:8000/products/' + this.products[this.props.match.params.id-1].product_id)
+    console.log(this.props.products)
+    let id = this.props.products.filter((itm) => {
+      return itm.product_id == this.props.match.params.id
+    })
+    axios.get('http://localhost:8000/products/' + id[0].product_id)
     .then((res) => {
       this.props.updateProduct(res.data)
     })

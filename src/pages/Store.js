@@ -12,6 +12,7 @@ class Store extends Component {
     if (this.props.type === 'seller') {
       axios.get('http://localhost:8000/sellers/' + this.props.id +'/products/')
       .then((res) => {
+        console.log(res.data.products)
         this.props.updateStorage(res.data.products)
       })
       .catch((res) => {
