@@ -85,6 +85,7 @@ class Profile extends Component {
                   </dl>
                 </div>
               </div>
+              <br/>
               <Link to={'orderhistoryseller'} id="history">VIEW ORDER HISTORY</Link>                 
             </div> 
           </div>
