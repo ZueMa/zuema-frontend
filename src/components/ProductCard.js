@@ -42,7 +42,7 @@ class ProductCard extends Component {
     return (
       <div className="card">
         <div className="product-card">
-          <Link to={`/products/${this.props.url}`} className="product-img">
+          <Link to={`/products/${this.props.id}`} className="product-img">
           </Link>
           <div className="product-info">
             <div>
@@ -51,7 +51,7 @@ class ProductCard extends Component {
             </div>
             <div className="product-price flex">
               <div>
-                {this.props.price.toFixed(2)}
+                {Number(this.props.price).toFixed(2)}
               </div>
               <div className="text-right">
                 {cart} 

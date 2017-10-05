@@ -29,6 +29,14 @@ class Store extends Component {
   }
 
   render() {
+    let products = [];
+    if (this.props.type === 'seller') {
+      products = this.props.products
+    } else {
+      products = this.props.products.filter((itm) => {
+        return itm.num_stocks > 0
+      })
+    }
     return(
       <div className="store">
         <div className="top-bar" hidden>
@@ -46,8 +54,8 @@ class Store extends Component {
               <hr className="line"/>
             </div>
           </div>
-          {this.props.products.map((itm, id) => {
-            return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} url={id} price={itm.price} key={id}/>
+          {products.map((itm, id) => {
+            return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
           })}
         </div>
         <div id="cosmetics">
@@ -58,9 +66,9 @@ class Store extends Component {
               <hr className="line"/>
             </div>
           </div>
-          {this.props.products.map((itm, id) => {
+          {products.map((itm, id) => {
             if(itm.category === 'Cosmetics')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} url={id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -72,9 +80,9 @@ class Store extends Component {
               <hr className="line"/>
             </div>
           </div>
-          {this.props.products.map((itm, id) => {
+          {products.map((itm, id) => {
             if(itm.category === 'Clothes')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} url={id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -86,9 +94,9 @@ class Store extends Component {
               <hr className="line"/>
             </div>
           </div>
-          {this.props.products.map((itm, id) => {
+          {products.map((itm, id) => {
             if(itm.category === 'Electronics')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} url={id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -100,9 +108,9 @@ class Store extends Component {
               <hr className="line"/>
             </div>
           </div>
-          {this.props.products.map((itm, id) => {
+          {products.map((itm, id) => {
             if(itm.category === 'Home & Garden')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} url={id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -114,9 +122,9 @@ class Store extends Component {
               <hr className="line"/>
             </div>
           </div>
-          {this.props.products.map((itm, id) => {
+          {products.map((itm, id) => {
             if(itm.category === 'Kids')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} url={id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
             return null
           })}
         </div>
@@ -128,9 +136,9 @@ class Store extends Component {
               <hr className="line"/>
             </div>
           </div>
-          {this.props.products.map((itm, id) => {
+          {products.map((itm, id) => {
             if(itm.category === 'Sports')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} url={id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
             return null
           })}
         </div>
