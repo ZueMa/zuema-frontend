@@ -15,7 +15,6 @@ class OrderHistorySeller extends Component {
 
     handleOrderHis(e) {
         axios.get('http://localhost:8000/sellers/'+ this.props.id +'/orders/').then((response) => {
-            console.log(response)
             this.setState({orders: response.data.orders})
         }).catch((response) => {
             console.error(response)

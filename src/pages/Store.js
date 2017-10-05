@@ -12,7 +12,6 @@ class Store extends Component {
     if (this.props.type === 'seller') {
       axios.get('http://localhost:8000/sellers/' + this.props.id +'/products/')
       .then((res) => {
-        console.log(res.data.products)
         this.props.updateStorage(res.data.products)
       })
       .catch((res) => {
@@ -21,6 +20,7 @@ class Store extends Component {
     } else {
       axios.get('http://localhost:8000/products/')
       .then((res) => {
+        console.log(res.data.products)
         this.props.updateStorage(res.data.products)
       })
       .catch((res) => {
@@ -56,7 +56,7 @@ class Store extends Component {
             </div>
           </div>
           {products.map((itm, id) => {
-            return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+            return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id} image={itm.image}/>
           })}
         </div>
         <div id="cosmetics">
@@ -69,7 +69,7 @@ class Store extends Component {
           </div>
           {products.map((itm, id) => {
             if(itm.category === 'Cosmetics')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id} image={itm.image}/>
             return null
           })}
         </div>
@@ -83,7 +83,7 @@ class Store extends Component {
           </div>
           {products.map((itm, id) => {
             if(itm.category === 'Clothes')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id} image={itm.image}/>
             return null
           })}
         </div>
@@ -97,7 +97,7 @@ class Store extends Component {
           </div>
           {products.map((itm, id) => {
             if(itm.category === 'Electronics')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id} image={itm.image}/>
             return null
           })}
         </div>
@@ -111,7 +111,7 @@ class Store extends Component {
           </div>
           {products.map((itm, id) => {
             if(itm.category === 'Home & Garden')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id} image={itm.image}/>
             return null
           })}
         </div>
@@ -125,7 +125,7 @@ class Store extends Component {
           </div>
           {products.map((itm, id) => {
             if(itm.category === 'Kids')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id} image={itm.image}/>
             return null
           })}
         </div>
@@ -139,7 +139,7 @@ class Store extends Component {
           </div>
           {products.map((itm, id) => {
             if(itm.category === 'Sports')
-              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id}/>
+              return <ProductCard name={itm.name} detail={itm.short_description} id={itm.product_id} price={itm.price} key={id} image={itm.image}/>
             return null
           })}
         </div>
