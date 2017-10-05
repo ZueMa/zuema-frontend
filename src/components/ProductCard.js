@@ -43,6 +43,7 @@ class ProductCard extends Component {
       <div className="card">
         <div className="product-card">
           <Link to={`/products/${this.props.id}`} className="product-img">
+            <img src={this.props.image} className="sm-img" alt="img"/>
           </Link>
           <div className="product-info">
             <div>

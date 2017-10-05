@@ -57,6 +57,8 @@ class Product extends Component {
   }
 
   render() {
+    console.log(this.props.product.name)
+    console.log(this.props.product.image)
     let component = null
     if (this.product !== '') {
       if (this.props.type === 'seller') {
@@ -64,7 +66,7 @@ class Product extends Component {
           <div className="container-fluid product-height">
             <div className="row product-style-div">
               <div className="col-md-6 no-padding image-side">
-                <div className="product-full-image"></div>
+                  <img src={this.props.product.image} className="lg-img" alt="img"/>
               </div>
               <div className="col-md-6 text-side">
                 <div className="text-header">
@@ -89,7 +91,7 @@ class Product extends Component {
           <div className="container-fluid product-height">
             <div className="row product-style-div">
               <div className="col-md-6 no-padding image-side">
-                <div className="product-full-image"></div>
+                  <img src={this.props.product.image} className="lg-img" alt="img"/>
               </div>
               <div className="col-md-6 text-side">
                 <div className="text-header">

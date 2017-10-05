@@ -114,3 +114,18 @@
 .text-right {
   text-align: right;
 }
+
+.sm-img {
+  width: 180px;
+  height: 220px;
+}
+
+.xs-img {
+  width: 120px;
+  height: 120px;
+}
+
+.lg-img {
+  width: 500px;
+  height: 800px;
+}

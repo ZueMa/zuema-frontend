@@ -12,11 +12,13 @@
 
 .product-full-image {
   height: 100%;
-  background-color: lightgray;
 }
 
 .image-side {
   border: 1px solid darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-header {
