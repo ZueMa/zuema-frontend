@@ -58,7 +58,7 @@ class ItemPurchaseTable extends Component {
                             <tr>
                                 <td></td>
                                 <td></td>
-                                <td>TOTAL</td>
+                                <td>TOTAL PRICE</td>
                                 <td>{this.state.total_price.toFixed(2)}</td>
                             </tr>
                         </tfoot>

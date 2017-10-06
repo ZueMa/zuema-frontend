@@ -41,7 +41,7 @@ class Product extends Component {
       })
       .catch(() => {
         swal({
-          title: "This Product is Already Added!",
+          title: "This Product Is Already Added!",
           icon: "error"
         })
       })
@@ -52,7 +52,7 @@ class Product extends Component {
     axios.delete('http://localhost:8000/sellers/' + this.props.id + '/products/' + this.props.product.product_id)
     .then((res) => {
       swal({
-        title: "Product has been deleted!",
+        title: "Product Has Been Deleted!",
         icon: "success"
       })
       .then(() => {

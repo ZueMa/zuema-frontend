@@ -9,7 +9,7 @@ class Logout extends Component {
     this.props.cookie('', '');
     this.props.push('/');
     swal({
-      title: "Logout Success!",
+      title: "Logout Successful!",
       icon: "success",
     });
   }

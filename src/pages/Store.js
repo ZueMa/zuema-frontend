@@ -52,7 +52,7 @@ class Store extends Component {
           <div className="store-header">
             <div className="inner-header" >
               <hr className="line"/>
-              <h2 className="product-text-margin">ALL PRODUCT</h2> 
+              <h2 className="product-text-margin">All Products</h2> 
               <hr className="line"/>
             </div>
           </div>

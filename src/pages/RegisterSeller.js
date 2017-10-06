@@ -29,7 +29,7 @@ class RegisterSeller extends Component {
         })
         .then((response) => {
           swal({
-            title: "Register Success!",
+            title: "Register Successful!",
             icon: "success",
           }).then (function(){
             window.location.href = 'http://localhost:3000/login';

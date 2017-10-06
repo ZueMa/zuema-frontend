@@ -31,7 +31,7 @@ class Login extends Component {
     })
     .catch((res) => {
       swal({
-        title: "Wrong ID or Password!",
+        title: "Wrong Username Or Password!",
         icon: "error",
       });
     });

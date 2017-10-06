@@ -45,7 +45,7 @@ class EditProduct extends Component {
       })
       .catch((response) => {
         swal({
-          title: "Please fill in all information!",
+          title: "Please Fill In All Information!",
           icon: "error",
         })
       })
@@ -70,7 +70,7 @@ class EditProduct extends Component {
       })
       .catch((response) => {
         swal({
-          title: "Please fill in all information!",
+          title: "Please Fill In All Information!",
           icon: "error",
         })
       })
