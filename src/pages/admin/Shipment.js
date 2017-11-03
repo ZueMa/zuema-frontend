@@ -13,8 +13,16 @@ class Shipment extends Component {
           <div className="head">CONFIRM PRODUCT SHIPMENTS</div>
           <div className="color_line_head"></div><br />
         </div>
-        <CardShipment/>
-        <CardShipment/>
+        <CardShipment
+              id={1}
+              purchase_id={234}
+              buyer_name={"mild"}
+              total_price={1000}/>
+        <CardShipment
+              id={2}
+              purchase_id={2746538}
+              buyer_name={"preaw"}
+              total_price={75000}/>
       </div> 
     )
   }
