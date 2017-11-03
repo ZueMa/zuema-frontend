@@ -31,6 +31,7 @@ import Register from './pages/Register'
 import RegisterSeller from './pages/RegisterSeller'
 import RegisterBuyer from './pages/RegisterBuyer'
 import Logout from './pages/Logout'
+import Shipment from './pages/admin/Shipment'
 
 const history = createHistory()
 
@@ -66,6 +67,7 @@ ReactDOM.render(
           <Route exact path="/addproduct" component={AddProduct}/>
           <Route exact path="/editproduct" component={EditProduct}/>
           <Route path="/logout" component={Logout} />
+          <Route path="/shipment" component={Shipment}/>
         </App>
       </Switch>
     </ConnectedRouter>
