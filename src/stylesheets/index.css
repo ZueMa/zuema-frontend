@@ -126,3 +126,44 @@ h2 {
     width: 50px;    
   }
 }
+
+.nav-admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 0 350px;
+  background-color: #362B22;
+  overflow: hidden;
+  color: white;
+}
+
+.nav-inner-admin {
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.logo-large {
+  width: 280px; 
+}
+
+.admin-text {
+  position: fixed;
+  top: 230px;
+  font-size: 32px;
+}
+
+.link-block {
+  display: inherit;
+  margin-top: 40px;
+}
+
+.link {
+  font-size: 20px;
+}
+
+.nav-container-admin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  cursor: pointer; 
+}
