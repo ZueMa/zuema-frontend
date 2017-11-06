@@ -19,7 +19,7 @@ class App extends Component {
                   <i className="fa fa-2x fa-truck"/>
                   <div className="link">&nbsp;CONFIRM PRODUCT SHIPMENTS</div>
                 </div>
-                <div className="link-block">
+                <div className="link-block" hidden>
                   <i className="fa fa-2x fa-check-circle"/>
                   <div className="link">&nbsp;CONFIRM NEW PRODUCT</div>
                 </div>

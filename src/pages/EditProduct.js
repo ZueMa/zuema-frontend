@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import '../stylesheets/addproduct.css'
 import swal from 'sweetalert'
 import { push } from 'react-router-redux'
-import { Link } from 'react-router-dom'
 
 
 class EditProduct extends Component {
