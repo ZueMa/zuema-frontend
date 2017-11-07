@@ -9,7 +9,7 @@ import swal from 'sweetalert'
 class Product extends Component {
   componentDidMount() {
     let id = this.props.products.filter((itm) => {
-      return itm.product_id == this.props.match.params.id
+      return itm.product_id.toString() === this.props.match.params.id
     })
     axios.get('http://localhost:8000/products/' + id[0].product_id)
     .then((res) => {

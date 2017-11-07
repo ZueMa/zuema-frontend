@@ -6,7 +6,28 @@ import { connect } from 'react-redux'
 class App extends Component {
   render() {
     let component = '';
-    if (this.props.type === 'seller') {
+    if (this.props.location.pathname === '/admin') {
+      component = (
+        <div className="nav-admin">
+          <div className="nav-inner-admin">
+            <div className="nav-logo">
+              <img className="logo-large" src={logo} alt="logo"/>
+              <p className="admin-text">ADMINISTRATION</p>
+            </div>
+              <div className="nav-container-admin nav-add-margin">
+                <div className="link-block">
+                  <i className="fa fa-2x fa-truck"/>
+                  <div className="link">&nbsp;CONFIRM PRODUCT SHIPMENTS</div>
+                </div>
+                <div className="link-block" hidden>
+                  <i className="fa fa-2x fa-check-circle"/>
+                  <div className="link">&nbsp;CONFIRM NEW PRODUCT</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      )
+    } else if (this.props.type === 'seller') {
       component = (
           <div className="nav">
             <div className="nav-logo">
