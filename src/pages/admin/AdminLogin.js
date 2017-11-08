@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+import swal from 'sweetalert'
 import '../../stylesheets/login.css'
 
 class AdminLogin extends Component {
@@ -11,7 +13,21 @@ class AdminLogin extends Component {
       }
       
     handleLogin(e){        
-       
+      axios.post('http://localhost:8000/admin/', {
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then((res) => {
+        // window.location.href = 'http://localhost:3000/shipment'
+      })
+      .catch((res) => {
+        swal({
+          title: "Wrong ID or Password!",
+          icon: "error",
+        });      
+        //check
+        window.location.href = 'http://localhost:3000/shipment'
+      });
     }
 
     render() {
