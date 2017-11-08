@@ -31,7 +31,7 @@ import Register from './pages/Register'
 import RegisterSeller from './pages/RegisterSeller'
 import RegisterBuyer from './pages/RegisterBuyer'
 import AdminLogin from './pages/admin/AdminLogin'
-import AdminShipment from './pages/admin/AdminShipment'
+import AdminPurchases from './pages/admin/AdminPurchases'
 import Logout from './pages/Logout'
 
 const history = createHistory()
@@ -68,7 +68,7 @@ ReactDOM.render(
           <Route exact path="/addproduct" component={AddProduct}/>
           <Route exact path="/editproduct" component={EditProduct}/>
           <Route path="/admin/" component={AdminLogin} />
-          <Route path="/shipment" component={AdminShipment} />
+          <Route path="/purchases" component={AdminPurchases} />
           <Route path="/logout" component={Logout} />
         </App>
       </Switch>

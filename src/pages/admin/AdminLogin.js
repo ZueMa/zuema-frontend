@@ -18,7 +18,7 @@ class AdminLogin extends Component {
         password: this.state.password          
       })
       .then((res) => {
-        window.location.href = 'http://localhost:3000/shipment'
+        window.location.href = 'http://localhost:3000/purchases'
       })
       .catch((res) => {
         swal({
