@@ -12,22 +12,21 @@ class AdminLogin extends Component {
         }
       }
       
-    handleLogin(e){        
+    handleLogin(e){     
       axios.post('http://localhost:8000/admin/', {
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password          
       })
       .then((res) => {
-        // window.location.href = 'http://localhost:3000/shipment'
+        window.location.href = 'http://localhost:3000/shipment'
       })
       .catch((res) => {
         swal({
           title: "Wrong ID or Password!",
           icon: "error",
         });      
-        //check
-        window.location.href = 'http://localhost:3000/shipment'
       });
+      console.log(e)
     }
 
     render() {
@@ -51,7 +50,6 @@ class AdminLogin extends Component {
             </div>
             <br/>
           </div>
-        
         );
     }
 }
