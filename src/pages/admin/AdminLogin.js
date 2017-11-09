@@ -13,12 +13,13 @@ class AdminLogin extends Component {
       }
       
     handleLogin(e){     
+      console.log(e)      
       axios.post('http://localhost:8000/admin/', {
         username: this.state.username,
         password: this.state.password          
       })
       .then((res) => {
-        window.location.href = 'http://localhost:3000/purchases'
+        window.location.href = 'http://localhost:3000/purchases';
       })
       .catch((res) => {
         swal({
@@ -26,7 +27,6 @@ class AdminLogin extends Component {
           icon: "error",
         });      
       });
-      console.log(e)
     }
 
     render() {
