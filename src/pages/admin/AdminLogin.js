@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import '../../stylesheets/login.css'
 import axios from 'axios'
 import swal from 'sweetalert'
-import '../../stylesheets/login.css'
+import { adminLoginAction } from '../../actions/adminLoginAction'
+import { connect } from 'react-redux'
 
 class AdminLogin extends Component {
     constructor(props) {
@@ -19,7 +21,13 @@ class AdminLogin extends Component {
         password: this.state.password          
       })
       .then((res) => {
-        window.location.href = 'http://localhost:3000/purchases';
+        this.props.adminLoginAction(res.data.username)  
+        swal({
+          title: "Login Success!",
+          icon: "success",
+        }).then (function(){
+          window.location.href = 'http://localhost:3000/purchases';
+        });
       })
       .catch((res) => {
         swal({
@@ -54,4 +62,10 @@ class AdminLogin extends Component {
     }
 }
 
-export default AdminLogin;
+function mapDispatchToProps(dispatch) {
+  return {
+    adminLoginAction: (username) => dispatch(adminLoginAction(username)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(AdminLogin);
