@@ -20,7 +20,6 @@ class Store extends Component {
     } else {
       axios.get('http://localhost:8000/products/')
       .then((res) => {
-        console.log(res.data.products)
         this.props.updateStorage(res.data.products)
       })
       .catch((res) => {
@@ -32,7 +31,9 @@ class Store extends Component {
   render() {
     let products = [];
     if (this.props.type === 'seller') {
-      products = this.props.products
+      products = this.props.products.filter((itm) => {
+        return itm.seller_id !== null
+      })
     } else {
       products = this.props.products.filter((itm) => {
         return itm.num_stocks > 0
@@ -46,12 +47,12 @@ class Store extends Component {
             SEARCH
           </h3>
         </div>
-        <Categories/>
+        <Categories id="top-bar"/>
         <div id="all">
           <div className="store-header">
             <div className="inner-header" >
               <hr className="line"/>
-              <h2 className="product-text-margin">ALL PRODUCT</h2> 
+              <h2 className="product-text-margin">All Products</h2> 
               <hr className="line"/>
             </div>
           </div>

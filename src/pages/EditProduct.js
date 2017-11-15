@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import '../stylesheets/addproduct.css'
 import swal from 'sweetalert'
 import { push } from 'react-router-redux'
-import { Link } from 'react-router-dom'
 
 
 class EditProduct extends Component {
@@ -45,7 +44,7 @@ class EditProduct extends Component {
       })
       .catch((response) => {
         swal({
-          title: "Please fill in all information!",
+          title: "Please Fill In All Information!",
           icon: "error",
         })
       })
@@ -70,7 +69,7 @@ class EditProduct extends Component {
       })
       .catch((response) => {
         swal({
-          title: "Please fill in all information!",
+          title: "Please Fill In All Information!",
           icon: "error",
         })
       })

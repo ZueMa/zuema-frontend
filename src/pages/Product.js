@@ -8,9 +8,8 @@ import swal from 'sweetalert'
 
 class Product extends Component {
   componentDidMount() {
-    console.log(this.props.products)
     let id = this.props.products.filter((itm) => {
-      return itm.product_id == this.props.match.params.id
+      return itm.product_id.toString() === this.props.match.params.id
     })
     axios.get('http://localhost:8000/products/' + id[0].product_id)
     .then((res) => {
@@ -42,7 +41,7 @@ class Product extends Component {
       })
       .catch(() => {
         swal({
-          title: "This Product is Already Added!",
+          title: "This Product Is Already Added!",
           icon: "error"
         })
       })
@@ -53,7 +52,7 @@ class Product extends Component {
     axios.delete('http://localhost:8000/sellers/' + this.props.id + '/products/' + this.props.product.product_id)
     .then((res) => {
       swal({
-        title: "Product has been deleted!",
+        title: "Product Has Been Deleted!",
         icon: "success"
       })
       .then(() => {
@@ -66,8 +65,6 @@ class Product extends Component {
   }
 
   render() {
-    console.log(this.props.product.name)
-    console.log(this.props.product.image)
     let component = null
     if (this.product !== '') {
       if (this.props.type === 'seller') {

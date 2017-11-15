@@ -19,7 +19,7 @@ class ProductCard extends Component {
       })
       .catch(() => {
         swal({
-          title: "This Product is Already Added!",
+          title: "This Product Is Already Added!",
           icon: "error"
         })
       })

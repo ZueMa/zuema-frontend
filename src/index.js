@@ -31,6 +31,7 @@ import ItemPurchaseTable from './pages/ItemPurchaseTable'
 import Register from './pages/Register'
 import RegisterSeller from './pages/RegisterSeller'
 import RegisterBuyer from './pages/RegisterBuyer'
+import AdminLogin from './pages/AdminLogin'
 import Logout from './pages/Logout'
 import Shipment from './pages/admin/Shipment'
 
@@ -68,6 +69,7 @@ ReactDOM.render(
           <Route path="/registerbuyer" component={RegisterBuyer}/>
           <Route exact path="/addproduct" component={AddProduct}/>
           <Route exact path="/editproduct" component={EditProduct}/>
+          <Route path="/admin" component={AdminLogin} />
           <Route path="/logout" component={Logout} />
           <Route path="/shipment" component={Shipment}/>
         </App>

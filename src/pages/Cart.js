@@ -37,7 +37,7 @@ class Cart extends Component {
     .then((res) => {
       console.log(res)
       swal({
-        title: "Your cart has been purchased",
+        title: "Your Cart Has Been Purchased!",
         icon: "success",
       })
       .then(() => {
@@ -91,7 +91,7 @@ class Cart extends Component {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>TOTAL</td>
+                <td>TOTAL PRICE</td>
                 <td>{Number(this.props.total_price).toFixed(2)}</td>
               </tr>
             </tfoot>
