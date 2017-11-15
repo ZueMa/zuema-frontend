@@ -3,35 +3,63 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import CardShipment from '../../components/CardShipment'
 import '../../stylesheets/shipment.css'
+import axios from 'axios'
+import { updateShipment }  from '../../actions/shipmentAction'
 
 class Shipment extends Component {
+  callbacks = {}
+  handleConnectApi = () => {
+    axios.get('http://localhost:8000/admin/purchases/')
+    .then((res) => {
+      this.props.updateShipment(res.data.purchases)
+    })
+    .catch((res) => {
+      console.error(res)
+    })
+  }
+
+  componentDidMount(e) {
+    this.handleConnectApi();
+  }
+
+  updatePage = () => {
+    this.forceUpdate()
+  }
 
   render() {
+    console.log("ship:" + this.props.purchaseList)
     return (
       <div className="container shipment">
         <div>
           <div className="head">CONFIRM PRODUCT SHIPMENTS</div>
           <div className="color_line_head"></div><br />
         </div>
-        <CardShipment
-              id={1}
-              purchase_id={234}
-              buyer_name={"mild"}
-              total_price={1000}/>
-        <CardShipment
-              id={2}
-              purchase_id={2746538}
-              buyer_name={"preaw"}
-              total_price={75000}/>
+          {this.props.purchaseList.map((itm, id) => {
+            return <CardShipment 
+            purchase_id={itm.purchase_id}
+            total_price={itm.total_price}
+            buyer_username={itm.buyer_username}
+            num={id + 1}
+            key={id}
+            callbacks={this.callbacks}/>
+          })}
       </div> 
     )
+  }
+}
+
+function mapStateToProps(state) {
+  console.log(state)
+  return {
+    purchaseList: state.shipment.purchaseList,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     push: (url) => dispatch(push(url)),
+    updateShipment: (purchaseList) => dispatch(updateShipment(purchaseList)),
   }
 }
 
-export default connect(null, mapDispatchToProps)(Shipment);
+export default connect(mapStateToProps, mapDispatchToProps)(Shipment);

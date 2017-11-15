@@ -15,6 +15,7 @@ import cookieReducer from './reducers/cookieReducer'
 import storeReducer from './reducers/storeReducer'
 import productReducer from './reducers/productReducer'
 import cartReducer from './reducers/cartReducer'
+import shipmentReducer from './reducers/shipmentReducer'
 
 // Pages
 import Cart from './pages/Cart'
@@ -43,7 +44,8 @@ const store = createStore(
     cookie: cookieReducer,
     product: productReducer,
     storage: storeReducer,
-    router: routerReducer
+    router: routerReducer,
+    shipment: shipmentReducer
   }),
   applyMiddleware(middleware)
 )
