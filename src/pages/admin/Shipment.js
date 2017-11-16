@@ -18,8 +18,8 @@ class Shipment extends Component {
     })
   }
 
-  componentDidMount(e) {
-    if(this.props.username !== 'Admin') {
+  componentWillMount(e) {
+    if(this.props.type !== 'admin') {
       swal({
         title: "ADMIN ONLY!",
         icon: "error",
@@ -59,6 +59,7 @@ function mapStateToProps(state) {
   console.log(state)
   return {
     purchaseList: state.shipment.purchaseList,
+    type: state.cookie.type,
   }
 }
 
