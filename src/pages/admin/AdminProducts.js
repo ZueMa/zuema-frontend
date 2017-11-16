@@ -7,11 +7,15 @@ import axios from 'axios'
 import { updateAdminProducts }  from '../../actions/adminProductsAction'
 
 class AdminProducts extends Component {
-  callbacks = {}
+
+  constructor(props){
+    super(props);
+    this.state = { products:[] };
+  }
   handleConnectApi = () => {
-    axios.get('http://localhost:8000/admin/purchases/')
+    axios.get('http://zuema.apiblueprint.org/admin/products')
     .then((res) => {
-      this.props.updateAdminProducts(res.data.purchases)
+      this.props.updateAdminProducts(res.data.products)
     })
     .catch((res) => {
       console.error(res)
@@ -34,14 +38,15 @@ class AdminProducts extends Component {
           <div className="head">CONFIRM NEW PRODUCTS</div>
           <div className="color_line_head"></div><br />
         </div>
-          {this.props.productList.map((itm, id) => {
+          {this.productList.map((itm, id) => {
             return <CardAdminProducts
-            purchase_id={itm.purchase_id}
-            total_price={itm.total_price}
-            buyer_username={itm.buyer_username}
+            product_id={itm.product_id}
+            name={itm.name}
+            short_description={itm.short_description}
+            price={itm.price}
             num={id + 1}
-            key={id}
-            callbacks={this.callbacks}/>
+            key={itm.product_id}
+            />
           })}
       </div> 
     )
@@ -51,7 +56,7 @@ class AdminProducts extends Component {
 function mapStateToProps(state) {
   console.log(state)
   return {
-    productList: state.AdminProducts.productList,
+    puroductList: state.adminProducts.productList,
   }
 }
 
@@ -62,4 +67,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminProducts);
+export default connect(mapStateToProps,mapDispatchToProps)(AdminProducts);
