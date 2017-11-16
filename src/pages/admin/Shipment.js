@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
+import '../../stylesheets/shipment.css'
+import axios from 'axios'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import CardShipment from '../../components/CardShipment'
-import '../../stylesheets/shipment.css'
-import axios from 'axios'
 import { updateShipment }  from '../../actions/shipmentAction'
 
 class Shipment extends Component {
-  callbacks = {}
   handleConnectApi = () => {
     axios.get('http://localhost:8000/admin/purchases/')
     .then((res) => {
@@ -22,10 +21,6 @@ class Shipment extends Component {
     this.handleConnectApi();
   }
 
-  updatePage = () => {
-    this.forceUpdate()
-  }
-
   render() {
     console.log("ship:" + this.props.purchaseList)
     return (
@@ -34,15 +29,16 @@ class Shipment extends Component {
           <div className="head">CONFIRM PRODUCT SHIPMENTS</div>
           <div className="color_line_head"></div><br />
         </div>
+        <div>
           {this.props.purchaseList.map((itm, id) => {
             return <CardShipment 
             purchase_id={itm.purchase_id}
             total_price={itm.total_price}
             buyer_username={itm.buyer_username}
             num={id + 1}
-            key={id}
-            callbacks={this.callbacks}/>
+            key={itm.purchase_id}/>
           })}
+        </div>
       </div> 
     )
   }
