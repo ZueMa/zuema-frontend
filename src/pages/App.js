@@ -7,6 +7,12 @@ class App extends Component {
   render() {
     let component = '';
     if (this.props.location.pathname === '/admin' || this.props.location.pathname === '/shipment' ) {
+      let logoutComponent = '';
+      if (this.props.type === 'admin') {
+        logoutComponent = (
+          <NavButton text="LOGOUT" url="/logout" shape="rec" isPink={true}/>
+        ) 
+      }
       component = (
         <div className="nav-admin">
           <div className="nav-inner-admin">
@@ -25,6 +31,7 @@ class App extends Component {
                 </div>
               </div>
             </div>
+            {logoutComponent}
           </div>
       )
     } else if (this.props.type === 'seller') {

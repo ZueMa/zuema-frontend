@@ -7,11 +7,13 @@ import swal from 'sweetalert'
 class Logout extends Component {
   componentWillMount() {
     this.props.cookie('', '');
-    this.props.push('/');
     swal({
       title: "Logout Successful!",
       icon: "success",
-    });
+    })
+    .then(() => {
+      this.props.push('/');
+    })
   }
   render() {
     return (
