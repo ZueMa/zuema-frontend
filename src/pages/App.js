@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 class App extends Component {
   render() {
     let component = '';
-    if (this.props.location.pathname === '/admin') {
+    if (this.props.location.pathname === '/admin' || this.props.location.pathname === '/shipment' ) {
       let logoutComponent = '';
       if (this.props.type === 'admin') {
         logoutComponent = (

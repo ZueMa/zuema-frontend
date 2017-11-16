@@ -8,6 +8,7 @@ import ProductTableListCart from '../components/ProductTableListCart'
 import swal from 'sweetalert'
 
 class Cart extends Component {
+  
   handleConnectApi = () => {
     axios.get('http://localhost:8000/buyers/' + this.props.id + '/cart/')
     .then((res) => {

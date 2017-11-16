@@ -15,6 +15,7 @@ import cookieReducer from './reducers/cookieReducer'
 import storeReducer from './reducers/storeReducer'
 import productReducer from './reducers/productReducer'
 import cartReducer from './reducers/cartReducer'
+import shipmentReducer from './reducers/shipmentReducer'
 
 // Pages
 import Cart from './pages/Cart'
@@ -32,6 +33,7 @@ import RegisterSeller from './pages/RegisterSeller'
 import RegisterBuyer from './pages/RegisterBuyer'
 import AdminLogin from './pages/AdminLogin'
 import Logout from './pages/Logout'
+import Shipment from './pages/admin/Shipment'
 
 const history = createHistory()
 
@@ -43,7 +45,8 @@ const store = createStore(
     cookie: cookieReducer,
     product: productReducer,
     storage: storeReducer,
-    router: routerReducer
+    router: routerReducer,
+    shipment: shipmentReducer
   }),
   applyMiddleware(middleware)
 )
@@ -68,6 +71,7 @@ ReactDOM.render(
           <Route exact path="/editproduct" component={EditProduct}/>
           <Route path="/admin" component={AdminLogin} />
           <Route path="/logout" component={Logout} />
+          <Route path="/shipment" component={Shipment}/>
         </App>
       </Switch>
     </ConnectedRouter>
