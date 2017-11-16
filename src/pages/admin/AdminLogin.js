@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import '../../stylesheets/login.css'
 import axios from 'axios'
 import swal from 'sweetalert'
-import { adminLoginAction } from '../../actions/adminLoginAction'
+import { push } from 'react-router-redux'
+import { addCookie } from '../../actions/cookieActions'
 import { connect } from 'react-redux'
 
 class AdminLogin extends Component {
@@ -18,15 +19,15 @@ class AdminLogin extends Component {
       console.log(e)      
       axios.post('http://localhost:8000/admin/', {
         username: this.state.username,
-        password: this.state.password          
+        password: this.state.password  
       })
       .then((res) => {
-        this.props.adminLoginAction(res.data.username)  
+        this.props.cookie(res.data.username)
         swal({
           title: "Login Success!",
           icon: "success",
-        }).then (function(){
-          window.location.href = 'http://localhost:3000/purchases';
+        }).then ((res) => {
+          this.props.push('/purchases');
         });
       })
       .catch((res) => {
@@ -61,10 +62,10 @@ class AdminLogin extends Component {
         );
     }
 }
-
 function mapDispatchToProps(dispatch) {
   return {
-    adminLoginAction: (username) => dispatch(adminLoginAction(username)),
+    cookie: (user_id) => dispatch(addCookie(user_id, "admin")),
+    push: (next_url) => dispatch(push(next_url)),
   }
 }
 
