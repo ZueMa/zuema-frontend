@@ -20,7 +20,8 @@ class CardShipment extends Component {
     axios.get('http://localhost:8000/admin/purchases/')
     .then((res) => {
       this.props.updateShipment(res.data.purchases)
-      console.log('hellooooo')
+      console.log('new data')
+      console.log(res.data.purchases)
     })
     .catch((res) => {
       console.error(res)
