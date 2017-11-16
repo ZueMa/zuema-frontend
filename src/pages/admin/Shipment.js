@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import CardShipment from '../../components/CardShipment'
 import { updateShipment }  from '../../actions/shipmentAction'
+import swal from 'sweetalert'
 
 class Shipment extends Component {
   handleConnectApi = () => {
@@ -18,7 +19,17 @@ class Shipment extends Component {
   }
 
   componentDidMount(e) {
-    this.handleConnectApi();
+    if(this.props.username !== 'Admin') {
+      swal({
+        title: "ADMIN ONLY!",
+        icon: "error",
+      })
+      .then(() => {
+        this.props.push('/admin')
+      });
+    } else {
+      this.handleConnectApi();
+    }
   }
 
   render() {
