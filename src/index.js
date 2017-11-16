@@ -15,6 +15,8 @@ import cookieReducer from './reducers/cookieReducer'
 import storeReducer from './reducers/storeReducer'
 import productReducer from './reducers/productReducer'
 import cartReducer from './reducers/cartReducer'
+import adminProductsReducer from './reducers/adminProductsReducer';
+
 
 // Pages
 import Cart from './pages/Cart'
@@ -44,7 +46,8 @@ const store = createStore(
     cookie: cookieReducer,
     product: productReducer,
     storage: storeReducer,
-    router: routerReducer
+    router: routerReducer,
+    adminProducts: adminProductsReducer
   }),
   applyMiddleware(middleware)
 )
@@ -69,7 +72,7 @@ ReactDOM.render(
           <Route exact path="/editproduct" component={EditProduct}/>
           <Route path="/admin" component={AdminLogin} />
           <Route path="/logout" component={Logout} />
-          <Route path="/adminProduct" component={AdminProducts}/>
+          <Route path="/adminProducts" component={AdminProducts}/>
         </App>
       </Switch>
     </ConnectedRouter>

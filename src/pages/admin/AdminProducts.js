@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import CardAdminProduct from '../../components/CardAdminProduct'
-import '../../stylesheets/admin-product.css'
+import CardAdminProducts from '../../components/CardAdminProducts'
+import '../../stylesheets/adminProducts.css'
 import axios from 'axios'
-import { updateProduct }  from '../../actions/productAction'
+import { updateAdminProducts }  from '../../actions/adminProductsAction'
 
-class AdminProduct extends Component {
+class AdminProducts extends Component {
   callbacks = {}
   handleConnectApi = () => {
     axios.get('http://localhost:8000/admin/purchases/')
     .then((res) => {
-      this.props.updateProduct(res.data.purchases)
+      this.props.updateAdminProducts(res.data.purchases)
     })
     .catch((res) => {
       console.error(res)
@@ -27,7 +27,7 @@ class AdminProduct extends Component {
   }
 
   render() {
-    console.log("product:" + this.props.productList)
+    console.log("comfirm:" + this.props.productList)
     return (
       <div className="container product">
         <div>
@@ -35,9 +35,10 @@ class AdminProduct extends Component {
           <div className="color_line_head"></div><br />
         </div>
           {this.props.productList.map((itm, id) => {
-            return <CardAdminProduct 
-            product={itm.product}
-            shortDescription={itm.shortDescription}
+            return <CardAdminProducts
+            purchase_id={itm.purchase_id}
+            total_price={itm.total_price}
+            buyer_username={itm.buyer_username}
             num={id + 1}
             key={id}
             callbacks={this.callbacks}/>
@@ -50,14 +51,14 @@ class AdminProduct extends Component {
 function mapStateToProps(state) {
   console.log(state)
   return {
-    productList: state.product.productList,
+    productList: state.AdminProducts.productList,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     push: (url) => dispatch(push(url)),
-    updateProduct: (productList) => dispatch(updateProduct(productList)),
+    updateAdminProducts: (productList) => dispatch(updateAdminProducts(productList)),
   }
 }
 
