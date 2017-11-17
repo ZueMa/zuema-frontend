@@ -8,13 +8,14 @@ import { updateAdminProducts }  from '../../actions/adminProductsAction'
 
 class AdminProducts extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = { products:[] };
-  }
+  // constructor(props){
+    // super(props);
+    // this.state = { products:[] };
+  // }
   handleConnectApi = () => {
-    axios.get('http://zuema.apiblueprint.org/admin/products')
+    axios.get('http://private-00f7e-zuema.apiary-mock.com/admin/products')
     .then((res) => {
+      // this.setState({ products: res.data.products })
       this.props.updateAdminProducts(res.data.products)
     })
     .catch((res) => {
@@ -31,21 +32,21 @@ class AdminProducts extends Component {
   }
 
   render() {
-    console.log("comfirm:" + this.props.productList)
+    // console.log("comfirm:" + this.state.products)
     return (
       <div className="container product">
         <div>
           <div className="head">CONFIRM NEW PRODUCTS</div>
           <div className="color_line_head"></div><br />
         </div>
-          {this.productList.map((itm, id) => {
+          {this.props.products.map((itm, id) => {
             return <CardAdminProducts
-            product_id={itm.product_id}
-            name={itm.name}
-            short_description={itm.short_description}
-            price={itm.price}
-            num={id + 1}
-            key={itm.product_id}
+                    product_id={itm.product_id}
+                    name={itm.name}
+                    short_description={itm.short_description}
+                    price={itm.price}
+                    num={id + 1}
+                    key={itm.product_id}
             />
           })}
       </div> 
@@ -56,14 +57,14 @@ class AdminProducts extends Component {
 function mapStateToProps(state) {
   console.log(state)
   return {
-    puroductList: state.adminProducts.productList,
+    products: state.adminProducts.products
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     push: (url) => dispatch(push(url)),
-    updateAdminProducts: (productList) => dispatch(updateAdminProducts(productList)),
+    updateAdminProducts: (products) => dispatch(updateAdminProducts(products)),
   }
 }
 
