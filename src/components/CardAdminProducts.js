@@ -46,9 +46,12 @@ class CardAdminProducts extends Component {
           <div className="col-md-1">
             <button className="btn num" >{this.num}</button>
           </div>
-          <div className="col-md-9 product-detail">
+          <div className="col-md-7 product-detail">
             <h4 className="card-title">{this.name}</h4>
             <p>{this.short_description}</p>
+          </div>
+          <div className="col-md-2">
+            <button className="btn num" >{Number(this.price).toFixed(2)} Baht</button>
           </div>
           <div className="col-md-2">
             <button className="btn confirm-btn" onClick={(e) => {this.confirmProduct(this.props.product_id)}}>
