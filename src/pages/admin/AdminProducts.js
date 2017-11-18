@@ -8,14 +8,9 @@ import { updateAdminProducts }  from '../../actions/adminProductsAction'
 
 class AdminProducts extends Component {
 
-  // constructor(props){
-    // super(props);
-    // this.state = { products:[] };
-  // }
   handleConnectApi = () => {
-    axios.get('http://private-00f7e-zuema.apiary-mock.com/admin/products')
+    axios.get('http://localhost:8000/admin/products/')
     .then((res) => {
-      // this.setState({ products: res.data.products })
       this.props.updateAdminProducts(res.data.products)
     })
     .catch((res) => {
@@ -32,7 +27,6 @@ class AdminProducts extends Component {
   }
 
   render() {
-    // console.log("comfirm:" + this.state.products)
     return (
       <div className="container product">
         <div>
@@ -55,7 +49,6 @@ class AdminProducts extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     products: state.adminProducts.products
   }

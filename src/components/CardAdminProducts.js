@@ -14,11 +14,10 @@ class CardAdminProducts extends Component {
     this.short_description = props.short_description
     this.url = "/"
 
-    console.log(this.props)
   }
 
   handleConnectApi = () => {
-    axios.get('http://private-00f7e-zuema.apiary-mock.com/admin/products')
+    axios.get('http://localhost:8000/admin/products/')
     .then((res) => {
       this.props.updateAdminProducts(res.data.products)
     })
@@ -28,8 +27,7 @@ class CardAdminProducts extends Component {
   }
 
   confirmProduct(product_id) {
-    console.log(this.props.product_id);
-    axios.patch('https://private-00f7e-zuema.apiary-mock.com/admin/products/' + this.props.product_id)
+    axios.patch('http://localhost:8000/admin/products/' + this.props.product_id+'/')
     .then((res) => {
       console.log(res)
       this.handleConnectApi();
