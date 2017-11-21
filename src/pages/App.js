@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 class App extends Component {
   render() {
     let component = '';
-    if (this.props.location.pathname === '/admin' || this.props.location.pathname === '/purchases' || this.props.location.pathname === '/shipment') {
+    if (this.props.location.pathname === '/admin' || this.props.location.pathname === '/purchases' || this.props.location.pathname === '/shipment' || this.props.location.pathname === '/adminProducts') {
       let logoutComponent = '';
       if (this.props.type === 'admin') {
         logoutComponent = (
@@ -25,7 +25,7 @@ class App extends Component {
                   <i className="fa fa-2x fa-truck"/>
                   <div className="link">&nbsp;CONFIRM PRODUCT SHIPMENTS</div>
                 </div>
-                <div className="link-block" hidden>
+                <div className="link-block">
                   <i className="fa fa-2x fa-check-circle"/>
                   <div className="link">&nbsp;CONFIRM NEW PRODUCT</div>
                 </div>

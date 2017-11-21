@@ -5,6 +5,7 @@ import CardAdminProducts from '../../components/CardAdminProducts'
 import '../../stylesheets/adminProducts.css'
 import axios from 'axios'
 import { updateAdminProducts }  from '../../actions/adminProductsAction'
+import swal from 'sweetalert'
 
 class AdminProducts extends Component {
 
@@ -18,13 +19,20 @@ class AdminProducts extends Component {
     })
   }
 
-  componentDidMount(e) {
-    this.handleConnectApi();
+  componentWillMount(e) {
+    if(this.props.type !== 'admin') {
+      swal({
+        title: "ADMIN ONLY!",
+        icon: "error",
+      })
+      .then(() => {
+        this.props.push('/admin')
+      });
+    } else {
+      this.handleConnectApi();
+    }
   }
 
-  updatePage = () => {
-    this.forceUpdate()
-  }
 
   render() {
     return (
@@ -50,7 +58,8 @@ class AdminProducts extends Component {
 
 function mapStateToProps(state) {
   return {
-    products: state.adminProducts.products
+    products: state.adminProducts.products,
+    type: state.cookie.type,
   }
 }
 
