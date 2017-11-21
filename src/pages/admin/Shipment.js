@@ -33,7 +33,6 @@ class Shipment extends Component {
   }
 
   render() {
-    console.log("ship:" + this.props.purchaseList)
     return (
       <div className="container shipment">
         <div>
@@ -56,7 +55,6 @@ class Shipment extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     purchaseList: state.shipment.purchaseList,
     type: state.cookie.type,

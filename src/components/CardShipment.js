@@ -13,15 +13,12 @@ class CardShipment extends Component {
     this.buyer_username = props.buyer_username
     this.total_price = props.total_price
     this.url = "/"
-    console.log(this.props)
   }
 
   handleConnectApi = () => {
     axios.get('http://localhost:8000/admin/purchases/')
     .then((res) => {
       this.props.updateShipment(res.data.purchases)
-      console.log('new data')
-      console.log(res.data.purchases)
     })
     .catch((res) => {
       console.error(res)
@@ -31,7 +28,6 @@ class CardShipment extends Component {
   confirmShipment(purchase_id) {
     axios.patch('http://localhost:8000/admin/purchases/' + purchase_id + '/')
     .then((res) => {
-      console.log(res)
       this.handleConnectApi();
     })
     .catch((res) => {

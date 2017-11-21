@@ -29,7 +29,6 @@ class CardAdminProducts extends Component {
   confirmProduct(product_id) {
     axios.patch('http://localhost:8000/admin/products/' + this.props.product_id+'/')
     .then((res) => {
-      console.log(res)
       this.handleConnectApi();
     })
     .catch((res) => {
