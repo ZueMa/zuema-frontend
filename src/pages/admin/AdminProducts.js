@@ -36,7 +36,7 @@ class AdminProducts extends Component {
 
   render() {
     return (
-      <div className="container product">
+      <div className="container admin-product">
         <div>
           <div className="head">CONFIRM NEW PRODUCTS</div>
           <div className="color_line_head"></div><br />

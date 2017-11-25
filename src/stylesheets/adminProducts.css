@@ -1,42 +1,43 @@
-.product {
-    margin-top: 50px;
-    color: #5F5F5F;
-  }
+.admin-product {
+  margin-top: 50px;
+  color: #5F5F5F;
+}
   
-  .card-product {
-    width: 100%;
-    border: none !important;
-    background-color: rgb(241, 241, 239) ;
-  }
+.card-product {
+  width: 100%;
+  border: none !important;
+  background-color: rgb(241, 241, 239) ;
+}
   
-  .num {
-    border-radius: 0;
-    background-color: transparent;
-    color: #5F5F5F !important;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    outline: none !important;
-    font-size: 25px;
-  }
+.num {
+  border-radius: 0;
+  background-color: transparent;
+  color: #5F5F5F !important;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  outline: none !important;
+  font-size: 25px;
+}
   
-  .product-detail {
-    height: 100%;
-    text-align: left;
-    padding-left: 50px;
-    margin-top: 10px;
-  }
+.product-detail {
+  height: 100%;
+  text-align: left;
+  padding-left: 50px;
+  margin-top: 10px;
+}
   
-  .confirm-btn {
-    border-radius: 0;
-    border: 2.5px solid #FFC567;
-    background-color: #FFC567;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    outline-color: none !important;
-  }
-  .confirm-btn:hover {
-    background-color: white;
-    color: #FFC567 !important;
-  }
+.confirm-btn {
+  border-radius: 0;
+  border: 2.5px solid #FFC567;
+  background-color: #FFC567;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  outline-color: none !important;
+}
+
+.confirm-btn:hover {
+  background-color: white;
+  color: #FFC567 !important;
+}
