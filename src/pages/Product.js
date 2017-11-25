@@ -13,7 +13,6 @@ class Product extends Component {
     })
     axios.get('http://localhost:8000/products/' + id[0].product_id)
     .then((res) => {
-      console.log(res)
       this.props.updateProduct(res.data)
     })
     .catch((res) => {
