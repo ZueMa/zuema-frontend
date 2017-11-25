@@ -13,6 +13,7 @@ class Product extends Component {
     })
     axios.get('http://localhost:8000/products/' + id[0].product_id)
     .then((res) => {
+      console.log(res)
       this.props.updateProduct(res.data)
     })
     .catch((res) => {
@@ -81,7 +82,10 @@ class Product extends Component {
                 </div>
                 <div className="product-full-info">
                   <p className="product-text">{this.props.product.full_description}</p>
-                  <div className="price">{Number(this.props.product.price).toFixed(2)} BAHT</div>
+                  <div className="price-container">
+                    <div className="price">{Number(this.props.product.price).toFixed(2)} BAHT</div>
+                    <span className={`fa fa-3x fa-check-circle`} style={{color: this.props.product.is_confirm ? 'green' : 'red'}}></span>
+                  </div>
                   <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
                 </div>
                 <div className="button-container">
