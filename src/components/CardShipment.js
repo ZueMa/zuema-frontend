@@ -28,6 +28,10 @@ class CardShipment extends Component {
   confirmShipment(purchase_id) {
     axios.patch('http://localhost:8000/admin/purchases/' + purchase_id + '/')
     .then((res) => {
+      swal({
+        title: "Confirm Success!",
+        icon: "success",
+      });
       this.handleConnectApi();
     })
     .catch((res) => {
