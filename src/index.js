@@ -15,6 +15,8 @@ import cookieReducer from './reducers/cookieReducer'
 import storeReducer from './reducers/storeReducer'
 import productReducer from './reducers/productReducer'
 import cartReducer from './reducers/cartReducer'
+import adminProductsReducer from './reducers/adminProductsReducer';
+import shipmentReducer from './reducers/shipmentReducer'
 
 // Pages
 import Cart from './pages/Cart'
@@ -30,7 +32,10 @@ import ItemPurchaseTable from './pages/ItemPurchaseTable'
 import Register from './pages/Register'
 import RegisterSeller from './pages/RegisterSeller'
 import RegisterBuyer from './pages/RegisterBuyer'
+import AdminLogin from './pages/admin/AdminLogin'
 import Logout from './pages/Logout'
+import AdminProducts from './pages/admin/AdminProducts'
+import Shipment from './pages/admin/Shipment'
 
 const history = createHistory()
 
@@ -42,7 +47,9 @@ const store = createStore(
     cookie: cookieReducer,
     product: productReducer,
     storage: storeReducer,
-    router: routerReducer
+    router: routerReducer,
+    adminProducts: adminProductsReducer,
+    shipment: shipmentReducer
   }),
   applyMiddleware(middleware)
 )
@@ -65,7 +72,10 @@ ReactDOM.render(
           <Route path="/registerbuyer" component={RegisterBuyer}/>
           <Route exact path="/addproduct" component={AddProduct}/>
           <Route exact path="/editproduct" component={EditProduct}/>
+          <Route path="/admin/" component={AdminLogin} />
+          <Route path="/purchases" component={Shipment} />
           <Route path="/logout" component={Logout} />
+          <Route path="/adminProducts" component={AdminProducts}/>
         </App>
       </Switch>
     </ConnectedRouter>

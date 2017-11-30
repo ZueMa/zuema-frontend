@@ -1,0 +1,41 @@
+.shipment {
+  margin-top: 50px;
+  color: #5F5F5F;
+}
+
+.card-shipment {
+  width: 100%;
+  border: none !important;
+  background-color: rgb(241, 241, 239) ;
+}
+
+.num {
+  border-radius: 0;
+  background-color: transparent;
+  color: #5F5F5F !important;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  outline: none !important;
+  font-size: 25px;
+}
+
+.shipment-detail {
+  text-align: left;
+  padding-left: 50px;
+  margin-top: 10px;
+}
+
+.confirm-btn {
+  border-radius: 0;
+  border: 2.5px solid #FFC567;
+  background-color: #FFC567;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  outline-color: none !important;
+}
+.confirm-btn:hover {
+  background-color: white;
+  color: #FFC567 !important;
+}

@@ -17,7 +17,7 @@ class NavButton extends Component {
     } else {
       button = (
         <div className="nav-container" onClick={() => this.props.push(this.props.url)}>
-          <div className="nav-button-rec">
+          <div className="nav-button-rec" style={{backgroundColor: this.props.isPink ? '#FF6767':'#E57935'}}>
             <h4>{this.props.text}</h4>
           </div>
         </div>

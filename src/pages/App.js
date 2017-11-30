@@ -1,12 +1,47 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import logo from '../res/logo.png'
 import NavButton from '../components/NavButton'
-import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
     let component = '';
-    if (this.props.type === 'seller') {
+    if (this.props.location.pathname === '/admin' || this.props.location.pathname === '/purchases' || this.props.location.pathname === '/shipment' || this.props.location.pathname === '/adminProducts') {
+      let logoutComponent = '';
+      let shipment = '';
+      let product = '';
+      if (this.props.type === 'admin') {
+        logoutComponent = <NavButton text="LOGOUT" url="/logout" shape="rec" isPink={true}/>
+        shipment = (
+          <div className="link-block">
+            <i className="fa fa-2x fa-truck"/>
+            <div className="link" onClick={() => this.props.push(`/purchases`)}>&nbsp;CONFIRM PRODUCT SHIPMENTS</div>
+          </div>
+        )
+        product = (
+          <div className="link-block">
+            <i className="fa fa-2x fa-check-circle"/>
+            <div className="link" onClick={() => this.props.push(`/adminProducts`)}>&nbsp;CONFIRM NEW PRODUCT</div>
+          </div>
+        )
+      }
+      component = (
+        <div className="nav-admin">
+          <div className="nav-inner-admin">
+            <div className="nav-logo">
+              <img className="logo-large" src={logo} alt="logo"/>
+              <p className="admin-text">ADMINISTRATION</p>
+            </div>
+              <div className="nav-container-admin nav-add-margin">
+                {shipment}
+                 {product}
+              </div>
+            </div>
+            {logoutComponent}
+          </div>
+      )
+    } else if (this.props.type === 'seller') {
       component = (
           <div className="nav">
             <div className="nav-logo">
@@ -66,4 +101,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+function mapDispatchToProps(dispatch) {
+  return {
+    push: (url) => dispatch(push(url))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

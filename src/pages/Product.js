@@ -9,7 +9,7 @@ import swal from 'sweetalert'
 class Product extends Component {
   componentDidMount() {
     let id = this.props.products.filter((itm) => {
-      return itm.product_id == this.props.match.params.id
+      return itm.product_id.toString() === this.props.match.params.id
     })
     axios.get('http://localhost:8000/products/' + id[0].product_id)
     .then((res) => {
@@ -60,7 +60,7 @@ class Product extends Component {
       })
     })
     .catch((res) => {
-      console.log(res)
+      console.error(res)
     })
   }
 
@@ -81,7 +81,10 @@ class Product extends Component {
                 </div>
                 <div className="product-full-info">
                   <p className="product-text">{this.props.product.full_description}</p>
-                  <div className="price">{Number(this.props.product.price).toFixed(2)} BAHT</div>
+                  <div className="price-container">
+                    <div className="price">{Number(this.props.product.price).toFixed(2)} BAHT</div>
+                    <span className={`fa fa-3x fa-check-circle`} style={{color: this.props.product.is_confirmed ? 'green' : 'red'}}></span>
+                  </div>
                   <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
                 </div>
                 <div className="button-container">

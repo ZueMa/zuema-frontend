@@ -54,6 +54,20 @@
     margin-top: 7%;
 }
 
+.btn-login-admin {
+    color: white !important;
+    background-color: #F5AB0E;
+    margin-top: -5%; 
+    height: 45px;
+    width: 79%;
+}
+
+.btn-login-admin:hover {
+    color: #F5AB0E !important;
+    background-color: white;
+    border: 3px solid #FFC567 !important;
+}    
+
 @media (max-width: 500px) {
     .btn-login-seller {
         font-size: 16px;
