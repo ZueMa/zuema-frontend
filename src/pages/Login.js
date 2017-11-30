@@ -28,7 +28,7 @@ class Login extends Component {
     .then((res) => {
       this.props.cookie(res.data.user_id, res.data.user_type)
       swal({
-        title: "Login Successfully",
+        title: "Login Successful!",
         icon: "success",
       })
       .then((res) => {

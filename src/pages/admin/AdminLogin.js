@@ -24,7 +24,7 @@ class AdminLogin extends Component {
       .then((res) => {
         this.props.cookie(res.data.username)
         swal({
-          title: "Login Success!",
+          title: "Login Successful!",
           icon: "success",
         }).then ((res) => {
           this.props.push('/purchases');

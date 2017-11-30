@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import swal from 'sweetalert'
 import { updateShipment }  from '../actions/shipmentAction'
 
 
@@ -29,7 +30,7 @@ class CardShipment extends Component {
     axios.patch('http://localhost:8000/admin/purchases/' + purchase_id + '/')
     .then((res) => {
       swal({
-        title: "Confirm Success!",
+        title: "Shipment Confirmed!",
         icon: "success",
       });
       this.handleConnectApi();
