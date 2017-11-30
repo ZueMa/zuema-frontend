@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import swal from 'sweetalert'
 import { updateAdminProducts }  from '../actions/adminProductsAction';
 
 class CardAdminProducts extends Component {
@@ -13,7 +14,6 @@ class CardAdminProducts extends Component {
     this.price = props.price
     this.short_description = props.short_description
     this.url = "/"
-
   }
 
   handleConnectApi = () => {
@@ -29,6 +29,10 @@ class CardAdminProducts extends Component {
   confirmProduct(product_id) {
     axios.patch('http://localhost:8000/admin/products/' + this.props.product_id+'/')
     .then((res) => {
+      swal({
+        title: "Product Confirmed!",
+        icon: "success",
+      });
       this.handleConnectApi();
     })
     .catch((res) => {
