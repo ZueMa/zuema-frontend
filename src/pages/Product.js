@@ -60,7 +60,7 @@ class Product extends Component {
       })
     })
     .catch((res) => {
-      console.log(res)
+      console.error(res)
     })
   }
 
@@ -83,7 +83,7 @@ class Product extends Component {
                   <p className="product-text">{this.props.product.full_description}</p>
                   <div className="price-container">
                     <div className="price">{Number(this.props.product.price).toFixed(2)} BAHT</div>
-                    <span className={`fa fa-3x fa-check-circle`} style={{color: this.props.product.is_confirm ? 'green' : 'red'}}></span>
+                    <span className={`fa fa-3x fa-check-circle`} style={{color: this.props.product.is_confirmed ? 'green' : 'red'}}></span>
                   </div>
                   <p className="product-stock">Only {this.props.product.num_stocks} left in stock</p>
                 </div>
