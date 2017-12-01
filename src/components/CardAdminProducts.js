@@ -47,7 +47,7 @@ class CardAdminProducts extends Component {
           <div className="col-md-1">
             <button className="btn num" >{this.num}</button>
           </div>
-          <div className="col-md-7 product-detail">
+          <div className="col-md-7 admin-product-detail">
             <h4 className="card-title">{this.name}</h4>
             <p>{this.short_description}</p>
           </div>
